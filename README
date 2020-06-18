@@ -1,0 +1,45 @@
+Flex Diagrams Extension
+
+        Version 0.1
+        Yaron Koren
+
+This is free software licensed under the GNU General Public License. Please
+see http://www.gnu.org/copyleft/gpl.html for further details, including the
+full text and terms of the license.
+
+== Overview ==
+
+Flex Diagrams is an extension to MediaWiki that lets users create and edit
+diagrams in different formats. Current supported formats are BPMN XML (using
+the bpmn-js library), Gantt JSON (using the dhtmlxGantt library), and the
+Mermaid syntax (using the Mermaid library).
+
+For more information, see the extension homepage at:
+https://www.mediawiki.org/wiki/Extension:Flex_Diagrams
+
+== Requirements ==
+
+This version of the Flex Diagrams extension requires MediaWiki 1.28 or higher.
+
+== Installation ==
+
+To install the extension, place the entire 'FlexDiagrams' directory
+within your MediaWiki 'extensions' directory, then add the following
+line to your 'LocalSettings.php' file:
+
+     wfLoadExtension( 'FlexDiagrams' );
+
+== Contact ==
+
+Comments, questions, suggestions and bug reports should be sent to Yaron
+Koren, at yaron57@gmail.com.
+
+== Credits ==
+
+Diagrams includes the following JavaScript libraries:
+
+* bpmn-js (https://bpmn.io/toolkit/bpmn-js/), by Camunda Servies GmbH,
+distributed under a custom license that seems to be compatible with the GNU GPL
+* dhtmlxGantt (https://dhtmlx.com/docs/products/dhtmlxGantt/), by XB Software,
+distributed under the GNU GPL
+* mermaid (https://mermaidjs.github.io), distributed under the MIT License

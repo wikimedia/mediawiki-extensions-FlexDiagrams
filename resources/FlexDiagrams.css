@@ -1,0 +1,11 @@
+/**
+ * The main CSS file for the Flex Diagrams extension.
+ */
+
+#wpSummaryWidget {
+	margin-bottom: 1em;
+}
+
+.editCheckboxes {
+	margin-bottom: 0.8em;
+}

@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yaron Koren"
+		]
+	},
+	"flexdiagrams-desc": "Editing and creation of diagrams",
+	"editdiagram": "Edit diagram",
+	"flexdiagrams-edit-title": "Edit diagram: $1",
+	"flexdiagrams-creatediagram": "Create diagram",
+	"flexdiagrams-viewdiagram": "View diagram",
+	"flexdiagrams-edit-code": "Code:",
+	"flexdiagrams-edit-preview": "Preview:"
+}

@@ -1,0 +1,16 @@
+.mermaidEditPane {
+	min-height: 300px;
+}
+
+.mermaidCodePane {
+	background-color: #eaecf0;
+	border: 1px solid #c8ccd1;
+	width: 300px;
+	float: left;
+	padding: 0px 12px 12px 12px;
+}
+
+.mermaidPreviewPane {
+	overflow: auto;
+	padding: 0px 12px 12px 12px;
+}
