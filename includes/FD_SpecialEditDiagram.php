@@ -51,7 +51,8 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 	<h3>$previewMsg</h3>
 	<div class="mermaid"></div>
 	</div>
-	</div>		
+	</div>
+
 END;
 		} else {
 			$out->addHTML( 'Error: invalid namespace for this action.' );
