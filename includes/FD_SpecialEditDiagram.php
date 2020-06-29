@@ -59,7 +59,7 @@ END;
 		}
 		$text = Html::rawElement( 'div', [ 'style' => 'border: 1px solid #c8ccd1; padding: 10px;' ], $text );
 		$out->addHTML( $text );
-		
+
 		$article = new Article( $title );
 		$flexDiagramsEditPage = new FDEditPage( $article );
 		$flexDiagramsEditPage->showStandardInputs2();
