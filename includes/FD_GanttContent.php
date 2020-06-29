@@ -22,12 +22,6 @@ class FDGanttContent extends TextContent {
 	/**
 	 * @return string The wikitext to include when another page includes this
 	 * content, or false if the content is not includable in a wikitext page.
-	 *
-	 * @todo Allow native handling, bypassing wikitext representation, like
-	 *  for includable special pages.
-	 * @todo Allow transclusion into other content models than Wikitext!
-	 * @todo Used in WikiPage and MessageCache to get message text. Not so
-	 *  nice. What should we use instead?!
 	 */
 	public function getWikitextForTransclusion() {
 		return '<span class="error">' . wfMessage( 'flow-embedding-unsupported' )->plain() . '</span>';
