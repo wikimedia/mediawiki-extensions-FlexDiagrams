@@ -6,6 +6,7 @@
  * this class also lets us easily make other changes, like customizing the
  * set of buttons and removing the copyright warning (seems unnecessary here).
  */
+
 class FDEditPage extends EditPage {
 
 	public function getEditButtons( &$tabindex ) {
@@ -27,5 +28,4 @@ class FDEditPage extends EditPage {
 		$this->initialiseForm();
 		$this->showStandardInputs();
 	}
-
 }

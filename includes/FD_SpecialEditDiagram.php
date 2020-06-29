@@ -45,14 +45,13 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 	<div class="mermaidEditPane">
 	<div class="mermaidCodePane">
 	<h3>$codeMsg</h3>
- 	<textarea class="mermaidCode" rows="15" cols="15" tabindex="1">$mermaidText</textarea>
+	<textarea class="mermaidCode" rows="15" cols="15" tabindex="1">$mermaidText</textarea>
 	</div>
 	<div class="mermaidPreviewPane">
 	<h3>$previewMsg</h3>
 	<div class="mermaid"></div>
 	</div>
-	</div>
-
+	</div>			
 END;
 		} else {
 			$out->addHTML( 'Error: invalid namespace for this action.' );
@@ -60,10 +59,9 @@ END;
 		}
 		$text = Html::rawElement( 'div', [ 'style' => 'border: 1px solid #c8ccd1; padding: 10px;' ], $text );
 		$out->addHTML( $text );
-
+		
 		$article = new Article( $title );
 		$flexDiagramsEditPage = new FDEditPage( $article );
 		$flexDiagramsEditPage->showStandardInputs2();
-
 	}
 }
