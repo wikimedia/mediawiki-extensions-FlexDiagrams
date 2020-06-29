@@ -33,6 +33,8 @@ class FDHooks {
 		}
 
 		define( 'CONTENT_MODEL_FD_BPMN', 'flexdiagrams-bpmn' );
+		define( 'CONTENT_MODEL_FD_GANTT', 'flexdiagrams-gantt' );
+		define( 'CONTENT_MODEL_FD_MERMAID', 'flexdiagrams-mermaid' );
 
 		$list[FD_NS_BPMN] = 'BPMN';
 		$list[FD_NS_BPMN_TALK] = 'BPMN_talk';
@@ -61,84 +63,11 @@ class FDHooks {
 		return true;
 	}
 
-	/**
-	 * This function is called by the 'ArticleAfterFetchContentObject' hook.
-	 * That hook was deprecated in MW 1.31 and replaced by the
-	 * 'ArticleRevisionViewCustom' hook, but that hook unfortunately had
-	 * a bug in the way it's called until MW 1.34 (the development of this
-	 * extension uncovered it!), so we'll keep using the deprecated hook
-	 * for a while.
-	 */
-	public static function displayPage( &$article, Content &$content = null ) {
-/*
-		global $wgFlexDiagramsEnabledFormats;
-
-		$ns = $article->getTitle()->getNamespace();
-		if ( !in_array( $ns, $wgFlexDiagramsEnabledFormats ) ) {
-			return true;
-		}
-
-		$request = $article->getContext()->getRequest();
-		$out = $article->getContext()->getOutput();
-		if ( $request->getCheck( 'action' ) &&
-			$request->getVal( 'action' ) != 'view' ) {
-			return true;
-		}
-		if ( $request->getCheck( 'type' ) ) {
-			return true;
-		}
-
-		$text = $content->getNativeData();
-
-		if ( $ns == FD_NS_BPMN ) {
-			$out->addModules( 'ext.flexdiagrams.bpmn.viewer' );
-
-			$newText = <<<END
-<div id="canvas"></div>
-
-<pre>$text</pre>
-
-END;
-		} elseif ( $ns == FD_NS_GANTT ) {
-			$out->addModules( 'ext.flexdiagrams.gantt' );
-
-			$newText = <<<END
-<div id="canvas"></div>
-
-<pre>$text</pre>
-
-END;
-		} elseif ( $ns == FD_NS_MERMAID ) {
-			// We need to use debug mode because the Mermaid JS
-			// file, when minimized by the ResourceLoader, simply
-			// doesn't get loaded. It's not becuase the Mermaid JS
-			// file is already minimized - the same thing happens
-			// with both mermaid.min.js and mermaid.js. (Given that,
-			// we're using mermaid.min.js, because it's smaller.)
-			global $wgResourceLoaderDebug;
-			$wgResourceLoaderDebug = true;
-			$out->addModules( 'ext.flexdiagrams.mermaid' );
-
-			$newText = <<<END
-<div class="mermaid"><nowiki>$text</nowiki></div>
-
-<pre>$text</pre>
-
-END;
-		}
-
-		$content = new WikitextContent( $newText );
-*/
-
-		return true;
-	}
-
 	public static function disableParserCache( Parser &$parser, string &$text ) {
 		$title = $parser->getTitle();
 		$ns = $title->getNamespace();
 		if ( $ns == FD_NS_BPMN || $ns == FD_NS_GANTT || $ns == FD_NS_MERMAID ) {
-			$parser->disableCache();
+			$parser->getOutput()->updateCacheExpiry( 0 );
 		}
 	}
-
 }

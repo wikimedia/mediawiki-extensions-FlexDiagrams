@@ -26,7 +26,8 @@
 			"id": 742,
 			"constant": "FD_NS_GANTT",
 			"name": "Gantt",
-			"conditional": true
+			"conditional": true,
+			"defaultcontentmodel": "flexdiagrams-gantt"
 		},
 		{
 			"id": 743,
@@ -38,7 +39,8 @@
 			"id": 744,
 			"constant": "FD_NS_MERMAID",
 			"name": "Mermaid",
-			"conditional": true
+			"conditional": true,
+			"defaultcontentmodel": "flexdiagrams-mermaid"
 		},
 		{
 			"id": 745,
@@ -54,7 +56,9 @@
 		"editdiagram": "FDEditDiagramAction"
 	},
 	"ContentHandlers": {
-		"flexdiagrams-bpmn": "FDBPMNContentHandler"
+		"flexdiagrams-bpmn": "FDBPMNContentHandler",
+		"flexdiagrams-gantt": "FDGanttContentHandler",
+		"flexdiagrams-mermaid": "FDMermaidContentHandler"
 	},
 	"SpecialPages": {
 		"EditDiagram": "FDSpecialEditDiagram"
@@ -74,8 +78,12 @@
 		"FDEditPage": "includes/FD_EditPage.php",
 		"FDDisplayDiagram": "includes/FD_DisplayDiagram.php",
 		"FDSpecialEditDiagram": "includes/FD_SpecialEditDiagram.php",
+		"FDGanttContent": "includes/FD_GanttContent.php",
+		"FDGanttContentHandler": "includes/FD_GanttContentHandler.php",
 		"FDBPMNContent": "includes/FD_BPMNContent.php",
-		"FDBPMNContentHandler": "includes/FD_BPMNContentHandler.php"
+		"FDBPMNContentHandler": "includes/FD_BPMNContentHandler.php",
+		"FDMermaidContent": "includes/FD_MermaidContent.php",
+		"FDMermaidContentHandler": "includes/FD_MermaidContentHandler.php"
 	},
 	"ResourceModules": {
 		"ext.flexdiagrams.bpmn": {
@@ -125,7 +133,7 @@
 				"resources/ext.flexdiagrams.mermaid.js"
 			],
 			"styles": [
-				"resources/DR_Mermaid.css"
+				"resources/FD_Mermaid.css"
 			],
 			"dependencies": [
 				"ext.flexdiagrams"
@@ -150,11 +158,9 @@
 		"ParserFirstCallInit": "FDHooks::registerParserFunctions",
 		"MakeGlobalVariablesScript": "FDHooks::setGlobalJSVariables",
 		"CanonicalNamespaces": "FDHooks::registerNamespaces",
-		"ArticleAfterFetchContentObject": "FDHooks::displayPage",
 		"ParserBeforeTidy": "FDHooks::disableParserCache"
 	},
 	"config": {
 		"FlexDiagramsEnabledFormats": [ 740, 742, 744 ]
-	},
-	"manifest_version": 1
+	}
 }

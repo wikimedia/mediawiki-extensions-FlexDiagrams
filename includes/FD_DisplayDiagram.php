@@ -21,9 +21,8 @@ class FDDisplayDiagram {
 		$params = func_get_args();
 		array_shift( $params ); // we already know the $parser...
 
-		// Is there a way to avoid this?
-		$parser->disableCache();
-
+		$parser->getOutput()->updateCacheExpiry( 0 );
+		
 		$diagramPageName = $params[0];
 
 		$diagramPage = Title::newFromText( $diagramPageName );
@@ -31,27 +30,27 @@ class FDDisplayDiagram {
 			return '<div class="error">' . "Page [[$diagramPage]] does not exist." . '</div>';
 		}
 
-		if ( $diagramPage->getNamespace() == D_NS_BPMN || $diagramPage->getNamespace() == D_NS_GANTT ) {
+		if ( $diagramPage->getNamespace() == FD_NS_BPMN || $diagramPage->getNamespace() == FD_NS_GANTT ) {
 			if ( self::$numInstances++ > 0 ) {
 				return '<div class="error">Due to current limitations, #display_diagram can only be called once per page on any BPMN or Gantt diagram.</div>';
 			}
 		}
 
-		if ( $diagramPage->getNamespace() == D_NS_BPMN ) {
+		if ( $diagramPage->getNamespace() == FD_NS_BPMN ) {
 			global $wgOut;
-			$wgOut->addModules( 'ext.flexdiagrams.bpmn.viewer' );
+			$wgOut->addModules( 'ext.flexdiagrams.bpmn' );
 			$text = Html::element( 'div', [
 				'id' => 'canvas',
 				'data-wiki-page' => $diagramPageName
 			], ' ' );
-		} elseif ( $diagramPage->getNamespace() == D_NS_GANTT ) {
+		} elseif ( $diagramPage->getNamespace() == FD_NS_GANTT ) {
 			global $wgOut;
 			$wgOut->addModules( 'ext.flexdiagrams.gantt' );
 			$text = Html::element( 'div', [
 				'id' => 'canvas',
 				'data-wiki-page' => $diagramPageName
 			], ' ' );
-		} elseif ( $diagramPage->getNamespace() == D_NS_MERMAID ) {
+		} elseif ( $diagramPage->getNamespace() == FD_NS_MERMAID ) {
 			global $wgOut, $wgResourceLoaderDebug;
 			$wgResourceLoaderDebug = true;
 			$wgOut->addModules( 'ext.flexdiagrams.mermaid' );
