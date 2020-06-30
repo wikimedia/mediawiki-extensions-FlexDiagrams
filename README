@@ -10,9 +10,9 @@ full text and terms of the license.
 == Overview ==
 
 Flex Diagrams is an extension to MediaWiki that lets users create and edit
-diagrams in different formats. Current supported formats are BPMN XML (using
-the bpmn-js library), Gantt JSON (using the dhtmlxGantt library), and the
-Mermaid syntax (using the Mermaid library).
+diagrams in different formats. Each format gets its own namespace. Current
+supported formats are BPMN XML (using the bpmn-js library), Gantt JSON (using
+the dhtmlxGantt library), and the Mermaid syntax (using the Mermaidlibrary).
 
 For more information, see the extension homepage at:
 https://www.mediawiki.org/wiki/Extension:Flex_Diagrams
@@ -39,7 +39,9 @@ Koren, at yaron57@gmail.com.
 Diagrams includes the following JavaScript libraries:
 
 * bpmn-js (https://bpmn.io/toolkit/bpmn-js/), by Camunda Servies GmbH,
-distributed under a custom license that seems to be compatible with the GNU GPL
+distributed under a custom license
+(https://github.com/bpmn-io/bpmn-js/blob/develop/LICENSE) that seems to be
+compatible with the GNU GPL
 * dhtmlxGantt (https://dhtmlx.com/docs/products/dhtmlxGantt/), by XB Software,
 distributed under the GNU GPL
 * mermaid (https://mermaidjs.github.io), distributed under the MIT License
