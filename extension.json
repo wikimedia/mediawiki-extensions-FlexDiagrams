@@ -109,7 +109,7 @@
 			"styles": [
 				"resources/bpmn-js/diagram-js.css",
 				"resources/bpmn-js/bpmn.css",
-				"resources/DR_BPMN.css"
+				"resources/FD_BPMN.css"
 			],
 			"dependencies": [
 				"ext.flexdiagrams"
