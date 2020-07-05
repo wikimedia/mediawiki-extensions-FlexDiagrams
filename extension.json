@@ -2,7 +2,8 @@
 	"name": "Flex Diagrams",
 	"version": "0.1",
 	"author": [
-		"Yaron Koren"
+		"Yaron Koren",
+		"Sahaj Khandelwal"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Flex_Diagrams",
 	"descriptionmsg": "flex-diagrams-desc",
