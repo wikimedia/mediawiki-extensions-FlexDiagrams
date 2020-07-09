@@ -1,17 +1,17 @@
 <?php
 /**
- * Content Handler for Gantt Diagrams
+ * Content handler for Gantt chart JSON, as defined by the DHTMLX library.
  */
 
 class FDGanttContentHandler extends TextContentHandler{
 	
-    public function __construct( $modelId = CONTENT_MODEL_FD_GANTT ) {
+	public function __construct( $modelId = CONTENT_MODEL_FD_GANTT ) {
 		parent::__construct( $modelId, [ CONTENT_FORMAT_JSON ] );
 	}
 
-    protected function getContentClass() {
+	protected function getContentClass() {
 		return FDGanttContent::class;
-    }
+	}
     
 	public function makeEmptyContent() {
 		return new FDGanttContent('');

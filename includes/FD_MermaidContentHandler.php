@@ -1,17 +1,17 @@
 <?php
 /**
- * Content Handler for Mermaid Diagrams
+ * Content handler for Mermaid diagrams.
  */
 
 class FDMermaidContentHandler extends TextContentHandler{
 	
-    public function __construct( $modelId = CONTENT_MODEL_FD_MERMAID ) {
+	public function __construct( $modelId = CONTENT_MODEL_FD_MERMAID ) {
 		parent::__construct( $modelId, [ CONTENT_FORMAT_TEXT ] );
 	}
 
-    protected function getContentClass() {
+	protected function getContentClass() {
 		return FDMermaidContent::class;
-    }
+	}
     
 	public function makeEmptyContent() {
 		return new FDMermaidContent('');
