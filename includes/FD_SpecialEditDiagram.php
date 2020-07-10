@@ -21,6 +21,10 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 
 		$pageName = $this->getRequest()->getVal( 'title' );
 		$title = Title::newFromText( $pageName );
+		if ( $title == null ) {
+			return;
+		}
+
 		$out->setPageTitle( $this->msg( 'flexdiagrams-edit-title', str_replace( '_', ' ', $pageName ) ) );
 
 		if ( $title->getNamespace() == FD_NS_BPMN ) {

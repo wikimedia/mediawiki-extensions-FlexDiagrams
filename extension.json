@@ -53,6 +53,7 @@
 	"requires": {
 		"MediaWiki": ">= 1.28.0"
 	},
+	"callback": "FDHooks::registerExtension",
 	"Actions": {
 		"editdiagram": "FDEditDiagramAction"
 	},
@@ -70,8 +71,9 @@
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"DiagramsNS": "FDNamespaces.php",
-		"DiagramsMagic": "FlexDiagrams.i18n.magic.php"
+		"FlexDiagramsAlias": "FDAliases.php",
+		"FlexDiagramsNS": "FDNamespaces.php",
+		"FlexDiagramsMagic": "FlexDiagrams.i18n.magic.php"
 	},
 	"AutoloadClasses": {
 		"FDHooks": "FDHooks.php",
@@ -159,9 +161,12 @@
 		"ParserFirstCallInit": "FDHooks::registerParserFunctions",
 		"MakeGlobalVariablesScript": "FDHooks::setGlobalJSVariables",
 		"CanonicalNamespaces": "FDHooks::registerNamespaces",
-		"ParserBeforeTidy": "FDHooks::disableParserCache"
+		"ParserAfterTidy": "FDHooks::disableParserCache"
 	},
 	"config": {
-		"FlexDiagramsEnabledFormats": [ 740, 742, 744 ]
-	}
+		"FlexDiagramsEnabledFormats": {
+			"value": [ 740, 742, 744 ]
+		}
+	},
+	"manifest_version": 2
 }

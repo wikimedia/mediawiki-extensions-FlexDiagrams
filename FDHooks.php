@@ -10,6 +10,12 @@
 
 class FDHooks {
 
+	public static function registerExtension() {
+		define( 'CONTENT_MODEL_FD_BPMN', 'flexdiagrams-bpmn' );
+		define( 'CONTENT_MODEL_FD_GANTT', 'flexdiagrams-gantt' );
+		define( 'CONTENT_MODEL_FD_MERMAID', 'flexdiagrams-mermaid' );
+	}
+
 	/**
 	 * Register the namespaces for Flex Diagrams.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/CanonicalNamespaces
@@ -31,10 +37,6 @@ class FDHooks {
 			define( 'FD_NS_MERMAID', 744 );
 			define( 'FD_NS_MERMAID_TALK', 745 );
 		}
-
-		define( 'CONTENT_MODEL_FD_BPMN', 'flexdiagrams-bpmn' );
-		define( 'CONTENT_MODEL_FD_GANTT', 'flexdiagrams-gantt' );
-		define( 'CONTENT_MODEL_FD_MERMAID', 'flexdiagrams-mermaid' );
 
 		$list[FD_NS_BPMN] = 'BPMN';
 		$list[FD_NS_BPMN_TALK] = 'BPMN_talk';
