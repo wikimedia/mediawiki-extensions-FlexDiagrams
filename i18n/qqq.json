@@ -10,5 +10,6 @@
 	"flexdiagrams-creatediagram": "Label for a tab",
 	"flexdiagrams-viewdiagram": "Label for a tab",
 	"flexdiagrams-edit-code": "Label above a section of code",
-	"flexdiagrams-edit-preview": "Label above where a diagram display is previewed"
+	"flexdiagrams-edit-preview": "Label above where a diagram display is previewed",
+	"flexdiagrams-embedding-unsupported": "Error message displayed if a user tries to transclude a Flex Diagrams page."
 }

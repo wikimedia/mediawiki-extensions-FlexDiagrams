@@ -24,6 +24,6 @@ class FDGanttContent extends TextContent {
 	 * content, or false if the content is not includable in a wikitext page.
 	 */
 	public function getWikitextForTransclusion() {
-		return '<span class="error">' . wfMessage( 'flow-embedding-unsupported' )->plain() . '</span>';
+		return '<span class="error">' . wfMessage( 'flexdiagrams-embedding-unsupported' )->plain() . '</span>';
 	}
 }

@@ -10,5 +10,6 @@
 	"flexdiagrams-creatediagram": "Create diagram",
 	"flexdiagrams-viewdiagram": "View diagram",
 	"flexdiagrams-edit-code": "Code:",
-	"flexdiagrams-edit-preview": "Preview:"
+	"flexdiagrams-edit-preview": "Preview:",
+	"flexdiagrams-embedding-unsupported": "Diagram pages cannot be embedded."
 }
