@@ -11,7 +11,7 @@ class FDBPMNContent extends TextContent {
 
 	public function getHtml() {
 		global $wgOut;
-		$wgOut->addModules( 'ext.flexdiagrams.bpmn' );
+		$wgOut->addModules( 'ext.flexdiagrams.bpmn.viewer' );
 		$text = Html::element( 'div', [
 			'id' => 'canvas',
 		],'' );

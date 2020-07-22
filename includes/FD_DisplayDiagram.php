@@ -38,7 +38,7 @@ class FDDisplayDiagram {
 
 		if ( $diagramPage->getNamespace() == FD_NS_BPMN ) {
 			global $wgOut;
-			$wgOut->addModules( 'ext.flexdiagrams.bpmn' );
+			$wgOut->addModules( 'ext.flexdiagrams.bpmn.viewer' );
 			$text = Html::element( 'div', [
 				'id' => 'canvas',
 				'data-wiki-page' => $diagramPageName
