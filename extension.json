@@ -6,7 +6,7 @@
 		"Sahaj Khandelwal"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Flex_Diagrams",
-	"descriptionmsg": "flex-diagrams-desc",
+	"descriptionmsg": "flexdiagrams-desc",
 	"license-name": "GPL-2.0-or-later",
 	"type": "specialpage",
 	"namespaces": [
@@ -51,7 +51,7 @@
 		}
 	],
 	"requires": {
-		"MediaWiki": ">= 1.28.0"
+		"MediaWiki": ">= 1.29.0"
 	},
 	"callback": "FDHooks::registerExtension",
 	"Actions": {
