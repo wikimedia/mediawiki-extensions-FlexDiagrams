@@ -28,6 +28,11 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 		$out->setPageTitle( $this->msg( 'flexdiagrams-edit-title', str_replace( '_', ' ', $pageName ) ) );
 
 		if ( $title->getNamespace() == FD_NS_BPMN ) {
+			// Turn on "debug mode" to avoid browser caching,
+			// because it can lead to users seeing an old version of
+			// the diagram, with bpmn-js.
+			global $wgResourceLoaderDebug;
+			$wgResourceLoaderDebug = true;
 			$out->addModules( 'ext.flexdiagrams.bpmn' );
 			$text = '<div id="canvas"></div>' . "\n";
 		} elseif ( $title->getNamespace() == FD_NS_GANTT ) {

@@ -10,7 +10,13 @@ class FDBPMNContent extends TextContent {
 	}
 
 	public function getHtml() {
-		global $wgOut;
+		global $wgOut, $wgResourceLoaderDebug;
+
+		// Turn on "debug mode" to avoid browser caching, because
+		// it can lead to users seeing an old version of the
+		// diagram, with bpmn-js.
+		$wgResourceLoaderDebug = true;
+
 		$wgOut->addModules( 'ext.flexdiagrams.bpmn.viewer' );
 		$text = Html::element( 'div', [
 			'id' => 'canvas',
@@ -18,7 +24,7 @@ class FDBPMNContent extends TextContent {
 		$text .= Html::element( 'pre', [], $this->getText() );
 		return $text;
 	}
-	
+
 	/**
 	 * @return string The wikitext to include when another page includes this
 	 * content, or false if the content is not includable in a wikitext page.
