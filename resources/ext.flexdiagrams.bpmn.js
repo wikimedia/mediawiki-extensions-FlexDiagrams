@@ -48,7 +48,10 @@
 			// zoom to fit full viewport
 			canvas.zoom('fit-viewport');
 			// add marker
-			canvas.addMarker('SCAN_OK', 'needs-discussion');
+			// (This line is found in many bpmn-js tutorials, but
+			// it causes a JS error when included here.
+			// Is it necessary?)
+			//canvas.addMarker('SCAN_OK', 'needs-discussion');
 		});
 	}
 
