@@ -8,6 +8,8 @@
 ( function( $, mw, fd ) {
 	'use strict';
 
+	var gLinkedPages = {};
+
 	/**
 	 * Inheritance class for the fd.base constructor
 	 *
@@ -38,6 +40,39 @@
 	};
 
 	bpmn_proto.openDiagram = function( bpmnXML ) {
+		// Before the diagram gets displayed, go through the BPMN XML
+		// to find all labels with the structure "X [[Y]]" - which is
+		// the special Flex Diagrams syntax for specifying a linked
+		// element - and replace them with just "X", while storing "Y"
+		// in a global array so that they can be linked during the
+		// display.
+		// We could change the names later, during the display - but
+		// it's better to do it now, so that bpmn-js can correctly set
+		// the placement of each text label, given its correct size.
+		if ( mw.config.get( 'wgAction' ) != 'editdiagram' ) {
+			var elementRegExp = /bpmn:.* id="([^"]*)" name="([^"]*)"/g;
+			var elementMatches = bpmnXML.matchAll(elementRegExp);
+			for ( var elementMatch of elementMatches ) {
+				var elementLine = elementMatch[0];
+				var elementID = elementMatch[1];
+				var elementName = elementMatch[2];
+
+				var finalLinkRegExp = /\[\[([^\[]*)\]\]$/;
+				var linkMatch = elementName.match(finalLinkRegExp);
+				if ( linkMatch == null ) {
+					continue;
+				}
+				var newName = elementName.replace(linkMatch[0], '')
+					.replace('&#10;', "\n")
+					.trim();
+				var newElementLine = elementLine.replace( elementName, newName );
+				bpmnXML = bpmnXML.replace( elementLine, newElementLine );
+
+				var pageName = linkMatch[1];
+				gLinkedPages[elementID] = pageName;
+			}
+		}
+
 		// Set up diagram - in both edit and display modes.
 		bpmnModeler.importXML(bpmnXML, function(err) {
 			if (err) {
@@ -52,6 +87,10 @@
 			// it causes a JS error when included here.
 			// Is it necessary?)
 			//canvas.addMarker('SCAN_OK', 'needs-discussion');
+
+			if ( mw.config.get( 'wgAction' ) != 'editdiagram' ) {
+				bpmn_proto.applyLinks();
+			}
 		});
 	}
 
@@ -63,6 +102,46 @@
 			}
 			self.updatePageAndRedirectUser( pageName, xml );
 		});
+	}
+
+	/**
+	 * Go through the gLinkedPages array and turn each element there into
+	 * a link to its respective wiki page. Also add graphical elements to
+	 * each such element to make it more obvious, like making the shapes
+	 * blue.
+	 */
+	bpmn_proto.applyLinks = function() {
+		var self = this;
+
+		for ( var elementID in gLinkedPages ) {
+			$('g[data-element-id="' + elementID + '"').each( function() {
+				var linkedPage = gLinkedPages[elementID];
+				$(this).click( function() {
+					var newURL = mw.config.get('wgServer') +
+						mw.config.get('wgScript') +
+						'?title=' + linkedPage;
+					window.location.href = newURL;
+				} );
+				$(this).css('cursor', 'pointer');
+				self.setShapeColors( $(this), '#0000EE', '#E9E9FB' );
+				$(this).mouseenter( function() {
+					//self.setShapeColors( $(this), '#0000BB', '#D9D9F5' );
+					self.setShapeColors( $(this), '#0000FF', '#F5F5FF' );
+				} );
+				$(this).mouseleave( function() {
+					self.setShapeColors( $(this), '#0000EE', '#E9E9FB' );
+				} );
+			});
+		}
+	}
+
+	bpmn_proto.setShapeColors = function( $shape, strokeColor, fillColor ) {
+		$shape.find('g.djs-visual').each( function() {
+			$(this).children('rect,polygon').css('fill', fillColor)
+				.css('stroke', strokeColor);
+			$(this).children('text,path').css('fill', strokeColor);
+			$(this).children('path').css('stroke', strokeColor);
+		} );
 	}
 
 	fd.bpmn.prototype = bpmn_proto;
