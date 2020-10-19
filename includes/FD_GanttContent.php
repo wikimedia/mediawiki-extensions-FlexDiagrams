@@ -15,7 +15,7 @@ class FDGanttContent extends TextContent {
 		$text = Html::element( 'div', [
 			'id' => 'canvas',
 		], ' ' );
-		$text .= Html::element( 'pre', [], $this->getText() );
+		$text .= Html::element( 'pre', [], $this->mText );
 		return $text;
 	}
 	
