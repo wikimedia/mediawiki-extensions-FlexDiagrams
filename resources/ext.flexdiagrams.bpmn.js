@@ -116,11 +116,16 @@
 		for ( var elementID in gLinkedPages ) {
 			$('g[data-element-id="' + elementID + '"').each( function() {
 				var linkedPage = gLinkedPages[elementID];
-				$(this).click( function() {
+				$(this).click( function( evt ) {
 					var newURL = mw.config.get('wgServer') +
 						mw.config.get('wgScript') +
 						'?title=' + linkedPage;
-					window.location.href = newURL;
+					if ( evt.ctrlKey ) {
+						// ctrl+click opens a new tab.
+						window.open( newURL, '_blank' );
+					} else {
+						window.location.href = newURL;
+					}
 				} );
 				$(this).css('cursor', 'pointer');
 				self.setShapeColors( $(this), '#0000EE', '#E9E9FB' );
