@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"flexdiagrams-desc": "Änneren a Maache vun Diagrammen",
+	"editdiagram": "Diagramm änneren",
+	"flexdiagrams-edit-title": "Diagramm änneren: $1",
+	"flexdiagrams-creatediagram": "Diagramm maachen",
+	"flexdiagrams-viewdiagram": "Diagramm weisen",
+	"flexdiagrams-edit-code": "Code:",
+	"flexdiagrams-edit-preview": "Kucken ouni ze späicheren:",
+	"flexdiagrams-embedding-unsupported": "Diagramm-Säite kënnen net agebonne ginn."
+}

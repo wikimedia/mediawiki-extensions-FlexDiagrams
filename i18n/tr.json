@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"MuratTheTurkish"
+		]
+	},
+	"flexdiagrams-desc": "Diyagramların düzenlenmesi ve oluşturulması",
+	"editdiagram": "Diyagramı düzenle",
+	"flexdiagrams-edit-title": "Diyagram düzenlemesi: $1",
+	"flexdiagrams-creatediagram": "Diyagram oluştur",
+	"flexdiagrams-viewdiagram": "Diyagramı görüntüle",
+	"flexdiagrams-edit-code": "Kod:",
+	"flexdiagrams-edit-preview": "Önizleme:",
+	"flexdiagrams-embedding-unsupported": "Diyagram sayfaları gömülemez."
+}
