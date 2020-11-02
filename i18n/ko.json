@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"flexdiagrams-desc": "다이어그램 편집 및 만들기",
+	"editdiagram": "다이어그램 편집",
+	"flexdiagrams-edit-title": "다이어그램 편집: $1",
+	"flexdiagrams-creatediagram": "다이어그램 만들기",
+	"flexdiagrams-viewdiagram": "다이어그램 보기",
+	"flexdiagrams-edit-code": "코드:",
+	"flexdiagrams-edit-preview": "미리 보기:",
+	"flexdiagrams-embedding-unsupported": "다이어그램 페이지를 추가할 수 없습니다."
+}

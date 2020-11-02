@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
+	"editdiagram": "Redigera diagram",
+	"flexdiagrams-edit-title": "Redigera diagram: $1",
+	"flexdiagrams-creatediagram": "Skapa diagram",
+	"flexdiagrams-viewdiagram": "Visa diagram",
+	"flexdiagrams-edit-code": "Kod:",
+	"flexdiagrams-edit-preview": "Förhandsgranska:"
+}
