@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"flexdiagrams-desc": "Redigering og opprettelse av diagrammer",
+	"editdiagram": "Rediger diagram",
+	"flexdiagrams-edit-title": "Rediger diagram: $1",
+	"flexdiagrams-creatediagram": "Opprett diagram",
+	"flexdiagrams-viewdiagram": "Vis diagram",
+	"flexdiagrams-edit-code": "Kode:",
+	"flexdiagrams-edit-preview": "Forhåndsvisning:",
+	"flexdiagrams-embedding-unsupported": "Diagramsider kan ikke bygges inn."
+}
