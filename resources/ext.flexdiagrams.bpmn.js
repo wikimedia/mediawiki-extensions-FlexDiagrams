@@ -166,4 +166,15 @@
 	var bpmnHandler = new fd.bpmn();
 	bpmnHandler.initialize();
 
+	// Add a zoom in/zoom out interface, similar to the one found on
+	// https://demo.bpmn.io, for both viewing and editing.
+	$('.djs-container').append('<div class="fd-djs-zoom djs-palette" style="left: auto; right: 20px;">' +
+		'<div class="entry fd-djs-zoom-in">+</div><hr class="separator" /><div class="entry fd-djs-zoom-out">-</div></div>');
+	$('.fd-djs-zoom-in').click( function() {
+		bpmnModeler.get('zoomScroll').stepZoom(1);
+	} );
+	$('.fd-djs-zoom-out').click( function() {
+		bpmnModeler.get('zoomScroll').stepZoom(-1);
+	} );
+
 }( jQuery, mediaWiki, flexdiagrams ) );
