@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Raymond",
+			"Umherirrender",
 			"Yaron Koren"
 		]
 	},
-	"flexdiagrams-desc": "{{desc|name=Diagrams|url=https://www.mediawiki.org/wiki/Extension:Flex_Diagrams}}",
+	"flexdiagrams-desc": "{{desc|name=Flex Diagrams|url=https://www.mediawiki.org/wiki/Extension:Flex_Diagrams}}",
 	"editdiagram": "{{doc-special|Edit diagram}}",
 	"flexdiagrams-edit-title": "Used as a page title. Parameters:\n* $1 - the name of a wiki page",
 	"flexdiagrams-creatediagram": "Label for a tab",
