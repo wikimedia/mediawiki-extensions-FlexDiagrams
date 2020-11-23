@@ -1,13 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Sabelöga",
 			"WikiPhoenix"
 		]
 	},
+	"flexdiagrams-desc": "Redigera och skapa diagram",
 	"editdiagram": "Redigera diagram",
 	"flexdiagrams-edit-title": "Redigera diagram: $1",
 	"flexdiagrams-creatediagram": "Skapa diagram",
 	"flexdiagrams-viewdiagram": "Visa diagram",
 	"flexdiagrams-edit-code": "Kod:",
-	"flexdiagrams-edit-preview": "Förhandsgranska:"
+	"flexdiagrams-edit-preview": "Förhandsgranska:",
+	"flexdiagrams-embedding-unsupported": "Diagramsidor kan inte infogas."
 }
