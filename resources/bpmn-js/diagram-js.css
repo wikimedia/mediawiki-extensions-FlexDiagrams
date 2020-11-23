@@ -345,7 +345,10 @@ marker.djs-dragger tspan {
  *    * changed life-cycle are available in addition.
  *     */
 .djs-palette.two-column.open {
-  width: 94px;
+  /* Increased slightly for Flex Diagrams - with some skins,
+   * 94px is not quite wide enough and results in one
+   * column instead of two. */
+  width: 96px;
 }
 
 .djs-palette:not(.open) .djs-palette-entries {
