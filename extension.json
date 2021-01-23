@@ -71,8 +71,8 @@
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"FlexDiagramsAlias": "FDAliases.php",
-		"FlexDiagramsNS": "FDNamespaces.php",
+		"FlexDiagramsAlias": "FlexDiagrams.i18n.aliases.php",
+		"FlexDiagramsNamespaces": "FlexDiagrams.i18n.namespaces.php",
 		"FlexDiagramsMagic": "FlexDiagrams.i18n.magic.php"
 	},
 	"AutoloadClasses": {
