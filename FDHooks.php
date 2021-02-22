@@ -54,13 +54,19 @@ class FDHooks {
 	}
 
 	static function setGlobalJSVariables( &$vars ) {
-		global $wgTitle, $wgServer, $wgScript;
+		global $wgServer, $wgScript;
+		global $wgTitle, $wgFlexDiagramsEnabledFormats;
 
 		$vars['wgServer'] = $wgServer;
 		$vars['wgScript'] = $wgScript;
 
-		$page = new WikiPage( $wgTitle );
-		$vars['wgFlexDiagramsPageTimestamp'] = $page->getTimestamp();
+		if ( $wgTitle !== null ) {
+			$namespace = $wgTitle->getNamespace();
+			if ( in_array( $namespace, $wgFlexDiagramsEnabledFormats ) ) {
+				$page = new WikiPage( $wgTitle );
+				$vars['wgFlexDiagramsPageTimestamp'] = $page->getTimestamp();
+			}
+		}
 
 		return true;
 	}
