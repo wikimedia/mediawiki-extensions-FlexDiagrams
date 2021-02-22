@@ -55,11 +55,13 @@ class FDHooks {
 
 	static function setGlobalJSVariables( &$vars ) {
 		global $wgServer, $wgScript;
-		global $wgTitle, $wgFlexDiagramsEnabledFormats;
+		// global $wgTitle, $wgFlexDiagramsEnabledFormats;
 
 		$vars['wgServer'] = $wgServer;
 		$vars['wgScript'] = $wgScript;
 
+		// This variable is not currently being used.
+		/*
 		if ( $wgTitle !== null ) {
 			$namespace = $wgTitle->getNamespace();
 			if ( in_array( $namespace, $wgFlexDiagramsEnabledFormats ) ) {
@@ -67,6 +69,7 @@ class FDHooks {
 				$vars['wgFlexDiagramsPageTimestamp'] = $page->getTimestamp();
 			}
 		}
+		*/
 
 		return true;
 	}
