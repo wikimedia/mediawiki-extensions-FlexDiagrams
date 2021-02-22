@@ -142,7 +142,7 @@
 
 	bpmn_proto.setShapeColors = function( $shape, strokeColor, fillColor ) {
 		$shape.find('g.djs-visual').each( function() {
-			$(this).children('rect,polygon').css('fill', fillColor)
+			$(this).children('rect,circle,polygon').css('fill', fillColor)
 				.css('stroke', strokeColor);
 			$(this).children('text,path').css('fill', strokeColor);
 			$(this).children('path').css('stroke', strokeColor);
