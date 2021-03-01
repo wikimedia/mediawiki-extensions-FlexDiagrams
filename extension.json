@@ -161,7 +161,8 @@
 		"ParserFirstCallInit": "FDHooks::registerParserFunctions",
 		"MakeGlobalVariablesScript": "FDHooks::setGlobalJSVariables",
 		"CanonicalNamespaces": "FDHooks::registerNamespaces",
-		"ParserAfterTidy": "FDHooks::disableParserCache"
+		"ParserAfterTidy": "FDHooks::disableParserCache",
+		"HtmlPageLinkRendererEnd": "FDHooks::linkToEditDiagramAction"
 	},
 	"config": {
 		"FlexDiagramsEnabledFormats": {

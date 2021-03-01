@@ -81,4 +81,37 @@ class FDHooks {
 			$parser->getOutput()->updateCacheExpiry( 0 );
 		}
 	}
+
+	/**
+	 * Called by the HtmlPageLinkRendererEnd hook.
+	 *
+	 * Point red links to any diagram pages to "action=editdiagram".
+	 *
+	 * @param LinkRenderer $linkRenderer
+	 * @param Title $target
+	 * @param bool $isKnown
+	 * @param string &$text
+	 * @param array &$attribs
+	 * @param bool &$ret
+	 * @return true
+	 */
+	static function linkToEditDiagramAction( MediaWiki\Linker\LinkRenderer $linkRenderer, $target, $isKnown, &$text, &$attribs, &$ret ) {
+		global $wgFlexDiagramsEnabledFormats;
+
+		// If it's not a broken (red) link, exit.
+		if ( $isKnown ) {
+			return true;
+		}
+		$namespace = $target->getNamespace();
+		if ( !in_array( $namespace, $wgFlexDiagramsEnabledFormats ) ) {
+			return true;
+		}
+
+		// The class of $target can be either Title or TitleValue.
+		$title = Title::newFromLinkTarget( $target );
+		$attribs['href'] = $title->getLinkURL( [ 'action' => 'editdiagram', 'redlink' => '1' ] );
+
+		return true;
+	}
+
 }
