@@ -67,6 +67,8 @@ END;
 			$out->addHTML( 'Error: invalid namespace for this action.' );
 			return;
 		}
+
+		$out->addModules( 'ext.flexdiagrams.editwarning' );
 		$text = Html::rawElement( 'div', [ 'style' => 'border: 1px solid #c8ccd1; padding: 10px;' ], $text );
 		$out->addHTML( $text );
 

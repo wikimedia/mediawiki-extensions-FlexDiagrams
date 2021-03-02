@@ -150,6 +150,13 @@
 			"styles": [
 				"resources/FlexDiagrams.css"
 			]
+		},
+		"ext.flexdiagrams.editwarning": {
+			"scripts": "resources/FD_editWarning.js",
+			"dependencies": [
+				"mediawiki.confirmCloseWindow",
+				"jquery.textSelection"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
