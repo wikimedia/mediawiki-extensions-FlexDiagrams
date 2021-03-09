@@ -127,7 +127,15 @@
 				"resources/FD_Gantt.css"
 			],
 			"dependencies": [
-				"ext.flexdiagrams"
+				"ext.flexdiagrams",
+				"oojs-ui-widgets"
+			],
+			"messages": [
+				"flexdiagrams-gantt-zoomlevel",
+				"flexdiagrams-gantt-hours",
+				"flexdiagrams-gantt-days",
+				"flexdiagrams-gantt-months",
+				"flexdiagrams-gantt-years"
 			]
 		},
 		"ext.flexdiagrams.mermaid": {

@@ -4,3 +4,8 @@
 	position: relative;
 	margin-bottom: 20px;
 }
+
+div#ganttZoomInput {
+	float: right;
+	font-weight: bold;
+}

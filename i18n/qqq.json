@@ -13,5 +13,10 @@
 	"flexdiagrams-viewdiagram": "Label for a tab",
 	"flexdiagrams-edit-code": "Label above a section of code",
 	"flexdiagrams-edit-preview": "Label above where a diagram display is previewed",
-	"flexdiagrams-embedding-unsupported": "Error message displayed if a user tries to transclude a Flex Diagrams page."
+	"flexdiagrams-embedding-unsupported": "Error message displayed if a user tries to transclude a Flex Diagrams page.",
+	"flexdiagrams-gantt-zoomlevel": "Label for a group of buttons",
+	"flexdiagrams-gantt-hours": "An option for a timeline zoom level",
+	"flexdiagrams-gantt-days": "An option for a timeline zoom level",
+	"flexdiagrams-gantt-months": "An option for a timeline zoom level",
+	"flexdiagrams-gantt-years": "An option for a timeline zoom level"
 }
