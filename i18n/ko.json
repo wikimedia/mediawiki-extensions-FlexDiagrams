@@ -11,5 +11,10 @@
 	"flexdiagrams-viewdiagram": "다이어그램 보기",
 	"flexdiagrams-edit-code": "코드:",
 	"flexdiagrams-edit-preview": "미리 보기:",
-	"flexdiagrams-embedding-unsupported": "다이어그램 페이지를 추가할 수 없습니다."
+	"flexdiagrams-embedding-unsupported": "다이어그램 페이지를 추가할 수 없습니다.",
+	"flexdiagrams-gantt-zoomlevel": "확대/축소 수준:",
+	"flexdiagrams-gantt-hours": "시간",
+	"flexdiagrams-gantt-days": "일",
+	"flexdiagrams-gantt-months": "월",
+	"flexdiagrams-gantt-years": "년"
 }

@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Raymond",
+			"Robby",
 			"Umherirrender",
 			"Yaron Koren"
 		]
@@ -15,8 +16,8 @@
 	"flexdiagrams-edit-preview": "Label above where a diagram display is previewed",
 	"flexdiagrams-embedding-unsupported": "Error message displayed if a user tries to transclude a Flex Diagrams page.",
 	"flexdiagrams-gantt-zoomlevel": "Label for a group of buttons",
-	"flexdiagrams-gantt-hours": "An option for a timeline zoom level",
+	"flexdiagrams-gantt-hours": "An option for a timeline zoom level\n{{identical|Hour}}",
 	"flexdiagrams-gantt-days": "An option for a timeline zoom level",
-	"flexdiagrams-gantt-months": "An option for a timeline zoom level",
+	"flexdiagrams-gantt-months": "An option for a timeline zoom level\n{{identical|Month}}",
 	"flexdiagrams-gantt-years": "An option for a timeline zoom level"
 }

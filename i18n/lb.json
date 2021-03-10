@@ -11,5 +11,9 @@
 	"flexdiagrams-viewdiagram": "Diagramm weisen",
 	"flexdiagrams-edit-code": "Code:",
 	"flexdiagrams-edit-preview": "Kucken ouni ze späicheren:",
-	"flexdiagrams-embedding-unsupported": "Diagramm-Säite kënnen net agebonne ginn."
+	"flexdiagrams-embedding-unsupported": "Diagramm-Säite kënnen net agebonne ginn.",
+	"flexdiagrams-gantt-hours": "Stonnen",
+	"flexdiagrams-gantt-days": "Deeg",
+	"flexdiagrams-gantt-months": "Méint",
+	"flexdiagrams-gantt-years": "Joer"
 }

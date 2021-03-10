@@ -12,5 +12,10 @@
 	"flexdiagrams-viewdiagram": "Afficher le diagramme",
 	"flexdiagrams-edit-code": "Code :",
 	"flexdiagrams-edit-preview": "Aperçu :",
-	"flexdiagrams-embedding-unsupported": "Les pages de diagramme ne peuvent pas être incluses."
+	"flexdiagrams-embedding-unsupported": "Les pages de diagramme ne peuvent pas être incluses.",
+	"flexdiagrams-gantt-zoomlevel": "Niveau de zoom :",
+	"flexdiagrams-gantt-hours": "Heures",
+	"flexdiagrams-gantt-days": "Jours",
+	"flexdiagrams-gantt-months": "Mois",
+	"flexdiagrams-gantt-years": "Années"
 }
