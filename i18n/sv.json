@@ -12,5 +12,10 @@
 	"flexdiagrams-viewdiagram": "Visa diagram",
 	"flexdiagrams-edit-code": "Kod:",
 	"flexdiagrams-edit-preview": "Förhandsgranska:",
-	"flexdiagrams-embedding-unsupported": "Diagramsidor kan inte infogas."
+	"flexdiagrams-embedding-unsupported": "Diagramsidor kan inte infogas.",
+	"flexdiagrams-gantt-zoomlevel": "Zoomnivå:",
+	"flexdiagrams-gantt-hours": "Timmar",
+	"flexdiagrams-gantt-days": "Dagar",
+	"flexdiagrams-gantt-months": "Månader",
+	"flexdiagrams-gantt-years": "År"
 }

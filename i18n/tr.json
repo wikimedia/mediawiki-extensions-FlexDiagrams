@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Hedda",
+			"Joseph",
 			"MuratTheTurkish"
 		]
 	},
@@ -12,5 +13,10 @@
 	"flexdiagrams-viewdiagram": "Diyagramı görüntüle",
 	"flexdiagrams-edit-code": "Kod:",
 	"flexdiagrams-edit-preview": "Önizleme:",
-	"flexdiagrams-embedding-unsupported": "Diyagram sayfaları gömülemez."
+	"flexdiagrams-embedding-unsupported": "Diyagram sayfaları gömülemez.",
+	"flexdiagrams-gantt-zoomlevel": "Yakınlaştırma düzeyi:",
+	"flexdiagrams-gantt-hours": "Saat",
+	"flexdiagrams-gantt-days": "Gün",
+	"flexdiagrams-gantt-months": "Ay",
+	"flexdiagrams-gantt-years": "Yıl"
 }

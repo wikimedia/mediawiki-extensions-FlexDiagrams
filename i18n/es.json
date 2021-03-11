@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"ZealousBlaze"
 		]
 	},
 	"flexdiagrams-desc": "Edición y creación de diagramas",
@@ -10,5 +11,10 @@
 	"flexdiagrams-viewdiagram": "Ver diagrama",
 	"flexdiagrams-edit-code": "Código:",
 	"flexdiagrams-edit-preview": "Previsualización:",
-	"flexdiagrams-embedding-unsupported": "No se pueden incrustar las páginas con diagramas."
+	"flexdiagrams-embedding-unsupported": "No se pueden incrustar las páginas con diagramas.",
+	"flexdiagrams-gantt-zoomlevel": "Nivel de acercamiento:",
+	"flexdiagrams-gantt-hours": "Horas",
+	"flexdiagrams-gantt-days": "Días",
+	"flexdiagrams-gantt-months": "Meses",
+	"flexdiagrams-gantt-years": "Años"
 }

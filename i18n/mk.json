@@ -11,5 +11,10 @@
 	"flexdiagrams-viewdiagram": "Погл. дијаграм",
 	"flexdiagrams-edit-code": "Код:",
 	"flexdiagrams-edit-preview": "Преглед:",
-	"flexdiagrams-embedding-unsupported": "Дијаграмските страници не можат да се вметнуваат."
+	"flexdiagrams-embedding-unsupported": "Дијаграмските страници не можат да се вметнуваат.",
+	"flexdiagrams-gantt-zoomlevel": "Приближеност :",
+	"flexdiagrams-gantt-hours": "Часови",
+	"flexdiagrams-gantt-days": "Денови",
+	"flexdiagrams-gantt-months": "Месеци",
+	"flexdiagrams-gantt-years": "Години"
 }
