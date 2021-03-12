@@ -7,5 +7,9 @@
 	"flexdiagrams-creatediagram": "Opret diagram",
 	"flexdiagrams-viewdiagram": "Vis diagram",
 	"flexdiagrams-edit-code": "Kode:",
-	"flexdiagrams-edit-preview": "Forhåndsvisning:"
+	"flexdiagrams-edit-preview": "Forhåndsvisning:",
+	"flexdiagrams-gantt-hours": "Timer",
+	"flexdiagrams-gantt-days": "Dage",
+	"flexdiagrams-gantt-months": "Måneder",
+	"flexdiagrams-gantt-years": "År"
 }
