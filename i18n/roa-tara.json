@@ -11,5 +11,10 @@
 	"flexdiagrams-viewdiagram": "'Ndruche 'u diagramme",
 	"flexdiagrams-edit-code": "Codece:",
 	"flexdiagrams-edit-preview": "Andeprime:",
-	"flexdiagrams-embedding-unsupported": "Le pàggene d'u diagramme non ge ponne essere 'ngapsulate."
+	"flexdiagrams-embedding-unsupported": "Le pàggene d'u diagramme non ge ponne essere 'ngapsulate.",
+	"flexdiagrams-gantt-zoomlevel": "Levèlle de zoom:",
+	"flexdiagrams-gantt-hours": "Ore",
+	"flexdiagrams-gantt-days": "Sciurne",
+	"flexdiagrams-gantt-months": "Mise",
+	"flexdiagrams-gantt-years": "Anne"
 }
