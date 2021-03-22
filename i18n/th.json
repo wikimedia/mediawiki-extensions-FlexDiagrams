@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bebiezaza"
+		]
+	},
+	"flexdiagrams-gantt-hours": "ชั่วโมง",
+	"flexdiagrams-gantt-days": "วัน",
+	"flexdiagrams-gantt-months": "เดือน",
+	"flexdiagrams-gantt-years": "ปี"
+}
