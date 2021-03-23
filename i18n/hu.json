@@ -10,5 +10,9 @@
 	"flexdiagrams-creatediagram": "Ábra létrehozása",
 	"flexdiagrams-viewdiagram": "Ábra megtekintése",
 	"flexdiagrams-edit-code": "Kód:",
-	"flexdiagrams-edit-preview": "Előnézet:"
+	"flexdiagrams-edit-preview": "Előnézet:",
+	"flexdiagrams-gantt-hours": "Órák",
+	"flexdiagrams-gantt-days": "Napok",
+	"flexdiagrams-gantt-months": "Hónapok",
+	"flexdiagrams-gantt-years": "Évek"
 }
