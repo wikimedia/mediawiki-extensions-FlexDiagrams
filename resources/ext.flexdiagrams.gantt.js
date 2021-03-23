@@ -91,7 +91,7 @@
 		zoomLevelButtons.push( new OO.ui.ButtonOptionWidget( {
 			data: zoomLevel,
 			label: mw.message( 'flexdiagrams-gantt-' + zoomLevel ).text(),
-			selected: ( zoomLevel == 'days')
+			selected: ( zoomLevel == 'days' )
 		}) );
 	}
 
@@ -108,5 +108,27 @@
 
 	$('#canvas').after( '<div id="ganttZoomInput"></div><br style="clear: both;" />' );
 	$('#ganttZoomInput').append( zoomLayout.$element );
+
+	// Once the diagram has finished loading, get the overall duration of
+	// the Gantt chart to figure out what the zoom level should be.
+	// @todo - is there a way to do this before the diagram has loaded?
+	gantt.attachEvent("onLoadEnd", function() {
+		var earliestDate = gantt.getSubtaskDates().start_date;
+		var latestDate = gantt.getSubtaskDates().end_date;
+		// Duration in milliseconds.
+		var duration = latestDate - earliestDate;
+		var numDays = Math.floor(duration / 86400000);
+		var selectedZoom = 'years';
+		if ( numDays < 4 ) {
+			selectedZoom = 'hours';
+		} else if ( numDays < 90 ) {
+			// It's 'days' - we don't need to do anything.
+			return;
+		} else if ( numDays < 1080 ) {
+			selectedZoom = 'months';
+		}
+
+		buttonSelect.selectItemByData(selectedZoom);
+	});
 
 }( jQuery, mediaWiki, flexdiagrams ) );
