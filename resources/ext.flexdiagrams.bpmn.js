@@ -32,7 +32,7 @@
 			bpmnModeler.createDiagram();
 		} else {
 			var diagramURL = mw.config.get('wgServer') + mw.config.get('wgScript') +
-				"?title=" + pageName + "&action=raw";
+				"?title=" + encodeURIComponent(pageName) + "&action=raw";
 			$.get(diagramURL, this.openDiagram, 'text');
 		}
 

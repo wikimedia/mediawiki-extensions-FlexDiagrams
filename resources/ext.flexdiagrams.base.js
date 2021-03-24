@@ -67,7 +67,7 @@
 					if ( "error" in result ) {
 						console.error( "Error in updating page: " + result.error.info, { type: 'error' } );
 					} else {
-						var diagramURL = mw.config.get('wgServer') + mw.config.get('wgScript') + "?title=" + pageName;
+						var diagramURL = mw.config.get('wgServer') + mw.config.get('wgScript') + "?title=" + encodeURIComponent(pageName);
 						window.location.href = diagramURL;
 					}
 				},

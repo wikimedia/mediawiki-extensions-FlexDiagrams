@@ -35,7 +35,7 @@
 
 		if ( mw.config.get( 'wgArticleId' ) != 0 ) {
 			var diagramURL = mw.config.get('wgServer') + mw.config.get('wgScript') +
-				"?title=" + pageName + "&action=raw";
+				"?title=" + encodeURIComponent(pageName) + "&action=raw";
 			gantt.load(diagramURL);
 		}
 
