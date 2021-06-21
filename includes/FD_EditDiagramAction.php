@@ -13,7 +13,7 @@ use MediaWiki\MediaWikiServices;
 class FDEditDiagramAction extends Action {
 
 	/**
-	 * Return the name of the action this object responds to
+	 * Return the name of the action this object responds to.
 	 * @return String lowercase
 	 */
 	public function getName() {
@@ -37,7 +37,7 @@ class FDEditDiagramAction extends Action {
 	 * Execute the action in a silent fashion: do not display anything or
 	 * release any errors.
 	 *
-	 * @return bool whether execution was successful
+	 * @return bool Whether execution was successful
 	 */
 	public function execute() {
 		return true;
@@ -62,7 +62,15 @@ class FDEditDiagramAction extends Action {
 
 		$content_actions = &$links['views'];
 
-		$user_can_edit = $title->userCan( 'edit' );
+		if ( method_exists( 'MediaWiki\Permissions\PermissionManager', 'userCan' ) ) {
+			// MW 1.33+
+			$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+			$user = RequestContext::getMain()->getUser();
+			$user_can_edit = $permissionManager->userCan( 'edit', $user, $title );
+		} else {
+			$user_can_edit = $title->userCan( 'edit' );
+		}
+
 		// Create the form edit tab, and apply whatever changes are
 		// specified by the edit-tab global variables.
 		if ( $user_can_edit ) {
