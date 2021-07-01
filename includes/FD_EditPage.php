@@ -21,11 +21,11 @@ class FDEditPage extends EditPage {
 	}
 
 	function showStandardInputs2() {
+		$this->setContextTitle( $this->mTitle );
 		$out = $this->context->getOutput();
 		$out->enableOOUI();
 		$request = $this->context->getRequest();
 		$this->importFormData( $request );
-		$this->initialiseForm();
 		$this->showStandardInputs();
 	}
 }
