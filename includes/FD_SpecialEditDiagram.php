@@ -8,6 +8,9 @@
  * @file
  * @ingroup FlexDiagrams
  */
+
+use MediaWiki\MediaWikiServices;
+
 class FDSpecialEditDiagram extends UnlistedSpecialPage {
 
 	function __construct() {
@@ -42,7 +45,14 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 			global $wgResourceLoaderDebug;
 			$wgResourceLoaderDebug = true;
 			$out->addModules( 'ext.flexdiagrams.mermaid' );
-			$revision = Revision::newFromTitle( $title );
+			if ( method_exists( MediaWikiServices::class, 'getRevisionLookup' ) ) {
+				// MW 1.31+
+				$revision = MediaWikiServices::getInstance()
+					->getRevisionLookup()
+					->getRevisionByTitle( $title );
+			} else {
+				$revision = Revision::newFromTitle( $title );
+			}
 			if ( $revision == null ) {
 				$mermaidText = '';
 			} else {
