@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Romaine"
+		]
+	},
+	"flexdiagrams-desc": "Bewerken en aanmaken van diagrammen",
+	"editdiagram": "Bewerk diagram",
+	"flexdiagrams-edit-title": "Bewerk diagram: $1",
+	"flexdiagrams-creatediagram": "Diagram aanmaken",
+	"flexdiagrams-viewdiagram": "Diagram bekijken",
+	"flexdiagrams-edit-code": "Code:",
+	"flexdiagrams-edit-preview": "Voorvertoning:",
+	"flexdiagrams-embedding-unsupported": "Diagrampagina's kunnen niet worden ingesloten.",
+	"flexdiagrams-gantt-zoomlevel": "Zoomniveau:",
+	"flexdiagrams-gantt-hours": "Uren",
+	"flexdiagrams-gantt-days": "Dagen",
+	"flexdiagrams-gantt-months": "Maanden",
+	"flexdiagrams-gantt-years": "Jaren"
+}
