@@ -3,8 +3,10 @@
  * Content handler for Mermaid diagrams.
  */
 
-class FDMermaidContentHandler extends TextContentHandler{
-	
+use MediaWiki\Content\Renderer\ContentParseParams;
+
+class FDMermaidContentHandler extends TextContentHandler {
+
 	public function __construct( $modelId = CONTENT_MODEL_FD_MERMAID ) {
 		parent::__construct( $modelId, [ CONTENT_FORMAT_TEXT ] );
 	}
@@ -12,7 +14,7 @@ class FDMermaidContentHandler extends TextContentHandler{
 	protected function getContentClass() {
 		return FDMermaidContent::class;
 	}
-    
+
 	public function makeEmptyContent() {
 		return new FDMermaidContent('');
 	}
@@ -22,4 +24,17 @@ class FDMermaidContentHandler extends TextContentHandler{
 			'editdiagram' => FDEditDiagramAction::class
 		];
 	}
+
+	/**
+	 * Only called for MW 1.38+.
+	 */
+	protected function fillParserOutput(
+		Content $content,
+		ContentParseParams $cpoParams,
+		ParserOutput &$output
+	) {
+		$html = $content->getHtml();
+		$output->setText( $html );
+	}
+
 }
