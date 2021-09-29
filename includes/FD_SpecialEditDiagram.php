@@ -45,14 +45,9 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 			global $wgResourceLoaderDebug;
 			$wgResourceLoaderDebug = true;
 			$out->addModules( 'ext.flexdiagrams.mermaid' );
-			if ( method_exists( MediaWikiServices::class, 'getRevisionLookup' ) ) {
-				// MW 1.31+
-				$revision = MediaWikiServices::getInstance()
-					->getRevisionLookup()
-					->getRevisionByTitle( $title );
-			} else {
-				$revision = Revision::newFromTitle( $title );
-			}
+			$revision = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getRevisionByTitle( $title );
 			if ( $revision == null ) {
 				$mermaidText = '';
 			} else {
