@@ -6,6 +6,9 @@
  * @ingroup FlexDiagrams
  */
 
+use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\SlotRecord;
+
 class FDDisplayDiagram {
 
 	static $numInstances = 0;
@@ -54,8 +57,10 @@ class FDDisplayDiagram {
 			global $wgOut, $wgResourceLoaderDebug;
 			$wgResourceLoaderDebug = true;
 			$wgOut->addModules( 'ext.flexdiagrams.mermaid' );
-			$revision = Revision::newFromTitle( $diagramPage );
-			$mermaidText = $revision->getContent()->getNativeData();
+			$revisionRecord = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getRevisionByTitle( $diagramPage );
+			$mermaidText = $revisionRecord->getContent( SlotRecord::MAIN )->getNativeData();
 			$text = Html::rawElement( 'div', [
 				'class' => 'mermaid'
 			], "<nowiki>$mermaidText</nowiki>" );

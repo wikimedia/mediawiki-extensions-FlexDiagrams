@@ -10,6 +10,7 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\SlotRecord;
 
 class FDSpecialEditDiagram extends UnlistedSpecialPage {
 
@@ -45,13 +46,13 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 			global $wgResourceLoaderDebug;
 			$wgResourceLoaderDebug = true;
 			$out->addModules( 'ext.flexdiagrams.mermaid' );
-			$revision = MediaWikiServices::getInstance()
+			$revisionRecord = MediaWikiServices::getInstance()
 				->getRevisionLookup()
 				->getRevisionByTitle( $title );
-			if ( $revision == null ) {
+			if ( $revisionRecord == null ) {
 				$mermaidText = '';
 			} else {
-				$mermaidText = $revision->getContent()->getNativeData();
+				$mermaidText = $revisionRecord->getContent( SlotRecord::MAIN )->getNativeData();
 			}
 			$codeMsg = $this->msg( 'flexdiagrams-edit-code' )->parse();
 			$previewMsg = $this->msg( 'flexdiagrams-edit-preview' )->parse();
