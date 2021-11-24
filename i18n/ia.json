@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"flexdiagrams-desc": "Modification e creation de diagrammas",
+	"editdiagram": "Modificar diagramma",
+	"flexdiagrams-edit-title": "Modificar diagramma: $1",
+	"flexdiagrams-creatediagram": "Crear diagramma",
+	"flexdiagrams-viewdiagram": "Vider diagramma",
+	"flexdiagrams-edit-code": "Codice:",
+	"flexdiagrams-edit-preview": "Previsualisation:",
+	"flexdiagrams-embedding-unsupported": "Paginas de diagramma non pote esser incastrate.",
+	"flexdiagrams-gantt-zoomlevel": "Nivello de zoom:",
+	"flexdiagrams-gantt-hours": "Horas",
+	"flexdiagrams-gantt-days": "Dies",
+	"flexdiagrams-gantt-months": "Menses",
+	"flexdiagrams-gantt-years": "Annos"
+}
