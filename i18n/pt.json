@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu"
+		]
+	},
+	"flexdiagrams-desc": "Edição e criação de diagramas",
+	"editdiagram": "Editar diagrama",
+	"flexdiagrams-edit-title": "Editar diagrama: $1",
+	"flexdiagrams-creatediagram": "Criar diagrama",
+	"flexdiagrams-viewdiagram": "Ver diagrama",
+	"flexdiagrams-edit-code": "Código:",
+	"flexdiagrams-edit-preview": "Antevisão:"
+}

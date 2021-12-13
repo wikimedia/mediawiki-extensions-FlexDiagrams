@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Romaine"
+		]
+	},
+	"flexdiagrams-desc": "Bewerken en aanmaken van diagrammen",
+	"editdiagram": "Bewerk diagram",
+	"flexdiagrams-edit-title": "Bewerk diagram: $1",
+	"flexdiagrams-creatediagram": "Diagram aanmaken",
+	"flexdiagrams-viewdiagram": "Diagram bekijken",
+	"flexdiagrams-edit-code": "Code:",
+	"flexdiagrams-edit-preview": "Voorvertoning:"
+}

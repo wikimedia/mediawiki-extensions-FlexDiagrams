@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"DDPAT"
+		]
+	},
+	"flexdiagrams-desc": "Редагування та створення діаграм",
+	"editdiagram": "Редагувати діаграму",
+	"flexdiagrams-edit-title": "Редагування діаграми: $1",
+	"flexdiagrams-creatediagram": "Створити діаграму",
+	"flexdiagrams-viewdiagram": "Переглянути діаграму",
+	"flexdiagrams-edit-code": "Код:",
+	"flexdiagrams-edit-preview": "Попередній перегляд:"
+}

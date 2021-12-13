@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido",
+			"ZealousBlaze"
+		]
+	},
+	"flexdiagrams-desc": "Edición y creación de diagramas",
+	"editdiagram": "Editar diagrama",
+	"flexdiagrams-creatediagram": "Crear diagrama",
+	"flexdiagrams-viewdiagram": "Ver diagrama",
+	"flexdiagrams-edit-code": "Código:",
+	"flexdiagrams-edit-preview": "Previsualización:"
+}

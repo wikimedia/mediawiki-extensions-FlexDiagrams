@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Gomoko",
+			"Verdy p"
+		]
+	},
+	"flexdiagrams-desc": "Modification et création de diagrammes",
+	"editdiagram": "Modifier le diagramme",
+	"flexdiagrams-edit-title": "Modifier le diagramme : $1",
+	"flexdiagrams-creatediagram": "Créer le diagramme",
+	"flexdiagrams-viewdiagram": "Afficher le diagramme",
+	"flexdiagrams-edit-code": "Code :",
+	"flexdiagrams-edit-preview": "Aperçu :"
+}

@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"flexdiagrams-creatediagram": "Opret diagram",
+	"flexdiagrams-viewdiagram": "Vis diagram",
+	"flexdiagrams-edit-code": "Kode:",
+	"flexdiagrams-edit-preview": "Forhåndsvisning:"
+}

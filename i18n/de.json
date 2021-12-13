@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"flexdiagrams-desc": "Editieren und Erstellen von Diagrammen",
+	"editdiagram": "Diagramm bearbeiten",
+	"flexdiagrams-edit-title": "Diagramm bearbeiten: $1",
+	"flexdiagrams-creatediagram": "Diagramm erstellen",
+	"flexdiagrams-viewdiagram": "Diagramm anzeigen",
+	"flexdiagrams-edit-code": "Code:",
+	"flexdiagrams-edit-preview": "Vorschau:"
+}

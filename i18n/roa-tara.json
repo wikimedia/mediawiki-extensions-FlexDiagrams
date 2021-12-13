@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"flexdiagrams-desc": "Cangiamende e ccrejazione de diagramme",
+	"editdiagram": "Cange 'u diagramme",
+	"flexdiagrams-edit-title": "Cange 'u diagramme: $1",
+	"flexdiagrams-creatediagram": "Ccreje 'nu diagramme",
+	"flexdiagrams-viewdiagram": "'Ndruche 'u diagramme",
+	"flexdiagrams-edit-code": "Codece:",
+	"flexdiagrams-edit-preview": "Andeprime:"
+}

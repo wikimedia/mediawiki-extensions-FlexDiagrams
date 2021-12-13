@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hanna Tardos"
+		]
+	},
+	"flexdiagrams-desc": "Ábrák létrehozása és szerkesztése",
+	"editdiagram": "Ábra szerkesztése",
+	"flexdiagrams-edit-title": "Ábra szerkesztése: $1",
+	"flexdiagrams-creatediagram": "Ábra létrehozása",
+	"flexdiagrams-viewdiagram": "Ábra megtekintése",
+	"flexdiagrams-edit-code": "Kód:",
+	"flexdiagrams-edit-preview": "Előnézet:"
+}

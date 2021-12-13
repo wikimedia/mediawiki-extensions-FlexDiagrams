@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"flexdiagrams-desc": "Уредување и создавање на дијаграми",
+	"editdiagram": "Уреди дијаграм",
+	"flexdiagrams-edit-title": "Уреди дијаграм: $1",
+	"flexdiagrams-creatediagram": "Создај дијаграм",
+	"flexdiagrams-viewdiagram": "Погл. дијаграм",
+	"flexdiagrams-edit-code": "Код:",
+	"flexdiagrams-edit-preview": "Преглед:"
+}

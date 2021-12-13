@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"ישראל קלר"
+		]
+	},
+	"editdiagram": "עריכת דיאגרמה",
+	"flexdiagrams-edit-title": "ערוך דיאגרמה: $1",
+	"flexdiagrams-edit-code": "קוד:",
+	"flexdiagrams-edit-preview": "תצוגה מקדימה:"
+}
