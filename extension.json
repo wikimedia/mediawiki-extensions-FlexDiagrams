@@ -48,6 +48,19 @@
 			"constant": "FD_NS_MERMAID_TALK",
 			"name": "Mermaid_talk",
 			"conditional": true
+		},
+		{
+			"id": 746,
+			"constant": "FD_NS_DRAWIO",
+			"name": "Drawio",
+			"conditional": true,
+			"defaultcontentmodel": "flexdiagrams-drawio"
+		},
+		{
+			"id": 747,
+			"constant": "FD_NS_DRAWIO_TALK",
+			"name": "Drawio_talk",
+			"conditional": true
 		}
 	],
 	"requires": {
@@ -60,6 +73,7 @@
 	"ContentHandlers": {
 		"flexdiagrams-bpmn": "FDBPMNContentHandler",
 		"flexdiagrams-gantt": "FDGanttContentHandler",
+		"flexdiagrams-drawio": "FDDrawioContentHandler",
 		"flexdiagrams-mermaid": "FDMermaidContentHandler"
 	},
 	"SpecialPages": {
@@ -83,6 +97,8 @@
 		"FDSpecialEditDiagram": "includes/FD_SpecialEditDiagram.php",
 		"FDGanttContent": "includes/FD_GanttContent.php",
 		"FDGanttContentHandler": "includes/FD_GanttContentHandler.php",
+		"FDDrawioContent": "includes/FD_DrawioContent.php",
+		"FDDrawioContentHandler": "includes/FD_DrawioContentHandler.php",
 		"FDBPMNContent": "includes/FD_BPMNContent.php",
 		"FDBPMNContentHandler": "includes/FD_BPMNContentHandler.php",
 		"FDMermaidContent": "includes/FD_MermaidContent.php",
@@ -138,6 +154,21 @@
 				"flexdiagrams-gantt-years"
 			]
 		},
+		"ext.flexdiagrams.drawio": {
+			"scripts": [
+				"resources/ext.flexdiagrams.drawio.js"
+			],
+			"styles": [
+				"resources/FD_Drawio.css"
+			],
+			"dependencies": [
+				"ext.flexdiagrams",
+				"oojs-ui-widgets"
+			],
+			"messages": [
+				"flexdiagrams-drawio-saveinfo"
+			]
+		},
 		"ext.flexdiagrams.mermaid": {
 			"scripts": [
 				"resources/mermaid.min.js",
@@ -181,7 +212,7 @@
 	},
 	"config": {
 		"FlexDiagramsEnabledFormats": {
-			"value": [ 740, 742, 744 ]
+			"value": [ 740, 742, 744, 746 ]
 		}
 	},
 	"manifest_version": 2

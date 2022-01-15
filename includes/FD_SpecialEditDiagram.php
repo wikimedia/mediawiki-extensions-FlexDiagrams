@@ -42,6 +42,10 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 		} elseif ( $title->getNamespace() == FD_NS_GANTT ) {
 			$out->addModules( 'ext.flexdiagrams.gantt' );
 			$text = '<div id="canvas"></div>' . "\n";
+		} elseif ( $title->getNamespace() == FD_NS_DRAWIO ) {
+			$out->addModules( 'ext.flexdiagrams.drawio' );
+			$text = '<div id="canvas"></div>' . "\n";
+
 		} elseif ( $title->getNamespace() == FD_NS_MERMAID ) {
 			global $wgResourceLoaderDebug;
 			$wgResourceLoaderDebug = true;

@@ -17,6 +17,8 @@ $namespaceNames['en'] = [
 	FD_NS_BPMN_TALK  => 'BPMN_talk',
 	FD_NS_GANTT      => 'Gantt',
 	FD_NS_GANTT_TALK => 'Gantt_talk',
+	FD_NS_DRAWIO      => 'Drawio',
+	FD_NS_DRAWIO_TALK => 'Drawio_talk',
 	FD_NS_MERMAID      => 'Mermaid',
 	FD_NS_MERMAID_TALK => 'Mermaid_talk'
 ];

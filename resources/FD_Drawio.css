@@ -1,0 +1,23 @@
+iframe {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80vh;
+}
+
+.DrawioEditorOverlay {
+  background-color: rgba(1, 1, 1, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.DrawioEditorInfoBox {
+  border: 2px dotted black;
+  text-align:center;
+  margin: 5px 0px 20px 0px;
+  padding:5px;
+}

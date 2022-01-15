@@ -13,6 +13,7 @@ class FDHooks {
 	public static function registerExtension() {
 		define( 'CONTENT_MODEL_FD_BPMN', 'flexdiagrams-bpmn' );
 		define( 'CONTENT_MODEL_FD_GANTT', 'flexdiagrams-gantt' );
+		define( 'CONTENT_MODEL_FD_DRAWIO', 'flexdiagrams-drawio' );
 		define( 'CONTENT_MODEL_FD_MERMAID', 'flexdiagrams-mermaid' );
 	}
 
@@ -37,11 +38,17 @@ class FDHooks {
 			define( 'FD_NS_MERMAID', 744 );
 			define( 'FD_NS_MERMAID_TALK', 745 );
 		}
+		if ( !defined( 'FD_NS_DRAWIO' ) ) {
+			define( 'FD_NS_DRAWIO', 746 );
+			define( 'FD_NS_DRAWIO_TALK', 747 );
+		}
 
 		$list[FD_NS_BPMN] = 'BPMN';
 		$list[FD_NS_BPMN_TALK] = 'BPMN_talk';
 		$list[FD_NS_GANTT] = 'Gantt';
 		$list[FD_NS_GANTT_TALK] = 'Gantt_talk';
+		$list[FD_NS_DRAWIO] = 'Drawio';
+		$list[FD_NS_DRAWIO_TALK] = 'Drawio_talk';
 		$list[FD_NS_MERMAID] = 'Mermaid';
 		$list[FD_NS_MERMAID_TALK] = 'Mermaid_talk';
 
