@@ -16,7 +16,7 @@ class FDBPMNContentHandler extends TextContentHandler {
 	}
 
 	public function makeEmptyContent() {
-		return new FDBPMNContent('');
+		return new FDBPMNContent( '' );
 	}
 
 	public function getActionOverrides() {

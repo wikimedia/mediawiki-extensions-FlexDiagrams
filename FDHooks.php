@@ -102,7 +102,8 @@ class FDHooks {
 	 * @param bool &$ret
 	 * @return true
 	 */
-	static function linkToEditDiagramAction( MediaWiki\Linker\LinkRenderer $linkRenderer, $target, $isKnown, &$text, &$attribs, &$ret ) {
+	static function linkToEditDiagramAction( MediaWiki\Linker\LinkRenderer $linkRenderer, $target, $isKnown,
+		&$text, &$attribs, &$ret ) {
 		global $wgFlexDiagramsEnabledFormats;
 
 		// If it's not a broken (red) link, exit.

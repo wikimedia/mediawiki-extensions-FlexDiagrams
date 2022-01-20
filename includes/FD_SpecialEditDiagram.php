@@ -60,7 +60,7 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 			}
 			$codeMsg = $this->msg( 'flexdiagrams-edit-code' )->parse();
 			$previewMsg = $this->msg( 'flexdiagrams-edit-preview' )->parse();
-			$text =<<<END
+			$text = <<<END
 	<div class="mermaidEditPane">
 	<div class="mermaidCodePane">
 	<h3>$codeMsg</h3>

@@ -5,7 +5,7 @@
 
 class FDBPMNContent extends TextContent {
 
-	public function __construct( $text ,$modelId = CONTENT_MODEL_FD_BPMN ) {
+	public function __construct( $text, $modelId = CONTENT_MODEL_FD_BPMN ) {
 		parent::__construct( $text, $modelId );
 	}
 
@@ -20,7 +20,7 @@ class FDBPMNContent extends TextContent {
 		$wgOut->addModules( 'ext.flexdiagrams.bpmn.viewer' );
 		$text = Html::element( 'div', [
 			'id' => 'canvas',
-		],'' );
+		], '' );
 		$text .= Html::element( 'pre', [], $this->mText );
 		return $text;
 	}

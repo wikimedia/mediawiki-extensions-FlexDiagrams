@@ -16,7 +16,7 @@ class FDDrawioContentHandler extends TextContentHandler {
 	}
 
 	public function makeEmptyContent() {
-		return new FDDrawioContent('');
+		return new FDDrawioContent( '' );
 	}
 
 	public function getActionOverrides() {

@@ -16,7 +16,7 @@ class FDMermaidContentHandler extends TextContentHandler {
 	}
 
 	public function makeEmptyContent() {
-		return new FDMermaidContent('');
+		return new FDMermaidContent( '' );
 	}
 
 	public function getActionOverrides() {

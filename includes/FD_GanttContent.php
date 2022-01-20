@@ -5,7 +5,7 @@
 
 class FDGanttContent extends TextContent {
 
-	public function __construct( $text ,$modelId = CONTENT_MODEL_FD_GANTT ) {
+	public function __construct( $text, $modelId = CONTENT_MODEL_FD_GANTT ) {
 		parent::__construct( $text, $modelId );
 	}
 
@@ -18,7 +18,7 @@ class FDGanttContent extends TextContent {
 		$text .= Html::element( 'pre', [], $this->mText );
 		return $text;
 	}
-	
+
 	/**
 	 * @return string The wikitext to include when another page includes this
 	 * content, or false if the content is not includable in a wikitext page.

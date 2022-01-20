@@ -14,7 +14,7 @@ class FDEditDiagramAction extends Action {
 
 	/**
 	 * Return the name of the action this object responds to.
-	 * @return String lowercase
+	 * @return string lowercase
 	 */
 	public function getName() {
 		return 'editdiagram';
@@ -106,7 +106,7 @@ class FDEditDiagramAction extends Action {
 		// view source tab, set the location index to -1, so the
 		// tab shows up near the end.
 		if ( $edit_tab_location == null ) {
-			$edit_tab_location = - 1;
+			$edit_tab_location = -1;
 		}
 		array_splice( $tab_keys, $edit_tab_location, 0, 'editdiagram' );
 		array_splice( $tab_values, $edit_tab_location, 0, [ $diagram_edit_tab ] );
@@ -115,13 +115,14 @@ class FDEditDiagramAction extends Action {
 			$content_actions[$key] = $tab_values[$i];
 		}
 
-		if ( ! $obj->getUser()->isAllowed( 'viewedittab' ) ) {
+		if ( !$obj->getUser()->isAllowed( 'viewedittab' ) ) {
 			// The tab can have either of these two actions.
 			unset( $content_actions['edit'] );
 			unset( $content_actions['viewsource'] );
 		}
 
-		return true; // always return true, in order not to stop MW's hook processing!
+		// always return true, in order not to stop MW's hook processing!
+		return true;
 	}
 
 }

@@ -11,7 +11,8 @@ use MediaWiki\Revision\SlotRecord;
 
 class FDDisplayDiagram {
 
-	static $numInstances = 0;
+	/** @var int The number of instances of #display_diagram on this page */
+	private static $numInstances = 0;
 
 	/**
 	 * Handles the #display_diagram parser function - displays the
@@ -22,7 +23,8 @@ class FDDisplayDiagram {
 	 */
 	public static function run( &$parser ) {
 		$params = func_get_args();
-		array_shift( $params ); // we already know the $parser...
+		// we already know the $parser...
+		array_shift( $params );
 
 		$parser->getOutput()->updateCacheExpiry( 0 );
 
@@ -36,7 +38,8 @@ class FDDisplayDiagram {
 		if ( $diagramPage->getNamespace() == FD_NS_BPMN || $diagramPage->getNamespace() == FD_NS_GANTT
 		|| $diagramPage->getNamespace() == FD_NS_DRAWIO ) {
 			if ( self::$numInstances++ > 0 ) {
-				return '<div class="error">Due to current limitations, #display_diagram can only be called once per page on any BPMN or Gantt diagram.</div>';
+				return '<div class="error">Due to current limitations, #display_diagram can only ' .
+					'be called once per page on any BPMN or Gantt diagram.</div>';
 			}
 		}
 

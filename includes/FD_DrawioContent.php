@@ -5,7 +5,7 @@
 
 class FDDrawioContent extends TextContent {
 
-	public function __construct( $text ,$modelId = CONTENT_MODEL_FD_DRAWIO ) {
+	public function __construct( $text, $modelId = CONTENT_MODEL_FD_DRAWIO ) {
 		parent::__construct( $text, $modelId );
 	}
 
@@ -15,7 +15,7 @@ class FDDrawioContent extends TextContent {
 		$wgOut->addModules( 'ext.flexdiagrams.drawio' );
 		$text = Html::element( 'div', [
 			'id' => 'canvas',
-		],'' );
+		], '' );
 		$text .= Html::element( 'pre', [], $this->mText );
 		return $text;
 	}

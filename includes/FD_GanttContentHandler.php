@@ -16,7 +16,7 @@ class FDGanttContentHandler extends TextContentHandler {
 	}
 
 	public function makeEmptyContent() {
-		return new FDGanttContent('');
+		return new FDGanttContent( '' );
 	}
 
 	public function getActionOverrides() {
