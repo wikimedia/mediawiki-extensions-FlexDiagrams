@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"GraceL",
 			"Si109"
 		]
 	},
+	"flexdiagrams-drawio-saveinfo": "请在点击$1按钮前保存编辑图像",
 	"flexdiagrams-gantt-hours": "小时",
 	"flexdiagrams-gantt-days": "天",
 	"flexdiagrams-gantt-months": "月",
