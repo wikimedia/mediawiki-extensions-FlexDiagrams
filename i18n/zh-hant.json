@@ -9,6 +9,7 @@
 	"flexdiagrams-edit-title": "編輯圖表：$1",
 	"flexdiagrams-creatediagram": "建立圖表",
 	"flexdiagrams-viewdiagram": "查看圖表",
+	"flexdiagrams-drawio-saveinfo": "請在按下「$1」按鈕前，儲存在編輯介面的圖表。",
 	"flexdiagrams-edit-code": "代碼：",
 	"flexdiagrams-edit-preview": "預覽：",
 	"flexdiagrams-embedding-unsupported": "圖表頁面無法內嵌。",
