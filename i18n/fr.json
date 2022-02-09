@@ -10,7 +10,7 @@
 	"flexdiagrams-edit-title": "Modifier le diagramme : $1",
 	"flexdiagrams-creatediagram": "Créer le diagramme",
 	"flexdiagrams-viewdiagram": "Afficher le diagramme",
-	"flexdiagrams-drawio-saveinfo": "Veuillez enregistrer le diagramme dans l’interface d’édition avant de presser le bouton « $1 ».",
+	"flexdiagrams-drawio-saveinfo": "Veuillez enregistrer le diagramme dans l’interface de modification avant de presser le bouton « $1 ».",
 	"flexdiagrams-edit-code": "Code :",
 	"flexdiagrams-edit-preview": "Aperçu :",
 	"flexdiagrams-embedding-unsupported": "Les pages de diagramme ne peuvent pas être incluses.",
