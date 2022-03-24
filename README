@@ -1,6 +1,6 @@
 Flex Diagrams Extension
 
-        Version 0.3
+        Version 0.4
         Yaron Koren and Sahaj Khandelwal
 
 This is free software licensed under the GNU General Public License. Please
@@ -11,8 +11,11 @@ full text and terms of the license.
 
 Flex Diagrams is an extension to MediaWiki that lets users create and edit
 diagrams in different formats. Each format gets its own namespace. Current
-supported formats are BPMN XML (using the bpmn-js library), Gantt JSON (using
-the dhtmlxGantt library), and the Mermaid syntax (using the Mermaidlibrary).
+supported formats are:
+* BPMN XML (using the bpmn-js library)
+* Gantt JSON (using the dhtmlxGantt library)
+* the Mermaid syntax (using the Mermaid library)
+* drawio/diagrams.net (using the diagrams.net service)
 
 For more information, see the extension homepage at:
 https://www.mediawiki.org/wiki/Extension:Flex_Diagrams
