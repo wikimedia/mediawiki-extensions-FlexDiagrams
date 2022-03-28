@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Ajam",
+			"Beginneruser",
 			"Jeeputer"
 		]
 	},
 	"editdiagram": "ویرایش نمودار",
-	"flexdiagrams-creatediagram": "ساخت نمودار",
+	"flexdiagrams-creatediagram": "ایجاد نمودار",
 	"flexdiagrams-viewdiagram": "نمایش نمودار",
 	"flexdiagrams-edit-code": "کد:",
 	"flexdiagrams-edit-preview": "پیش‌نمایش:",
