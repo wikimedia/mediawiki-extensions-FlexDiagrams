@@ -45260,7 +45260,7 @@
 	    return;
 	  }
 
-	  // data stores in collaborations are handled seperately by DataStoreBehavior
+	  // data stores in collaborations are handled separately by DataStoreBehavior
 	  if (is$1(element, 'bpmn:DataStoreReference') &&
 	      element.parent &&
 	      is$1(element.parent, 'bpmn:Collaboration')) {
@@ -48398,7 +48398,7 @@
 
 	  return reduce(propertyNames, function(result, key) {
 
-	    // handle DI seperately
+	    // handle DI separately
 	    if (key !== DI) {
 	      result[key] = businessObject.get(key);
 	    } else {
