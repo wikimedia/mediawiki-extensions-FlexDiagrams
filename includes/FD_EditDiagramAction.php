@@ -62,18 +62,12 @@ class FDEditDiagramAction extends Action {
 
 		$content_actions = &$links['views'];
 
-		if ( method_exists( 'MediaWiki\Permissions\PermissionManager', 'userCan' ) ) {
-			// MW 1.33+
-			$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
-			$user = RequestContext::getMain()->getUser();
-			$user_can_edit = $permissionManager->userCan( 'edit', $user, $title );
-		} else {
-			$user_can_edit = $title->userCan( 'edit' );
-		}
+		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+		$user = RequestContext::getMain()->getUser();
 
 		// Create the form edit tab, and apply whatever changes are
 		// specified by the edit-tab global variables.
-		if ( $user_can_edit ) {
+		if ( $permissionManager->userCan( 'edit', $user, $title ) ) {
 			$diagram_edit_tab_msg = $title->exists() ? 'editdiagram' : 'flexdiagrams-creatediagram';
 		} else {
 			$diagram_edit_tab_msg = 'flexdiagrams-viewdiagram';
