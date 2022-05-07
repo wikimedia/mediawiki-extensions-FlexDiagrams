@@ -2546,7 +2546,7 @@
 
 
 	/**
-	 * Gets the the closure for all selected elements,
+	 * Gets the closure for all selected elements,
 	 * their enclosed children and connections.
 	 *
 	 * @param {Array<djs.model.Base>} elements
