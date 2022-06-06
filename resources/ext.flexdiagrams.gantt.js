@@ -28,6 +28,13 @@
 	gantt_proto.initialize = function() {
 		if ( mw.config.get( 'wgAction' ) != 'editdiagram' ) {
 			gantt.config.readonly = true;
+
+			// Remove the 'add'/'+' column.
+			for ( var i = gantt.config.columns.length - 1; i >= 0; i-- ) {
+				if ( gantt.config.columns[i].name == 'add' ) {
+					gantt.config.columns.splice( i, 1 );
+				}
+			}
 		}
 
 		// modeler instance
