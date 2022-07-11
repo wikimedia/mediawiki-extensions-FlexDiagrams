@@ -203,7 +203,7 @@
 		"remoteExtPath": "FlexDiagrams"
 	},
 	"Hooks": {
-		"SkinTemplateNavigation": "FDEditDiagramAction::displayTab",
+		"SkinTemplateNavigation::Universal": "FDEditDiagramAction::displayTab",
 		"ParserFirstCallInit": "FDHooks::registerParserFunctions",
 		"MakeGlobalVariablesScript": "FDHooks::setGlobalJSVariables",
 		"CanonicalNamespaces": "FDHooks::registerNamespaces",
