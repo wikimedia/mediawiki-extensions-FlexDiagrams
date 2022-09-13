@@ -12,6 +12,39 @@
 
 $namespaceNames = [];
 
+// For wikis where the FlexDiagrams extension is not installed.
+if ( !defined( 'FD_NS_BPMN' ) ) {
+	define( 'FD_NS_BPMN', 740 );
+}
+
+if ( !defined( 'FD_NS_BPMN_TALK' ) ) {
+	define( 'FD_NS_BPMN_TALK', 741 );
+}
+
+if ( !defined( 'FD_NS_GANTT' ) ) {
+	define( 'FD_NS_GANTT', 742 );
+}
+
+if ( !defined( 'FD_NS_GANTT_TALK' ) ) {
+	define( 'FD_NS_GANTT_TALK', 743 );
+}
+
+if ( !defined( 'FD_NS_MERMAID' ) ) {
+	define( 'FD_NS_MERMAID', 744 );
+}
+
+if ( !defined( 'FD_NS_MERMAID_TALK' ) ) {
+	define( 'FD_NS_MERMAID_TALK', 745 );
+}
+
+if ( !defined( 'FD_NS_DRAWIO' ) ) {
+	define( 'FD_NS_DRAWIO', 746 );
+}
+
+if ( !defined( 'FD_NS_DRAWIO_TALK' ) ) {
+	define( 'FD_NS_DRAWIO_TALK', 747 );
+}
+
 $namespaceNames['en'] = [
 	FD_NS_BPMN       => 'BPMN',
 	FD_NS_BPMN_TALK  => 'BPMN_talk',
