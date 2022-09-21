@@ -9,7 +9,13 @@
 	"flexdiagrams-edit-title": "Editar diagrama: $1",
 	"flexdiagrams-creatediagram": "Criar diagrama",
 	"flexdiagrams-viewdiagram": "Ver diagrama",
+	"flexdiagrams-drawio-saveinfo": "Grave o diagrama na interface de edição antes de pressionar o botão \"$1\", por favor.",
 	"flexdiagrams-edit-code": "Código:",
 	"flexdiagrams-edit-preview": "Antevisão:",
-	"flexdiagrams-embedding-unsupported": "As páginas com diagramas não podem ser incorporadas."
+	"flexdiagrams-embedding-unsupported": "As páginas com diagramas não podem ser incorporadas.",
+	"flexdiagrams-gantt-zoomlevel": "Nível de aproximação:",
+	"flexdiagrams-gantt-hours": "Horas",
+	"flexdiagrams-gantt-days": "Dias",
+	"flexdiagrams-gantt-months": "Meses",
+	"flexdiagrams-gantt-years": "Anos"
 }
