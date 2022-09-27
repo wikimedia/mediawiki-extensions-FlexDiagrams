@@ -11,5 +11,10 @@
 	"flexdiagrams-viewdiagram": "Ver diagrama",
 	"flexdiagrams-edit-code": "Código:",
 	"flexdiagrams-edit-preview": "Antevisão:",
-	"flexdiagrams-embedding-unsupported": "As páginas com diagramas não podem ser incorporadas."
+	"flexdiagrams-embedding-unsupported": "As páginas com diagramas não podem ser incorporadas.",
+	"flexdiagrams-gantt-zoomlevel": "Nível de aproximação:",
+	"flexdiagrams-gantt-hours": "Horas",
+	"flexdiagrams-gantt-days": "Dias",
+	"flexdiagrams-gantt-months": "Meses",
+	"flexdiagrams-gantt-years": "Anos"
 }
