@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"flexdiagrams-desc": "Urejanje in ustvarjanje diagramov",
+	"editdiagram": "Uredi diagram",
+	"flexdiagrams-edit-title": "Uredi diagram: $1",
+	"flexdiagrams-creatediagram": "Ustvari diagram",
+	"flexdiagrams-viewdiagram": "Ogled diagrama",
+	"flexdiagrams-drawio-saveinfo": "Preden pritisnete gumb »$1«, shranite diagram v vmesnik za urejanje.",
+	"flexdiagrams-edit-code": "Koda:",
+	"flexdiagrams-edit-preview": "Predogled:",
+	"flexdiagrams-embedding-unsupported": "Strani z diagrami ni mogoče vdelati.",
+	"flexdiagrams-gantt-zoomlevel": "Raven povečave:",
+	"flexdiagrams-gantt-hours": "Ure",
+	"flexdiagrams-gantt-days": "Dnevi",
+	"flexdiagrams-gantt-months": "Meseci",
+	"flexdiagrams-gantt-years": "Leta"
+}
