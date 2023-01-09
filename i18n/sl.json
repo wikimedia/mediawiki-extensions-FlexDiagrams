@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"flexdiagrams-desc": "Urejanje in ustvarjanje diagramov",
+	"editdiagram": "Uredi diagram",
+	"flexdiagrams-edit-title": "Uredi diagram: $1",
+	"flexdiagrams-creatediagram": "Ustvari diagram",
+	"flexdiagrams-viewdiagram": "Ogled diagrama",
+	"flexdiagrams-edit-code": "Koda:",
+	"flexdiagrams-edit-preview": "Predogled:"
+}
