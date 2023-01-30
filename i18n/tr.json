@@ -3,11 +3,13 @@
 		"authors": [
 			"Hedda",
 			"Joseph",
-			"MuratTheTurkish"
+			"MuratTheTurkish",
+			"Can",
+			"Rapsar"
 		]
 	},
 	"flexdiagrams-desc": "Diyagramların düzenlenmesi ve oluşturulması",
-	"editdiagram": "Diyagramı düzenle",
+	"editdiagram": "Diyagramı değiştir",
 	"flexdiagrams-edit-title": "Diyagramı düzenle: $1",
 	"flexdiagrams-creatediagram": "Diyagram oluştur",
 	"flexdiagrams-viewdiagram": "Diyagramı görüntüle",
