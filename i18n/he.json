@@ -1,11 +1,22 @@
 {
 	"@metadata": {
 		"authors": [
-			"ישראל קלר"
+			"ישראל קלר",
+			"Amire80"
 		]
 	},
+	"flexdiagrams-desc": "עריכה ויצירה של תרשימים",
 	"editdiagram": "עריכת דיאגרמה",
 	"flexdiagrams-edit-title": "ערוך דיאגרמה: $1",
+	"flexdiagrams-creatediagram": "יצירת תרשים",
+	"flexdiagrams-viewdiagram": "צפייה בתרשים",
+	"flexdiagrams-drawio-saveinfo": "נא לשמור את התרשים בממשק העריכה לפני הלחיצה על כפתור \"$1\".",
 	"flexdiagrams-edit-code": "קוד:",
-	"flexdiagrams-edit-preview": "תצוגה מקדימה:"
+	"flexdiagrams-edit-preview": "תצוגה מקדימה:",
+	"flexdiagrams-embedding-unsupported": "לא ניתן להטמיע דפי תרשים.",
+	"flexdiagrams-gantt-zoomlevel": "רמת תקריב:",
+	"flexdiagrams-gantt-hours": "שעות",
+	"flexdiagrams-gantt-days": "ימים",
+	"flexdiagrams-gantt-months": "חודשים",
+	"flexdiagrams-gantt-years": "שנים"
 }
