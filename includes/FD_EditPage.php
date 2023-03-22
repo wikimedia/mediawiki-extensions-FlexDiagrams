@@ -21,7 +21,7 @@ class FDEditPage extends EditPage {
 	}
 
 	function showStandardInputs2() {
-		$this->setContextTitle( $this->mTitle );
+		$this->setContextTitle( $this->getTitle() );
 		$out = $this->context->getOutput();
 		$out->enableOOUI();
 		$request = $this->context->getRequest();
