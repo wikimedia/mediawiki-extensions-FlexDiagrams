@@ -77,6 +77,11 @@
 					{unit: "day", step: 1, format: "%d %M"}
 				];
 				break;
+			case "weeks":
+				gantt.config.scales = [
+					{unit: "day", step: 7, format: "%d %M"}
+				];
+				break;
 			case "months":
 				gantt.config.scales = [
 					{unit: "month", step: 1, format: "%M %Y"}
@@ -91,7 +96,7 @@
 		gantt.init('canvas');
 	}
 
-	var zoomLevels = [ 'hours', 'days', 'months', 'years' ];
+	var zoomLevels = [ 'hours', 'days', 'weeks', 'months', 'years' ];
 	var zoomLevelButtons = [];
 	for ( var i = 0; i < zoomLevels.length; i++ ) {
 		var zoomLevel = zoomLevels[i];
@@ -128,10 +133,12 @@
 		var selectedZoom = 'years';
 		if ( numDays < 4 ) {
 			selectedZoom = 'hours';
-		} else if ( numDays < 90 ) {
+		} else if ( numDays < 60 ) {
 			// It's 'days' - we don't need to do anything.
 			return;
-		} else if ( numDays < 1080 ) {
+		} else if ( numDays < 400 ) {
+			selectedZoom = 'weeks';
+		} else if ( numDays < 730 ) {
 			selectedZoom = 'months';
 		}
 
