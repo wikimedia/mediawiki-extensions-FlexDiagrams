@@ -22,9 +22,9 @@ class FDEditPage extends EditPage {
 
 	function showStandardInputs2() {
 		$this->setContextTitle( $this->getTitle() );
-		$out = $this->context->getOutput();
+		$out = $this->getContext()->getOutput();
 		$out->enableOOUI();
-		$request = $this->context->getRequest();
+		$request = $this->getContext()->getRequest();
 		$this->importFormData( $request );
 		$this->showStandardInputs();
 	}
