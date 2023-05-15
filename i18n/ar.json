@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Alshamiri1"
+		]
+	},
+	"flexdiagrams-desc": "تحرير وإنشاء الرسوم البيانية",
+	"editdiagram": "تحرير الرسم التخطيطي",
+	"flexdiagrams-edit-title": "تحرير الرسم التخطيطي: $1",
+	"flexdiagrams-creatediagram": "قم بإنشاء رسم تخطيطي",
+	"flexdiagrams-viewdiagram": "عرض الرسم التخطيطي",
+	"flexdiagrams-drawio-saveinfo": "يرجى حفظ الرسم التخطيطي في واجهة التحرير قبل الضغط على زر \" $1 \".",
+	"flexdiagrams-edit-code": "شفرة:",
+	"flexdiagrams-edit-preview": "معاينة:",
+	"flexdiagrams-embedding-unsupported": "لا يمكن تضمين صفحات الرسم التخطيطي.",
+	"flexdiagrams-gantt-zoomlevel": "مستوى التكبير:",
+	"flexdiagrams-gantt-hours": "ساعات",
+	"flexdiagrams-gantt-days": "أيام",
+	"flexdiagrams-gantt-weeks": "أسابيع",
+	"flexdiagrams-gantt-months": "شهور",
+	"flexdiagrams-gantt-years": "سنوات"
+}
