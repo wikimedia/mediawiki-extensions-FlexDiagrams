@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"flexdiagrams-desc": "Diagramų redagavimas ir kūrimas",
+	"editdiagram": "Redaguoti diagramą",
+	"flexdiagrams-edit-title": "Redaguoti diagramą: $1",
+	"flexdiagrams-creatediagram": "Sukurti diagramą",
+	"flexdiagrams-viewdiagram": "Žiūrėti diagramą",
+	"flexdiagrams-edit-code": "Kodas:",
+	"flexdiagrams-edit-preview": "Peržiūra:"
+}
