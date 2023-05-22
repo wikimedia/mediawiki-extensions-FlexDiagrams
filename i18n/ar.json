@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Alshamiri1"
+		]
+	},
+	"flexdiagrams-desc": "تحرير وإنشاء الرسوم البيانية",
+	"editdiagram": "تحرير الرسم التخطيطي",
+	"flexdiagrams-edit-title": "تحرير الرسم التخطيطي: $1",
+	"flexdiagrams-creatediagram": "قم بإنشاء رسم تخطيطي",
+	"flexdiagrams-viewdiagram": "عرض الرسم التخطيطي",
+	"flexdiagrams-edit-code": "شفرة:",
+	"flexdiagrams-edit-preview": "معاينة:"
+}
