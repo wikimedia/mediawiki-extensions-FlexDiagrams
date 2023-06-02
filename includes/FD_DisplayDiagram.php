@@ -71,7 +71,7 @@ class FDDisplayDiagram {
 			$revisionRecord = MediaWikiServices::getInstance()
 				->getRevisionLookup()
 				->getRevisionByTitle( $diagramPage );
-			$mermaidText = $revisionRecord->getContent( SlotRecord::MAIN )->getNativeData();
+			$mermaidText = $revisionRecord->getContent( SlotRecord::MAIN )->getText();
 			$text = Html::rawElement( 'div', [
 				'class' => 'mermaid'
 			], "<nowiki>$mermaidText</nowiki>" );

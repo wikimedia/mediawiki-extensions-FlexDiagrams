@@ -56,7 +56,7 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 			if ( $revisionRecord == null ) {
 				$mermaidText = '';
 			} else {
-				$mermaidText = $revisionRecord->getContent( SlotRecord::MAIN )->getNativeData();
+				$mermaidText = $revisionRecord->getContent( SlotRecord::MAIN )->getText();
 			}
 			$codeMsg = $this->msg( 'flexdiagrams-edit-code' )->parse();
 			$previewMsg = $this->msg( 'flexdiagrams-edit-preview' )->parse();
