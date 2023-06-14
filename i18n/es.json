@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
+			"No se",
 			"ZealousBlaze"
 		]
 	},
@@ -15,6 +16,7 @@
 	"flexdiagrams-gantt-zoomlevel": "Nivel de acercamiento:",
 	"flexdiagrams-gantt-hours": "Horas",
 	"flexdiagrams-gantt-days": "Días",
+	"flexdiagrams-gantt-weeks": "Semanas",
 	"flexdiagrams-gantt-months": "Meses",
 	"flexdiagrams-gantt-years": "Años"
 }
