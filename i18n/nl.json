@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"McDutchie",
 			"Romaine"
 		]
 	},
@@ -9,12 +10,14 @@
 	"flexdiagrams-edit-title": "Bewerk diagram: $1",
 	"flexdiagrams-creatediagram": "Diagram aanmaken",
 	"flexdiagrams-viewdiagram": "Diagram bekijken",
+	"flexdiagrams-drawio-saveinfo": "Sla het diagram op in de bewerkingsinterface voordat u op de knop “$1” drukt.",
 	"flexdiagrams-edit-code": "Code:",
 	"flexdiagrams-edit-preview": "Voorvertoning:",
 	"flexdiagrams-embedding-unsupported": "Diagrampagina's kunnen niet worden ingesloten.",
 	"flexdiagrams-gantt-zoomlevel": "Zoomniveau:",
 	"flexdiagrams-gantt-hours": "Uren",
 	"flexdiagrams-gantt-days": "Dagen",
+	"flexdiagrams-gantt-weeks": "Weken",
 	"flexdiagrams-gantt-months": "Maanden",
 	"flexdiagrams-gantt-years": "Jaren"
 }
