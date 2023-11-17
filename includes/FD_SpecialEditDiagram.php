@@ -28,7 +28,7 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 		if ( $title == null ) {
 			return;
 		}
-
+		$out->addModuleStyles( 'mediawiki.action.edit.styles' );
 		$out->setPageTitle( $this->msg( 'flexdiagrams-edit-title', str_replace( '_', ' ', $pageName ) ) );
 
 		if ( $title->getNamespace() == FD_NS_BPMN ) {
