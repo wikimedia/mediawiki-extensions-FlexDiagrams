@@ -16,6 +16,9 @@ class FDEditPage extends EditPage {
 		return $buttons;
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function getCopywarn() {
 		return '';
 	}
