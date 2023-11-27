@@ -49,7 +49,6 @@ class FDEditDiagramAction extends Action {
 	 *
 	 * @param Title $obj
 	 * @param array &$links
-	 * @return true
 	 */
 	static function displayTab( $obj, &$links ) {
 		global $wgFlexDiagramsEnabledFormats;
@@ -57,7 +56,7 @@ class FDEditDiagramAction extends Action {
 		$title = $obj->getTitle();
 		if ( !isset( $title ) ||
 			( !in_array( $title->getNamespace(), $wgFlexDiagramsEnabledFormats ) ) ) {
-			return true;
+			return;
 		}
 
 		$content_actions = &$links['views'];
@@ -114,9 +113,6 @@ class FDEditDiagramAction extends Action {
 			unset( $content_actions['edit'] );
 			unset( $content_actions['viewsource'] );
 		}
-
-		// always return true, in order not to stop MW's hook processing!
-		return true;
 	}
 
 }

@@ -22,8 +22,6 @@ class FDHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/CanonicalNamespaces
 	 *
 	 * @param array &$list
-	 *
-	 * @return true
 	 */
 	public static function registerNamespaces( array &$list ) {
 		if ( !defined( 'FD_NS_BPMN' ) ) {
@@ -51,13 +49,10 @@ class FDHooks {
 		$list[FD_NS_DRAWIO_TALK] = 'Drawio_talk';
 		$list[FD_NS_MERMAID] = 'Mermaid';
 		$list[FD_NS_MERMAID_TALK] = 'Mermaid_talk';
-
-		return true;
 	}
 
 	public static function registerParserFunctions( &$parser ) {
 		$parser->setFunctionHook( 'display_diagram', [ 'FDDisplayDiagram', 'run' ] );
-		return true;
 	}
 
 	static function setGlobalJSVariables( &$vars ) {
@@ -65,8 +60,6 @@ class FDHooks {
 
 		$vars['wgServer'] = $wgServer;
 		$vars['wgScript'] = $wgScript;
-
-		return true;
 	}
 
 	public static function disableParserCache( Parser &$parser, string &$text ) {
@@ -88,7 +81,6 @@ class FDHooks {
 	 * @param string &$text
 	 * @param array &$attribs
 	 * @param bool &$ret
-	 * @return true
 	 */
 	static function linkToEditDiagramAction( MediaWiki\Linker\LinkRenderer $linkRenderer, $target, $isKnown,
 		&$text, &$attribs, &$ret ) {
@@ -96,18 +88,16 @@ class FDHooks {
 
 		// If it's not a broken (red) link, exit.
 		if ( $isKnown ) {
-			return true;
+			return;
 		}
 		$namespace = $target->getNamespace();
 		if ( !in_array( $namespace, $wgFlexDiagramsEnabledFormats ) ) {
-			return true;
+			return;
 		}
 
 		// The class of $target can be either Title or TitleValue.
 		$title = Title::newFromLinkTarget( $target );
 		$attribs['href'] = $title->getLinkURL( [ 'action' => 'editdiagram', 'redlink' => '1' ] );
-
-		return true;
 	}
 
 }
