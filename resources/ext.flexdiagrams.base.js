@@ -59,7 +59,7 @@
 		updatePageAndRedirectUser: function( pageName, newText ) {
 			// Display "loading" image - this will go away if/when
 			// the redirect happens.
-			var imagesPath = mw.config.get( 'wgScriptPath' ) + "/extensions/FlexDiagrams/images/";
+			var imagesPath = mw.config.get( 'wgScriptPath' ) + "/extensions/FlexDiagrams/resources/images/";
 			$('#bodyContent').append('<div style="position: fixed; left: 50%; top: 30%;"><img src="' + imagesPath + 'loadingbg.png" /></div>' );
 			$('#bodyContent').append('<div style="position: fixed; left: 50%; top: 30%; padding: 48px;"><img src="' + imagesPath + 'loading.gif" /></div>' );
 			$.when( this.updatePage( pageName, newText ) ).then(
