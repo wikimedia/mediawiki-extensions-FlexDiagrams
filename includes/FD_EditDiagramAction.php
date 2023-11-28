@@ -62,7 +62,7 @@ class FDEditDiagramAction extends Action {
 		$content_actions = &$links['views'];
 
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
-		$user = RequestContext::getMain()->getUser();
+		$user = $obj->getUser();
 
 		// Create the form edit tab, and apply whatever changes are
 		// specified by the edit-tab global variables.
@@ -108,7 +108,7 @@ class FDEditDiagramAction extends Action {
 			$content_actions[$key] = $tab_values[$i];
 		}
 
-		if ( !$obj->getUser()->isAllowed( 'viewedittab' ) ) {
+		if ( !$user->isAllowed( 'viewedittab' ) ) {
 			// The tab can have either of these two actions.
 			unset( $content_actions['edit'] );
 			unset( $content_actions['viewsource'] );
