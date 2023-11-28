@@ -1,8 +1,4 @@
-/*
- * ext.flexdiagrams.js
- *
- */
-
+// eslint-disable-next-line no-shadow-restricted-names
 window.flexdiagrams = ( function ( $, undefined ) {
 	'use strict';
 
@@ -11,12 +7,9 @@ window.flexdiagrams = ( function ( $, undefined ) {
 	 * namespace.
 	 *
 	 * @class fd
-	 * @alternateClassName diagrams
 	 * @singleton
 	 */
-	return {
-
-	};
+	return {};
 }( jQuery ) );
 
 // Assigning namespace.

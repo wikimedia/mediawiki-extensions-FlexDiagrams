@@ -4,6 +4,7 @@ module.exports = function ( grunt ) {
 
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-eslint' );
+	grunt.loadNpmTasks( 'grunt-stylelint' );
 
 	grunt.initConfig( {
 		banana: conf.MessagesDirs,
@@ -12,13 +13,27 @@ module.exports = function ( grunt ) {
 				cache: true
 			},
 			all: [
-				'**/*.json',
+				'**/*.{js,json}',
+				// Disabled because of "Parsing error: Unexpected token of" error
+				'!resources/ext.flexdiagrams.bpmn.js',
+				'!resources/mermaid.min.js',
+				'!resources/bpmn-js/**',
+				'!resources/dhtmlxgantt/**',
+				'!node_modules/**',
+				'!vendor/**'
+			]
+		},
+		stylelint: {
+			all: [
+				'**/*.{css,less}',
+				'!resources/bpmn-js/**',
+				'!resources/dhtmlxgantt/**',
 				'!node_modules/**',
 				'!vendor/**'
 			]
 		}
 	} );
 
-	grunt.registerTask( 'test', [ 'eslint', 'banana' ] );
+	grunt.registerTask( 'test', [ 'eslint', 'banana', 'stylelint' ] );
 	grunt.registerTask( 'default', 'test' );
 };

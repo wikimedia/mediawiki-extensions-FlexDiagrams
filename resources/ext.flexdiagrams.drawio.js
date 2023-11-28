@@ -21,8 +21,7 @@
 	 * @class
 	 * @constructor
 	 */
-	fd.drawio = function () {
-	};
+	fd.drawio = function () {};
 
 	var drawio_proto = new fd.base();
 
@@ -66,12 +65,12 @@
 							} ), '*' );
 					}
 				} else if ( msg.event === 'export' ) {
-					var data = ( msg.data.substring( 0, 5 ) === 'data:' ) ?
-						msg.data.substring( msg.data.indexOf( ',' ) + 1 ) :
+					var data = ( msg.data.slice( 0, 5 ) === 'data:' ) ?
+						msg.data.slice( Math.max( 0, msg.data.indexOf( ',' ) + 1 ) ) :
 						btoa( msg.data );
 				} else if ( msg.event === 'save' ) {
 					if ( ( /\.(png|svg|html)$/i ).test( path ) ) {
-						var ext = path.substring( path.lastIndexOf( '.' ) + 1 );
+						var ext = path.slice( Math.max( 0, path.lastIndexOf( '.' ) + 1 ) );
 
 						// Additional export step required for PNG, SVG and HTML
 						$iframe[ 0 ].contentWindow.postMessage( JSON.stringify(

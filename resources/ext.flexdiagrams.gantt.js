@@ -5,7 +5,7 @@
  *
  */
 
-( function( $, mw, dg ) {
+( function ( $, mw, dg ) {
 	'use strict';
 
 	/**
@@ -20,116 +20,118 @@
 	 * @class
 	 * @constructor
 	 */
-	dg.gantt = function() {
+	dg.gantt = function () {
 	};
 
 	var gantt_proto = new dg.base();
 
-	gantt_proto.initialize = function() {
+	gantt_proto.initialize = function () {
 		if ( mw.config.get( 'wgAction' ) != 'editdiagram' ) {
 			gantt.config.readonly = true;
 
 			// Remove the 'add'/'+' column.
+			// eslint-disable-next-line no-shadow
 			for ( var i = gantt.config.columns.length - 1; i >= 0; i-- ) {
-				if ( gantt.config.columns[i].name == 'add' ) {
+				if ( gantt.config.columns[ i ].name == 'add' ) {
 					gantt.config.columns.splice( i, 1 );
 				}
 			}
 		}
 
 		// modeler instance
-		gantt.init('canvas');
+		gantt.init( 'canvas' );
 
 		if ( mw.config.get( 'wgArticleId' ) != 0 ) {
-			var diagramURL = mw.config.get('wgServer') + mw.config.get('wgScript') +
-				"?title=" + encodeURIComponent(pageName) + "&action=raw";
-			gantt.load(diagramURL);
+			var diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
+				'?title=' + encodeURIComponent( pageName ) + '&action=raw';
+			gantt.load( diagramURL );
 		}
 
 		this.enableSave( this );
 	};
 
-	gantt_proto.exportDiagram = function() {
-		var jsonText = JSON.stringify(gantt.serialize());
+	gantt_proto.exportDiagram = function () {
+		var jsonText = JSON.stringify( gantt.serialize() );
 		this.updatePageAndRedirectUser( pageName, jsonText );
-	}
+	};
 
 	dg.gantt.prototype = gantt_proto;
 
-	var pageName = $('#canvas').attr('data-wiki-page');
+	var pageName = $( '#canvas' ).attr( 'data-wiki-page' );
 	if ( pageName == null ) {
-		pageName = mw.config.get('wgPageName');
+		pageName = mw.config.get( 'wgPageName' );
 	}
 
 	var ganttHandler = new dg.gantt();
 	ganttHandler.initialize();
 
 	function setGanttZoom( evt ) {
-		switch (evt.data) {
-			case "hours":
+		switch ( evt.data ) {
+			case 'hours':
 				gantt.config.scales = [
-					{unit: "day", step: 1, format: "%d %F"},
-					{unit: "hour", step: 1, format: "%h"}
+					{ unit: 'day', step: 1, format: '%d %F' },
+					{ unit: 'hour', step: 1, format: '%h' }
 				];
 				break;
-			case "days":
+			case 'days':
 				gantt.config.scales = [
-					{unit: "day", step: 1, format: "%d %M"}
+					{ unit: 'day', step: 1, format: '%d %M' }
 				];
 				break;
-			case "weeks":
+			case 'weeks':
 				gantt.config.scales = [
-					{unit: "day", step: 7, format: "%d %M"}
+					{ unit: 'day', step: 7, format: '%d %M' }
 				];
 				break;
-			case "months":
+			case 'months':
 				gantt.config.scales = [
-					{unit: "month", step: 1, format: "%M %Y"}
+					{ unit: 'month', step: 1, format: '%M %Y' }
 				];
 				break;
-			case "years":
+			case 'years':
 				gantt.config.scales = [
-					{unit: "year", step: 1, format: "%Y"}
+					{ unit: 'year', step: 1, format: '%Y' }
 				];
 				break;
 		}
-		gantt.init('canvas');
+		gantt.init( 'canvas' );
 	}
 
 	var zoomLevels = [ 'hours', 'days', 'weeks', 'months', 'years' ];
 	var zoomLevelButtons = [];
 	for ( var i = 0; i < zoomLevels.length; i++ ) {
-		var zoomLevel = zoomLevels[i];
+		var zoomLevel = zoomLevels[ i ];
 		zoomLevelButtons.push( new OO.ui.ButtonOptionWidget( {
 			data: zoomLevel,
+			// eslint-disable-next-line mediawiki/msg-doc
 			label: mw.message( 'flexdiagrams-gantt-' + zoomLevel ).text(),
 			selected: ( zoomLevel == 'days' )
-		}) );
+		} ) );
 	}
 
 	var buttonSelect = new OO.ui.ButtonSelectWidget( {
 		items: zoomLevelButtons
 	} );
 
-	buttonSelect.on('select', setGanttZoom );
+	buttonSelect.on( 'select', setGanttZoom );
 
 	var zoomLayout = new OO.ui.FieldLayout( buttonSelect, {
 		align: 'top',
 		label: mw.message( 'flexdiagrams-gantt-zoomlevel' ).text()
 	} );
 
-	$('#canvas').after( '<div id="ganttZoomInput"></div><br style="clear: both;" />' );
-	$('#ganttZoomInput').append( zoomLayout.$element );
+	$( '#canvas' ).after( '<div id="ganttZoomInput"></div><br style="clear: both;" />' );
+	$( '#ganttZoomInput' ).append( zoomLayout.$element );
 
 	// Once the diagram has finished loading, get the overall duration of
 	// the Gantt chart to figure out what the zoom level should be.
 	// @todo - is there a way to do this before the diagram has loaded?
-	gantt.attachEvent("onLoadEnd", function() {
+	gantt.attachEvent( 'onLoadEnd', function () {
 		var earliestDate = gantt.getSubtaskDates().start_date;
 		var latestDate = gantt.getSubtaskDates().end_date;
 		// Duration in milliseconds.
 		var duration = latestDate - earliestDate;
-		var numDays = Math.floor(duration / 86400000);
+		var numDays = Math.floor( duration / 86400000 );
 		var selectedZoom = 'years';
 		if ( numDays < 4 ) {
 			selectedZoom = 'hours';
@@ -142,7 +144,7 @@
 			selectedZoom = 'months';
 		}
 
-		buttonSelect.selectItemByData(selectedZoom);
-	});
+		buttonSelect.selectItemByData( selectedZoom );
+	} );
 
 }( jQuery, mediaWiki, flexdiagrams ) );

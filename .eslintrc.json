@@ -2,6 +2,17 @@
 	"root": true,
 	"extends": [
 		"wikimedia/client-es5",
+		"wikimedia/jquery",
 		"wikimedia/mediawiki"
-	]
+	],
+	"rules": {
+		"camelcase": "off",
+		"eqeqeq": "off",
+		"jsdoc/require-param": "off",
+		"new-cap": "off",
+		"no-jquery/no-global-selector": "off",
+		"no-undef": "off",
+		"no-unused-vars": "off",
+		"no-use-before-define": "off"
+	}
 }

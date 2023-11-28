@@ -24,16 +24,16 @@
 		// Ideally, this would check if the user made an actual change
 		// to the diagram, beyond just clicking on it, but I couldn't
 		// figure out how to do that.
-		$('div#canvas').click( function() {
+		$( 'div#canvas' ).on( 'click', function () {
 			changesWereMade = true;
-			$('div#canvas').off('click');
-		});
+			$( 'div#canvas' ).off( 'click' );
+		} );
 
 		// Mermaid diagrams.
-		$('textarea.mermaidCode').on('keypress', function() {
+		$( 'textarea.mermaidCode' ).on( 'keypress', function () {
 			changesWereMade = true;
-			$('textarea.mermaidCode').off('keypress');
-		});
+			$( 'textarea.mermaidCode' ).off( 'keypress' );
+		} );
 
 		allowCloseWindow = mw.confirmCloseWindow( {
 			test: function () {
@@ -47,14 +47,14 @@
 		} );
 
 		// Ignore form submissions.
-		$('#wpSave').click(function() {
+		$( '#wpSave' ).on( 'click', function () {
 			allowCloseWindow.release();
 		} );
-                $('#wpSummary, #wpMinoredit, #wpWatchthis').on('keypress', function (e) {
-                        if (e.which === 13) {
+		$( '#wpSummary, #wpMinoredit, #wpWatchthis' ).on( 'keypress', function ( e ) {
+			if ( e.which === 13 ) {
 				allowCloseWindow.release();
-                        }
-                });
+			}
+		} );
 	} );
 
 }() );
