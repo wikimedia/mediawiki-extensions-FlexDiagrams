@@ -47,13 +47,13 @@ class FDEditDiagramAction extends Action {
 	 * Adds an "action" (i.e., a tab) to edit the current article with
 	 * a form.
 	 *
-	 * @param Title $obj
+	 * @param SkinTemplate $skinTemplate
 	 * @param array &$links
 	 */
-	static function displayTab( $obj, &$links ) {
+	static function displayTab( $skinTemplate, &$links ) {
 		global $wgFlexDiagramsEnabledFormats;
 
-		$title = $obj->getTitle();
+		$title = $skinTemplate->getTitle();
 		if ( !isset( $title ) ||
 			( !in_array( $title->getNamespace(), $wgFlexDiagramsEnabledFormats ) ) ) {
 			return;
@@ -62,7 +62,7 @@ class FDEditDiagramAction extends Action {
 		$content_actions = &$links['views'];
 
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
-		$user = $obj->getUser();
+		$user = $skinTemplate->getUser();
 
 		// Create the form edit tab, and apply whatever changes are
 		// specified by the edit-tab global variables.
@@ -72,7 +72,7 @@ class FDEditDiagramAction extends Action {
 			$diagram_edit_tab_msg = 'flexdiagrams-viewdiagram';
 		}
 
-		$class_name = ( $obj->getRequest()->getVal( 'action' ) == 'editdiagram' ) ? 'selected' : '';
+		$class_name = ( $skinTemplate->getRequest()->getVal( 'action' ) == 'editdiagram' ) ? 'selected' : '';
 		$diagram_edit_tab = [
 			'class' => $class_name,
 			'text' => wfMessage( $diagram_edit_tab_msg )->parse(),
