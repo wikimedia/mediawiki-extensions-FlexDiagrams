@@ -20,7 +20,7 @@ class FDMermaidContent extends TextContent {
 		$wgResourceLoaderDebug = true;
 		$wgOut->addModules( 'ext.flexdiagrams.mermaid' );
 
-		$text = Html::rawElement( 'div', [
+		$text = Html::element( 'div', [
 			'class' => 'mermaid'
 		], $this->mText );
 		$text .= Html::element( 'pre', [], $this->mText );
