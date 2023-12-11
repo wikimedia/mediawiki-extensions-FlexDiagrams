@@ -6,7 +6,7 @@
 class FDGanttContent extends TextContent {
 
 	public function __construct( $text, $modelId = CONTENT_MODEL_FD_GANTT ) {
-		parent::__construct( $text, $modelId );
+		parent::__construct( htmlspecialchars( $text, ENT_NOQUOTES ), $modelId );
 	}
 
 	public function getHtml() {
