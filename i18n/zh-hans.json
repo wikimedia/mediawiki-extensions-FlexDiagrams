@@ -2,10 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"GraceL",
-			"Si109"
+			"Si109",
+			"沈澄心"
 		]
 	},
+	"flexdiagrams-desc": "编辑和创建图表",
+	"editdiagram": "编辑图表",
+	"flexdiagrams-edit-title": "编辑图表： $1",
+	"flexdiagrams-creatediagram": "创建图表",
+	"flexdiagrams-viewdiagram": "查看图表",
 	"flexdiagrams-drawio-saveinfo": "请在点击$1按钮前保存编辑图像",
+	"flexdiagrams-edit-code": "代码：",
+	"flexdiagrams-edit-preview": "预览：",
+	"flexdiagrams-embedding-unsupported": "图表页面无法嵌入。",
+	"flexdiagrams-gantt-zoomlevel": "缩放级别：",
 	"flexdiagrams-gantt-hours": "小时",
 	"flexdiagrams-gantt-days": "天",
 	"flexdiagrams-gantt-months": "月",
