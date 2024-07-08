@@ -37,9 +37,6 @@ class FDBPMNContentHandler extends TextContentHandler {
 		];
 	}
 
-	/**
-	 * Only called for MW 1.38+.
-	 */
 	protected function fillParserOutput(
 		Content $content,
 		ContentParseParams $cpoParams,
