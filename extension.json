@@ -113,6 +113,9 @@
 			"styles": [
 				"resources/bpmn-js/diagram-js.css",
 				"resources/bpmn-js/bpmn.css",
+				"resources/bpmn-js/bpmn-codes.css",
+				"resources/bpmn-js/bpmn-js.css",
+				"resources/bpmn-js/bpmn-embedded.css",
 				"resources/FD_BPMN.css"
 			],
 			"dependencies": [

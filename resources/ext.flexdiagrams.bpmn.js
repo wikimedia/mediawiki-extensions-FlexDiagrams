@@ -74,10 +74,7 @@
 		}
 
 		// Set up diagram - in both edit and display modes.
-		bpmnModeler.importXML(bpmnXML, function(err) {
-			if (err) {
-				return console.error('could not import BPMN 2.0 diagram', err);
-			}
+		bpmnModeler.importXML( bpmnXML ).then( function() {
 			// access modeler components
 			var canvas = bpmnModeler.get('canvas');
 			// zoom to fit full viewport
@@ -91,16 +88,21 @@
 			if ( mw.config.get( 'wgAction' ) != 'editdiagram' ) {
 				bpmn_proto.applyLinks();
 			}
-		});
+		}).catch( function(err) {
+			if (err) {
+				return console.error('could not import BPMN 2.0 diagram', err);
+			}
+		})
 	}
 
 	bpmn_proto.exportDiagram = function() {
 		var self = this;
-		bpmnModeler.saveXML({ format: true }, function(err, xml) {
+		bpmnModeler.saveXML({ format: true } ).then( function(xml) {
+			self.updatePageAndRedirectUser( pageName, xml.xml );
+		}).catch(function (err) {
 			if (err) {
 				return console.error('could not save BPMN 2.0 diagram', err);
 			}
-			self.updatePageAndRedirectUser( pageName, xml );
 		});
 	}
 
