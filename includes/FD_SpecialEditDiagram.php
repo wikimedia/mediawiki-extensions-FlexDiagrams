@@ -29,7 +29,7 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 			return;
 		}
 		$out->addModuleStyles( 'mediawiki.action.edit.styles' );
-		$out->setPageTitle( $this->msg( 'flexdiagrams-edit-title', str_replace( '_', ' ', $pageName ) ) );
+		$out->setPageTitle( $this->msg( 'flexdiagrams-edit-title', str_replace( '_', ' ', $pageName ) )->escaped() );
 
 		if ( $title->getNamespace() == FD_NS_BPMN ) {
 			// Turn on "debug mode" to avoid browser caching,
