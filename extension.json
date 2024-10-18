@@ -211,6 +211,7 @@
 		"ParserFirstCallInit": "FDHooks::registerParserFunctions",
 		"MakeGlobalVariablesScript": "FDHooks::setGlobalJSVariables",
 		"CanonicalNamespaces": "FDHooks::registerNamespaces",
+		"ArticleRevisionViewCustom": "FDHooks::displayIncomingLinks",
 		"ParserAfterTidy": "FDHooks::disableParserCache",
 		"HtmlPageLinkRendererEnd": "FDHooks::linkToEditDiagramAction"
 	},

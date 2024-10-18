@@ -8,6 +8,8 @@
  * @ingroup FlexDiagrams
  */
 
+use MediaWiki\MediaWikiServices;
+
 class FDHooks {
 
 	public static function registerExtension() {
@@ -60,6 +62,35 @@ class FDHooks {
 
 		$vars['wgServer'] = $wgServer;
 		$vars['wgScript'] = $wgScript;
+	}
+
+	public static function displayIncomingLinks( MediaWiki\Revision\RevisionRecord $revision,
+		MediaWiki\Title\Title $title,
+		int $oldId,
+		MediaWiki\Output\OutputPage $output ) {
+		global $wgFlexDiagramsEnabledFormats;
+
+		$namespace = $title->getNamespace();
+		if ( !in_array( $namespace, $wgFlexDiagramsEnabledFormats ) ) {
+			return;
+		}
+
+		$linksToThisPage = $title->getLinksTo();
+		if ( count( $linksToThisPage ) == 0 ) {
+			return;
+		}
+
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+		$linkingPagesText = '';
+		foreach ( $linksToThisPage as $i => $linkingTitle ) {
+			if ( $i > 0 ) {
+				$linkingPagesText .= ', ';
+			}
+			$linkingTitleName = $linkingTitle->getFullText();
+			$linkingPagesText .= "[[:$linkingTitleName|$linkingTitleName]]";
+		}
+		$text = wfMessage( 'flexdiagrams-linkingpages', $linkingPagesText )->parse();
+		$output->addSubtitle( $text );
 	}
 
 	public static function disableParserCache( Parser &$parser, string &$text ) {

@@ -12,6 +12,7 @@
 	"flexdiagrams-edit-title": "Used as a page title. Parameters:\n* $1 - the name of a wiki page",
 	"flexdiagrams-creatediagram": "Label for a tab",
 	"flexdiagrams-viewdiagram": "Label for a tab",
+	"flexdiagrams-linkingpages": "Message displayed at the top of a diagram page. Parameters:\n* $1 - a list of wiki pages",
 	"flexdiagrams-drawio-saveinfo": "Instructions to save the image in Drawio namespace. Parameters:\n* $1 - label of the save button in wiki page",
 	"flexdiagrams-edit-code": "Label above a section of code",
 	"flexdiagrams-edit-preview": "Label above where a diagram display is previewed",
