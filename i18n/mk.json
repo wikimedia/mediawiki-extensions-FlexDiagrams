@@ -9,6 +9,7 @@
 	"flexdiagrams-edit-title": "Уреди дијаграм: $1",
 	"flexdiagrams-creatediagram": "Создај дијаграм",
 	"flexdiagrams-viewdiagram": "Погл. дијаграм",
+	"flexdiagrams-linkingpages": "Следниве страници водат до овој дијаграм: $1",
 	"flexdiagrams-drawio-saveinfo": "Зачувајте го дијаграмот во уредувачкиот посредник пред да стиснете на копчето „$1“.",
 	"flexdiagrams-edit-code": "Код:",
 	"flexdiagrams-edit-preview": "Преглед:",
