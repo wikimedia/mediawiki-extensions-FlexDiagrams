@@ -17,6 +17,7 @@ class FDHooks {
 		define( 'CONTENT_MODEL_FD_GANTT', 'flexdiagrams-gantt' );
 		define( 'CONTENT_MODEL_FD_DRAWIO', 'flexdiagrams-drawio' );
 		define( 'CONTENT_MODEL_FD_MERMAID', 'flexdiagrams-mermaid' );
+		define( 'CONTENT_MODEL_FD_DOT', 'flexdiagrams-dot' );
 	}
 
 	/**
@@ -42,6 +43,10 @@ class FDHooks {
 			define( 'FD_NS_DRAWIO', 746 );
 			define( 'FD_NS_DRAWIO_TALK', 747 );
 		}
+		if ( !defined( 'FD_NS_DOT' ) ) {
+			define( 'FD_NS_DOT', 748 );
+			define( 'FD_NS_DOT_TALK', 749 );
+		}
 
 		$list[FD_NS_BPMN] = 'BPMN';
 		$list[FD_NS_BPMN_TALK] = 'BPMN_talk';
@@ -51,6 +56,8 @@ class FDHooks {
 		$list[FD_NS_DRAWIO_TALK] = 'Drawio_talk';
 		$list[FD_NS_MERMAID] = 'Mermaid';
 		$list[FD_NS_MERMAID_TALK] = 'Mermaid_talk';
+		$list[FD_NS_DOT] = 'DOT';
+		$list[FD_NS_DOT_TALK] = 'DOT_talk';
 	}
 
 	public static function registerParserFunctions( &$parser ) {
@@ -96,7 +103,7 @@ class FDHooks {
 	public static function disableParserCache( Parser &$parser, string &$text ) {
 		$title = $parser->getTitle();
 		$ns = $title->getNamespace();
-		if ( $ns == FD_NS_BPMN || $ns == FD_NS_GANTT || $ns == FD_NS_MERMAID ) {
+		if ( $ns == FD_NS_BPMN || $ns == FD_NS_GANTT || $ns == FD_NS_MERMAID || $ns == FD_NS_DOT ) {
 			$parser->getOutput()->updateCacheExpiry( 0 );
 		}
 	}

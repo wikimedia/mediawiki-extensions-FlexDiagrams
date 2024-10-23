@@ -36,7 +36,7 @@ class FDDisplayDiagram {
 		}
 
 		if ( $diagramPage->getNamespace() == FD_NS_BPMN || $diagramPage->getNamespace() == FD_NS_GANTT
-		|| $diagramPage->getNamespace() == FD_NS_DRAWIO ) {
+		|| $diagramPage->getNamespace() == FD_NS_DRAWIO || $diagramPage->getNamespace() == FD_NS_DOT ) {
 			if ( self::$numInstances++ > 0 ) {
 				return '<div class="error">Due to current limitations, #display_diagram can only ' .
 					'be called once per page on any BPMN or Gantt diagram.</div>';
@@ -60,6 +60,13 @@ class FDDisplayDiagram {
 		} elseif ( $diagramPage->getNamespace() == FD_NS_DRAWIO ) {
 			global $wgOut;
 			$wgOut->addModules( 'ext.flexdiagrams.drawio' );
+			$text = Html::element( 'div', [
+				'id' => 'canvas',
+				'data-wiki-page' => $diagramPageName
+			], ' ' );
+		} elseif ( $diagramPage->getNamespace() == FD_NS_DOT ) {
+			global $wgOut;
+			$wgOut->addModules( 'ext.flexdiagrams.dot' );
 			$text = Html::element( 'div', [
 				'id' => 'canvas',
 				'data-wiki-page' => $diagramPageName

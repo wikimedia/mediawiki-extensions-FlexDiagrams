@@ -19,6 +19,7 @@ module.exports = function ( grunt ) {
 				'!resources/mermaid.min.js',
 				'!resources/bpmn-js/**',
 				'!resources/dhtmlxgantt/**',
+				'!resources/viz-js/**',
 				'!node_modules/**',
 				'!vendor/**'
 			]

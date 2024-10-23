@@ -61,6 +61,19 @@
 			"constant": "FD_NS_DRAWIO_TALK",
 			"name": "Drawio_talk",
 			"conditional": true
+		},
+		{
+			"id": 748,
+			"constant": "FD_NS_DOT",
+			"name": "DOT",
+			"conditional": true,
+			"defaultcontentmodel": "flexdiagrams-dot"
+		},
+		{
+			"id": 749,
+			"constant": "FD_NS_DOT_TALK",
+			"name": "DOT_talk",
+			"conditional": true
 		}
 	],
 	"requires": {
@@ -74,7 +87,8 @@
 		"flexdiagrams-bpmn": "FDBPMNContentHandler",
 		"flexdiagrams-gantt": "FDGanttContentHandler",
 		"flexdiagrams-drawio": "FDDrawioContentHandler",
-		"flexdiagrams-mermaid": "FDMermaidContentHandler"
+		"flexdiagrams-mermaid": "FDMermaidContentHandler",
+		"flexdiagrams-dot": "FDDOTContentHandler"
 	},
 	"SpecialPages": {
 		"EditDiagram": "FDSpecialEditDiagram"
@@ -102,7 +116,9 @@
 		"FDBPMNContent": "includes/FD_BPMNContent.php",
 		"FDBPMNContentHandler": "includes/FD_BPMNContentHandler.php",
 		"FDMermaidContent": "includes/FD_MermaidContent.php",
-		"FDMermaidContentHandler": "includes/FD_MermaidContentHandler.php"
+		"FDMermaidContentHandler": "includes/FD_MermaidContentHandler.php",
+		"FDDOTContent": "includes/FD_DOTContent.php",
+		"FDDOTContentHandler": "includes/FD_DOTContentHandler.php"
 	},
 	"ResourceModules": {
 		"ext.flexdiagrams.bpmn": {
@@ -173,6 +189,15 @@
 				"flexdiagrams-drawio-saveinfo"
 			]
 		},
+		"ext.flexdiagrams.dot": {
+			"scripts": [
+				"resources/viz-js/viz-standalone.js",
+				"resources/ext.flexdiagrams.dot.js"
+			],
+			"dependencies": [
+				"ext.flexdiagrams"
+			]
+		},
 		"ext.flexdiagrams.mermaid": {
 			"scripts": [
 				"resources/mermaid.min.js",
@@ -217,7 +242,7 @@
 	},
 	"config": {
 		"FlexDiagramsEnabledFormats": {
-			"value": [ 740, 742, 744, 746 ]
+			"value": [ 740, 742, 744, 746, 748 ]
 		}
 	},
 	"manifest_version": 2
