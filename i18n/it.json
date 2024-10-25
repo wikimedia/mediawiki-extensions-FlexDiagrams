@@ -4,6 +4,7 @@
 			"Beta16"
 		]
 	},
+	"flexdiagrams-linkingpages": "Le seguenti pagine hanno un collegamento a questo diagramma: $1",
 	"flexdiagrams-edit-code": "Codice:",
 	"flexdiagrams-gantt-zoomlevel": "Livello di ingrandimento:",
 	"flexdiagrams-gantt-hours": "Ore",
