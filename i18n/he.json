@@ -10,6 +10,7 @@
 	"flexdiagrams-edit-title": "עריכת תרשים: $1",
 	"flexdiagrams-creatediagram": "יצירת תרשים",
 	"flexdiagrams-viewdiagram": "צפייה בתרשים",
+	"flexdiagrams-linkingpages": "הדפים הבאים מקשרים לתרשים הזה: $1",
 	"flexdiagrams-drawio-saveinfo": "נא לשמור את התרשים בממשק העריכה לפני הלחיצה על כפתור \"$1\".",
 	"flexdiagrams-edit-code": "קוד:",
 	"flexdiagrams-edit-preview": "תצוגה מקדימה:",
