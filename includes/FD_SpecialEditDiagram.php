@@ -73,6 +73,33 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 	</div>
 
 END;
+		} elseif ( $title->getNamespace() == FD_NS_DOT ) {
+			global $wgResourceLoaderDebug;
+			$wgResourceLoaderDebug = true;
+			$out->addModules( 'ext.flexdiagrams.dot' );
+			$revisionRecord = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getRevisionByTitle( $title );
+			if ( $revisionRecord == null ) {
+				$dotText = '';
+			} else {
+				$dotText = $revisionRecord->getContent( SlotRecord::MAIN )->getText();
+			}
+			$codeMsg = $this->msg( 'flexdiagrams-edit-code' )->parse();
+			$previewMsg = $this->msg( 'flexdiagrams-edit-preview' )->parse();
+			$text = <<<END
+	<div class="dotEditPane">
+	<div class="dotCodePane">
+	<h3>$codeMsg</h3>
+	<textarea class="dotCode" rows="15" cols="15" tabindex="1">$dotText</textarea>
+	</div>
+	<div class="dotPreviewPane">
+	<h3>$previewMsg</h3>
+	<div class="dot"></div>
+	</div>
+	</div>
+
+END;
 		} else {
 			$out->addHTML( 'Error: invalid namespace for this action.' );
 			return;

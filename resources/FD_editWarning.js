@@ -29,6 +29,12 @@
 			$( 'div#canvas' ).off( 'click' );
 		} );
 
+		// DOT diagrams.
+		$( 'textarea.dotCode' ).on( 'keypress', function () {
+			changesWereMade = true;
+			$( 'textarea.dotCode' ).off( 'keypress' );
+		} );
+
 		// Mermaid diagrams.
 		$( 'textarea.mermaidCode' ).on( 'keypress', function () {
 			changesWereMade = true;

@@ -1,0 +1,16 @@
+.dotEditPane {
+	min-height: 300px;
+}
+
+.dotCodePane {
+	background-color: #eaecf0;
+	border: 1px solid #c8ccd1;
+	width: 40%;
+	float: left;
+	padding: 0px 12px 12px 12px;
+}
+
+.dotPreviewPane {
+	overflow: auto;
+	padding: 0px 12px 12px 12px;
+}

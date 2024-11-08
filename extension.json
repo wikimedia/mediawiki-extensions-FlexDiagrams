@@ -194,6 +194,9 @@
 				"resources/viz-js/viz-standalone.js",
 				"resources/ext.flexdiagrams.dot.js"
 			],
+			"styles": [
+				"resources/FD_DOT.css"
+			],
 			"dependencies": [
 				"ext.flexdiagrams"
 			]

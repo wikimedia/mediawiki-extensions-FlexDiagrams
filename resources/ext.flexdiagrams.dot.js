@@ -24,21 +24,40 @@
 	var dot_proto = new fd.base();
 
 	dot_proto.initialize = function () {
-		var diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
-			'?title=' + encodeURIComponent( pageName ) + '&action=raw';
-		$.get( diagramURL, this.openDiagram, 'text' );
+
+		var self = this;
+
+		// Create initial "edit diagram" display
+		if ( $( '.dotCode' ).val() != '' ) {
+			var diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
+				'?title=' + encodeURIComponent( pageName ) + '&action=raw';
+			$.get( diagramURL, this.openDiagram, 'text' );
+		}
+
+		// Enable preview operation within "edit diagram" display
+		$( '.dotCode' ).on( 'keyup', function () {
+			$( '.dot' ).empty();
+			self.openDiagram( $( '.dotCode' ).val() );
+		} );
+
+		this.enableSave( this );
 	};
 
-	dot_proto.openDiagram = function ( dot_markup ) {
+	dot_proto.exportDiagram = function () {
+		var dotText = $( '.dotCode' ).val();
+		this.updatePageAndRedirectUser( pageName, dotText );
+	};
+
+	dot_proto.openDiagram = function ( dotText ) {
 		Viz.instance().then( function ( dot ) {
-			var svg = dot.renderSVGElement( dot_markup );
-			document.getElementById( 'canvas' ).appendChild( svg );
+			var svg = dot.renderSVGElement( dotText );
+			document.getElementsByClassName( 'dot' )[ 0 ].appendChild( svg );
 		} );
 	};
 
 	fd.dot.prototype = dot_proto;
 
-	var pageName = $( '#canvas' ).attr( 'data-wiki-page' );
+	var pageName = $( '.dot' ).attr( 'data-wiki-page' );
 	if ( pageName == null ) {
 		pageName = mw.config.get( 'wgPageName' );
 	}

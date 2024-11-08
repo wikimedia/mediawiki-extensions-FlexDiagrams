@@ -65,12 +65,17 @@ class FDDisplayDiagram {
 				'data-wiki-page' => $diagramPageName
 			], ' ' );
 		} elseif ( $diagramPage->getNamespace() == FD_NS_DOT ) {
-			global $wgOut;
+			global $wgOut, $wgResourceLoaderDebug;
+			$wgResourceLoaderDebug = true;
 			$wgOut->addModules( 'ext.flexdiagrams.dot' );
-			$text = Html::element( 'div', [
-				'id' => 'canvas',
-				'data-wiki-page' => $diagramPageName
-			], ' ' );
+			$revisionRecord = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getRevisionByTitle( $diagramPage );
+			$dotText = $revisionRecord->getContent( SlotRecord::MAIN )->getText();
+			$text = Html::rawElement( 'div', [
+				'class' => 'dot'
+			], "<nowiki>$dotText</nowiki>" );
+			return [ $text, 'noparse' => false, 'isHTML' => false ];
 		} elseif ( $diagramPage->getNamespace() == FD_NS_MERMAID ) {
 			global $wgOut, $wgResourceLoaderDebug;
 			$wgResourceLoaderDebug = true;

@@ -19,7 +19,7 @@ class FDDOTContent extends TextContent {
 
 		$wgOut->addModules( 'ext.flexdiagrams.dot' );
 		$text = Html::element( 'div', [
-			'id' => 'canvas',
+			'class' => 'dot',
 		], '' );
 		$text .= Html::element( 'pre', [], $this->mText );
 		return $text;
