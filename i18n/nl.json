@@ -10,6 +10,7 @@
 	"flexdiagrams-edit-title": "Bewerk diagram: $1",
 	"flexdiagrams-creatediagram": "Diagram aanmaken",
 	"flexdiagrams-viewdiagram": "Diagram bekijken",
+	"flexdiagrams-linkingpages": "De volgende pagina’s bevatten koppelingen naar dit diagram: $1",
 	"flexdiagrams-drawio-saveinfo": "Sla het diagram op in de bewerkingsinterface voordat u op de knop “$1” drukt.",
 	"flexdiagrams-edit-code": "Code:",
 	"flexdiagrams-edit-preview": "Voorvertoning:",
