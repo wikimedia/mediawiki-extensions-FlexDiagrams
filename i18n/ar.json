@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Alshamiri1"
+			"Alshamiri1",
+			"Meno25"
 		]
 	},
 	"flexdiagrams-desc": "تحرير وإنشاء الرسوم البيانية",
@@ -9,6 +10,7 @@
 	"flexdiagrams-edit-title": "تحرير الرسم التخطيطي: $1",
 	"flexdiagrams-creatediagram": "قم بإنشاء رسم تخطيطي",
 	"flexdiagrams-viewdiagram": "عرض الرسم التخطيطي",
+	"flexdiagrams-linkingpages": "الصفحات التالية مرتبطة بهذا الرسم البياني: $1",
 	"flexdiagrams-drawio-saveinfo": "يرجى حفظ الرسم التخطيطي في واجهة التحرير قبل الضغط على زر \" $1 \".",
 	"flexdiagrams-edit-code": "شفرة:",
 	"flexdiagrams-edit-preview": "معاينة:",
