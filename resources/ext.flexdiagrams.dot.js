@@ -63,8 +63,12 @@
 
 	dot_proto.openDiagram = function ( dotText ) {
 		Viz.instance().then( function ( dot ) {
-			var svg = dot.renderSVGElement( dotText );
-			document.getElementsByClassName( 'dot' )[ 0 ].appendChild( svg );
+			try {
+				var svg = dot.renderSVGElement( dotText );
+				document.getElementsByClassName( 'dot' )[ 0 ].appendChild( svg );
+			} catch ( e ) {
+				// Bad syntax - do nothing.
+			}
 		} );
 	};
 
