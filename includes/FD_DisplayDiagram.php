@@ -36,7 +36,7 @@ class FDDisplayDiagram {
 		}
 
 		if ( $diagramPage->getNamespace() == FD_NS_BPMN || $diagramPage->getNamespace() == FD_NS_GANTT
-		|| $diagramPage->getNamespace() == FD_NS_DRAWIO || $diagramPage->getNamespace() == FD_NS_DOT ) {
+		|| $diagramPage->getNamespace() == FD_NS_DRAWIO ) {
 			if ( self::$numInstances++ > 0 ) {
 				return '<div class="error">Due to current limitations, #display_diagram can only ' .
 					'be called once per page on any BPMN or Gantt diagram.</div>';
@@ -73,7 +73,7 @@ class FDDisplayDiagram {
 				->getRevisionByTitle( $diagramPage );
 			$dotText = $revisionRecord->getContent( SlotRecord::MAIN )->getText();
 			$text = Html::rawElement( 'div', [
-				'class' => 'dot'
+				'class' => 'dotText'
 			], "<nowiki>$dotText</nowiki>" );
 			return [ $text, 'noparse' => false, 'isHTML' => false ];
 		} elseif ( $diagramPage->getNamespace() == FD_NS_MERMAID ) {
