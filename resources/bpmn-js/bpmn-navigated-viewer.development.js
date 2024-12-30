@@ -1,5 +1,5 @@
 /*!
- * bpmn-js - bpmn-navigated-viewer v17.11.1
+ * bpmn-js - bpmn-navigated-viewer v18.1.1
  *
  * Copyright (c) 2014-present, camunda Services GmbH
  *
@@ -8,7 +8,7 @@
  *
  * Source Code: https://github.com/bpmn-io/bpmn-js
  *
- * Date: 2024-09-16
+ * Date: 2024-11-21
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -822,17 +822,6 @@
   }
 
   /**
-   * Checks whether a value is an instance of Label.
-   *
-   * @param {any} value
-   *
-   * @return {boolean}
-   */
-  function isLabel(value) {
-    return isObject(value) && has$1(value, 'labelTarget');
-  }
-
-  /**
    * @typedef {import('diagram-js/lib/util/Types').Point} Point
    * @typedef {import('diagram-js/lib/util/Types').Rect} Rect
    *
@@ -1360,26 +1349,6 @@
      return this.list.contains(name);
    };
 
-  /**
-   * Clear utility
-   */
-
-  /**
-   * Removes all children from the given element
-   *
-   * @param  {SVGElement} element
-   * @return {Element} the element (for chaining)
-   */
-  function clear$1(element) {
-    var child;
-
-    while ((child = element.firstChild)) {
-      element.removeChild(child);
-    }
-
-    return element;
-  }
-
   var ns = {
     svg: 'http://www.w3.org/2000/svg'
   };
@@ -1695,7 +1664,7 @@
    * @return {string}
    */
   function componentsToPath(elements) {
-    return elements.flat().join(',').replace(/,?([A-z]),?/g, '$1');
+    return elements.flat().join(',').replace(/,?([A-Za-z]),?/g, '$1');
   }
 
   /**
@@ -2599,16 +2568,6 @@
   }
 
   var domify$1 = domify;
-
-  /**
-   * @param { HTMLElement } element
-   * @param { String } selector
-   *
-   * @return { boolean }
-   */
-  function matches(element, selector) {
-    return element && typeof element.matches === 'function' && element.matches(selector) || false;
-  }
 
   function query(selector, el) {
     el = el || document;
@@ -5217,6 +5176,8 @@
 
       return bbox;
     } catch (e) {
+      console.log(e);
+
       return { width: 0, height: 0 };
     }
   }
@@ -6815,7 +6776,7 @@
   // document wide unique overlay ids
   var ids = new IdGenerator('ov');
 
-  var LOW_PRIORITY$4 = 500;
+  var LOW_PRIORITY$3 = 500;
 
   /**
    * @typedef {import('../../core/Canvas').default} Canvas
@@ -7445,7 +7406,7 @@
 
     // move integration
 
-    eventBus.on('element.changed', LOW_PRIORITY$4, function(e) {
+    eventBus.on('element.changed', LOW_PRIORITY$3, function(e) {
       var element = e.element;
 
       var container = self._getOverlayContainer(element, true);
@@ -7619,7 +7580,7 @@
    * @typedef { (context: CommandContext) => void } ComposeHandlerFunction
    */
 
-  var DEFAULT_PRIORITY$3 = 1000;
+  var DEFAULT_PRIORITY$2 = 1000;
 
   /**
    * A utility that can be used to plug into the command execution for
@@ -7686,7 +7647,7 @@
       that = unwrap;
       unwrap = handlerFn;
       handlerFn = priority;
-      priority = DEFAULT_PRIORITY$3;
+      priority = DEFAULT_PRIORITY$2;
     }
 
     if (isObject(unwrap)) {
@@ -8483,7 +8444,7 @@
    * @typedef {import('../../model/Types').Shape} Shape
    */
 
-  var LOW_PRIORITY$3 = 250;
+  var LOW_PRIORITY$2 = 250;
   var ARROW_DOWN_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.81801948,3.50735931 L10.4996894,9.1896894 L10.5,4 L12,4 L12,12 L4,12 L4,10.5 L9.6896894,10.4996894 L3.75735931,4.56801948 C3.46446609,4.27512627 3.46446609,3.80025253 3.75735931,3.50735931 C4.05025253,3.21446609 4.52512627,3.21446609 4.81801948,3.50735931 Z"/></svg>';
 
   var EMPTY_MARKER = 'bjs-drilldown-empty';
@@ -8508,7 +8469,7 @@
 
     var self = this;
 
-    this.executed('shape.toggleCollapse', LOW_PRIORITY$3, function(context) {
+    this.executed('shape.toggleCollapse', LOW_PRIORITY$2, function(context) {
       var shape = context.shape;
 
       // Add overlay to the collapsed shape
@@ -8520,7 +8481,7 @@
     }, true);
 
 
-    this.reverted('shape.toggleCollapse', LOW_PRIORITY$3, function(context) {
+    this.reverted('shape.toggleCollapse', LOW_PRIORITY$2, function(context) {
       var shape = context.shape;
 
       // Add overlay to the collapsed shape
@@ -8532,7 +8493,7 @@
     }, true);
 
 
-    this.executed([ 'shape.create', 'shape.move', 'shape.delete' ], LOW_PRIORITY$3,
+    this.executed([ 'shape.create', 'shape.move', 'shape.delete' ], LOW_PRIORITY$2,
       function(context) {
         var oldParent = context.oldParent,
             newParent = context.newParent || context.parent,
@@ -8549,7 +8510,7 @@
       }, true);
 
 
-    this.reverted([ 'shape.create', 'shape.move', 'shape.delete' ], LOW_PRIORITY$3,
+    this.reverted([ 'shape.create', 'shape.move', 'shape.delete' ], LOW_PRIORITY$2,
       function(context) {
         var oldParent = context.oldParent,
             newParent = context.newParent || context.parent,
@@ -8693,409 +8654,6 @@
     subprocessCompatibility: [ 'type', SubprocessCompatibility ]
   };
 
-  var LOW_PRIORITY$2 = 500;
-
-  var DEFAULT_PRIORITY$2 = 1000;
-
-  /**
-   * @typedef {import('../../model/Types').Element} Element
-   *
-   * @typedef {import('./OutlineProvider').default} OutlineProvider
-   * @typedef {import('../../core/EventBus').default} EventBus
-   * @typedef {import('../../draw/Styles').default} Styles
-   */
-
-  /**
-   * @class
-   *
-   * A plugin that adds an outline to shapes and connections that may be activated and styled
-   * via CSS classes.
-   *
-   * @param {EventBus} eventBus
-   * @param {Styles} styles
-   */
-  function Outline(eventBus, styles) {
-
-    this._eventBus = eventBus;
-
-    this.offset = 5;
-
-    var OUTLINE_STYLE = styles.cls('djs-outline', [ 'no-fill' ]);
-
-    var self = this;
-
-    /**
-     * @param {SVGElement} gfx
-     *
-     * @return {SVGElement} outline
-     */
-    function createOutline(gfx) {
-      var outline = create$1('rect');
-
-      attr$1(outline, assign$1({
-        x: 0,
-        y: 0,
-        rx: 4,
-        width: 100,
-        height: 100
-      }, OUTLINE_STYLE));
-
-      return outline;
-    }
-
-    // A low priortity is necessary, because outlines of labels have to be updated
-    // after the label bounds have been updated in the renderer.
-    eventBus.on([ 'shape.added', 'shape.changed' ], LOW_PRIORITY$2, function(event) {
-      var element = event.element,
-          gfx = event.gfx;
-
-      var outline = query('.djs-outline', gfx);
-
-      if (!outline) {
-        outline = self.getOutline(element) || createOutline();
-        append(gfx, outline);
-      }
-
-      self.updateShapeOutline(outline, element);
-    });
-
-    eventBus.on([ 'connection.added', 'connection.changed' ], function(event) {
-      var element = event.element,
-          gfx = event.gfx;
-
-      var outline = query('.djs-outline', gfx);
-
-      if (!outline) {
-        outline = createOutline();
-        append(gfx, outline);
-      }
-
-      self.updateConnectionOutline(outline, element);
-    });
-  }
-
-
-  /**
-   * Updates the outline of a shape respecting the dimension of the
-   * element and an outline offset.
-   *
-   * @param {SVGElement} outline
-   * @param {Element} element
-   */
-  Outline.prototype.updateShapeOutline = function(outline, element) {
-
-    var updated = false;
-    var providers = this._getProviders();
-
-    if (providers.length) {
-      forEach$1(providers, function(provider) {
-        updated = updated || provider.updateOutline(element, outline);
-      });
-    }
-
-    if (!updated) {
-      attr$1(outline, {
-        x: -this.offset,
-        y: -this.offset,
-        width: element.width + this.offset * 2,
-        height: element.height + this.offset * 2
-      });
-    }
-  };
-
-  /**
-   * Updates the outline of a connection respecting the bounding box of
-   * the connection and an outline offset.
-   * Register an outline provider with the given priority.
-   *
-   * @param {SVGElement} outline
-   * @param {Element} connection
-   */
-  Outline.prototype.updateConnectionOutline = function(outline, connection) {
-    var bbox = getBBox(connection);
-
-    attr$1(outline, {
-      x: bbox.x - this.offset,
-      y: bbox.y - this.offset,
-      width: bbox.width + this.offset * 2,
-      height: bbox.height + this.offset * 2
-    });
-  };
-
-  /**
-   * Register an outline provider with the given priority.
-   *
-   * @param {number} priority
-   * @param {OutlineProvider} provider
-   */
-  Outline.prototype.registerProvider = function(priority, provider) {
-    if (!provider) {
-      provider = priority;
-      priority = DEFAULT_PRIORITY$2;
-    }
-
-    this._eventBus.on('outline.getProviders', priority, function(event) {
-      event.providers.push(provider);
-    });
-  };
-
-  /**
-   * Returns the registered outline providers.
-   *
-   * @returns {OutlineProvider[]}
-   */
-  Outline.prototype._getProviders = function() {
-    var event = this._eventBus.createEvent({
-      type: 'outline.getProviders',
-      providers: []
-    });
-
-    this._eventBus.fire(event);
-
-    return event.providers;
-  };
-
-  /**
-   * Returns the outline for an element.
-   *
-   * @param {Element} element
-   */
-  Outline.prototype.getOutline = function(element) {
-    var outline;
-    var providers = this._getProviders();
-
-    forEach$1(providers, function(provider) {
-
-      if (!isFunction(provider.getOutline)) {
-        return;
-      }
-
-      outline = outline || provider.getOutline(element);
-    });
-
-    return outline;
-  };
-
-  Outline.$inject = [ 'eventBus', 'styles', 'elementRegistry' ];
-
-  /**
-   * @type { import('didi').ModuleDeclaration }
-   */
-  var OutlineModule$1 = {
-    __init__: [ 'outline' ],
-    outline: [ 'type', Outline ]
-  };
-
-  const DATA_OBJECT_REFERENCE_OUTLINE_PATH = 'M44.7648 11.3263L36.9892 2.64074C36.0451 1.58628 34.5651 0.988708 33.1904 0.988708H5.98667C3.22688 0.988708 0.989624 3.34892 0.989624 6.26039V55.0235C0.989624 57.9349 3.22688 60.2952 5.98667 60.2952H40.966C43.7257 60.2952 45.963 57.9349 45.963 55.0235V14.9459C45.963 13.5998 45.6407 12.3048 44.7648 11.3263Z';
-  const DATA_STORE_REFERENCE_OUTLINE_PATH = 'M1.03845 48.1347C1.03845 49.3511 1.07295 50.758 1.38342 52.064C1.69949 53.3938 2.32428 54.7154 3.56383 55.6428C6.02533 57.4841 10.1161 58.7685 14.8212 59.6067C19.5772 60.4538 25.1388 60.8738 30.6831 60.8738C36.2276 60.8738 41.7891 60.4538 46.545 59.6067C51.2504 58.7687 55.3412 57.4842 57.8028 55.6429C59.0424 54.7156 59.6673 53.3938 59.9834 52.064C60.2938 50.7579 60.3285 49.351 60.3285 48.1344V13.8415C60.3285 12.6249 60.2938 11.218 59.9834 9.91171C59.6673 8.58194 59.0423 7.2602 57.8027 6.33294C55.341 4.49168 51.2503 3.20723 46.545 2.36914C41.7891 1.522 36.2276 1.10204 30.6831 1.10205C25.1388 1.10206 19.5772 1.52206 14.8213 2.36923C10.1162 3.20734 6.02543 4.49183 3.5639 6.33314C2.32433 7.26038 1.69951 8.58206 1.38343 9.91181C1.07295 11.2179 1.03845 12.6247 1.03845 13.8411V48.1347Z';
-
-  /**
-   * @typedef { import('diagram-js/lib/util/Types').Dimensions} Dimensions
-   */
-
-  /**
-   * @type {Dimensions}
-   */
-  const DATA_OBJECT_REFERENCE_STANDARD_SIZE = { width: 36, height: 50 };
-
-  /**
-   * @type {Dimensions}
-   */
-  const DATA_STORE_REFERENCE_STANDARD_SIZE = { width: 50, height: 50 };
-
-  /**
-   * Create a path element with given attributes.
-   * @param {string} path
-   * @param {Object} attrs
-   * @param {Object} OUTLINE_STYLE
-   * @return {SVGElement}
-   */
-  function createPath(path, attrs, OUTLINE_STYLE) {
-    return create$1('path', {
-      d: path,
-      strokeWidth: 2,
-      transform: `translate(${attrs.x}, ${attrs.y})`,
-      ...OUTLINE_STYLE
-    });
-  }
-
-  /**
-   * @typedef { import('diagram-js/lib/features/outline/OutlineProvider').default } BaseOutlineProvider
-   *
-   * @typedef { import('diagram-js/lib/features/outline/OutlineProvider').Outline } Outline
-   *
-   * @typedef { import('diagram-js/lib/draw/Styles').default } Styles
-   *
-   * @typedef { import('diagram-js/lib/model/Types').Element } Element
-   */
-
-  const DEFAULT_OFFSET = 5;
-
-  /**
-   * BPMN-specific outline provider.
-   *
-   * @implements {BaseOutlineProvider}
-   *
-   * @param {Outline} outline
-   * @param {Styles} styles
-   */
-  function OutlineProvider(outline, styles) {
-
-    this._styles = styles;
-    outline.registerProvider(this);
-  }
-
-  OutlineProvider.$inject = [
-    'outline',
-    'styles'
-  ];
-
-  /**
-   * Returns outline for a given element.
-   *
-   * @param {Element} element
-   *
-   * @return {Outline}
-   */
-  OutlineProvider.prototype.getOutline = function(element) {
-
-    const OUTLINE_STYLE = this._styles.cls('djs-outline', [ 'no-fill' ]);
-
-    var outline;
-
-    if (isLabel(element)) {
-      return;
-    }
-
-    if (is$1(element, 'bpmn:Gateway')) {
-      outline = create$1('rect');
-
-      assign$1(outline.style, {
-        'transform-box': 'fill-box',
-        'transform': 'rotate(45deg)',
-        'transform-origin': 'center'
-      });
-
-      attr$1(outline, assign$1({
-        x: 2,
-        y: 2,
-        rx: 4,
-        width: element.width - 4,
-        height: element.height - 4,
-      }, OUTLINE_STYLE));
-
-    } else if (isAny(element, [ 'bpmn:Task', 'bpmn:SubProcess', 'bpmn:Group', 'bpmn:CallActivity' ])) {
-      outline = create$1('rect');
-
-      attr$1(outline, assign$1({
-        x: -DEFAULT_OFFSET,
-        y: -DEFAULT_OFFSET,
-        rx: 14,
-        width: element.width + DEFAULT_OFFSET * 2,
-        height: element.height + DEFAULT_OFFSET * 2
-      }, OUTLINE_STYLE));
-
-    } else if (is$1(element, 'bpmn:EndEvent')) {
-
-      outline = create$1('circle');
-
-      // Extra 1px offset needed due to increased stroke-width of end event
-      // which makes it bigger than other events.
-
-      attr$1(outline, assign$1({
-        cx: element.width / 2,
-        cy: element.height / 2,
-        r: element.width / 2 + DEFAULT_OFFSET + 1
-      }, OUTLINE_STYLE));
-
-    } else if (is$1(element, 'bpmn:Event')) {
-      outline = create$1('circle');
-
-      attr$1(outline, assign$1({
-        cx: element.width / 2,
-        cy: element.height / 2,
-        r: element.width / 2 + DEFAULT_OFFSET
-      }, OUTLINE_STYLE));
-
-    } else if (is$1(element, 'bpmn:DataObjectReference') && isStandardSize(element, 'bpmn:DataObjectReference')) {
-
-      outline = createPath(
-        DATA_OBJECT_REFERENCE_OUTLINE_PATH,
-        { x: -6, y: -6 },
-        OUTLINE_STYLE
-      );
-
-    } else if (is$1(element, 'bpmn:DataStoreReference') && isStandardSize(element, 'bpmn:DataStoreReference')) {
-
-      outline = createPath(
-        DATA_STORE_REFERENCE_OUTLINE_PATH,
-        { x: -6, y: -6 },
-        OUTLINE_STYLE
-      );
-    }
-
-    return outline;
-  };
-
-  /**
-   * Updates the outline for a given element.
-   * Returns true if the update for the given element was handled by this provider.
-   *
-   * @param {Element} element
-   * @param {Outline} outline
-   * @returns {boolean}
-   */
-  OutlineProvider.prototype.updateOutline = function(element, outline) {
-
-    if (isLabel(element)) {
-      return;
-    }
-
-    if (isAny(element, [ 'bpmn:SubProcess', 'bpmn:Group' ])) {
-
-      attr$1(outline, {
-        width: element.width + DEFAULT_OFFSET * 2,
-        height: element.height + DEFAULT_OFFSET * 2
-      });
-
-      return true;
-
-    } else if (isAny(element, [
-      'bpmn:Event',
-      'bpmn:Gateway',
-      'bpmn:DataStoreReference',
-      'bpmn:DataObjectReference'
-    ])) {
-      return true;
-    }
-
-    return false;
-  };
-
-
-  // helpers //////////
-
-  function isStandardSize(element, type) {
-    var standardSize;
-
-    if (type === 'bpmn:DataObjectReference') {
-      standardSize = DATA_OBJECT_REFERENCE_STANDARD_SIZE;
-    } else if (type === 'bpmn:DataStoreReference') {
-      standardSize = DATA_STORE_REFERENCE_STANDARD_SIZE;
-    }
-
-    return element.width === standardSize.width
-            && element.height === standardSize.height;
-  }
-
-  var OutlineModule = {
-    __depends__: [
-      OutlineModule$1
-    ],
-    __init__: [ 'outlineProvider' ],
-    outlineProvider: [ 'type', OutlineProvider ]
-  };
-
   /**
    * @typedef {import('../util/Types').Point} Point
    */
@@ -9141,7 +8699,7 @@
    *
    * @return {boolean}
    */
-  function isButton$1(event, button) {
+  function isButton(event, button) {
     return (getOriginal(event) || event).button === button;
   }
 
@@ -9152,8 +8710,8 @@
    */
   function isPrimaryButton(event) {
 
-    // button === 0 -> left áka primary mouse button
-    return isButton$1(event, 0);
+    // button === 0 -> left Ã¡ka primary mouse button
+    return isButton(event, 0);
   }
 
   /**
@@ -9163,8 +8721,8 @@
    */
   function isAuxiliaryButton(event) {
 
-    // button === 1 -> auxiliary áka wheel button
-    return isButton$1(event, 1);
+    // button === 1 -> auxiliary Ã¡ka wheel button
+    return isButton(event, 1);
   }
 
   /**
@@ -9802,14 +9360,10 @@
   /**
    * @typedef {import('../../core/Canvas').default} Canvas
    * @typedef {import('../../core/EventBus').default} EventBus
-   * @typedef {import('./Selection').default} Selection
    */
 
   var MARKER_HOVER = 'hover',
       MARKER_SELECTED = 'selected';
-
-  var SELECTION_OUTLINE_PADDING = 6;
-
 
   /**
    * A plugin that adds a visible selection UI to shapes and connections
@@ -9821,14 +9375,9 @@
    *
    * @param {Canvas} canvas
    * @param {EventBus} eventBus
-   * @param {Selection} selection
    */
-  function SelectionVisuals(canvas, eventBus, selection) {
+  function SelectionVisuals(canvas, eventBus) {
     this._canvas = canvas;
-
-    var self = this;
-
-    this._multiSelectionBox = null;
 
     function addMarker(e, cls) {
       canvas.addMarker(e, cls);
@@ -9870,62 +9419,13 @@
           select(e);
         }
       });
-
-      self._updateSelectionOutline(newSelection);
-    });
-
-
-    eventBus.on('element.changed', function(event) {
-      if (selection.isSelected(event.element)) {
-        self._updateSelectionOutline(selection.get());
-      }
     });
   }
 
   SelectionVisuals.$inject = [
     'canvas',
-    'eventBus',
-    'selection'
+    'eventBus'
   ];
-
-  SelectionVisuals.prototype._updateSelectionOutline = function(selection) {
-    var layer = this._canvas.getLayer('selectionOutline');
-
-    clear$1(layer);
-
-    var enabled = selection.length > 1;
-
-    var container = this._canvas.getContainer();
-
-    classes$1(container)[enabled ? 'add' : 'remove']('djs-multi-select');
-
-    if (!enabled) {
-      return;
-    }
-
-    var bBox = addSelectionOutlinePadding(getBBox(selection));
-
-    var rect = create$1('rect');
-
-    attr$1(rect, assign$1({
-      rx: 3
-    }, bBox));
-
-    classes$1(rect).add('djs-selection-outline');
-
-    append(layer, rect);
-  };
-
-  // helpers //////////
-
-  function addSelectionOutlinePadding(bBox) {
-    return {
-      x: bBox.x - SELECTION_OUTLINE_PADDING,
-      y: bBox.y - SELECTION_OUTLINE_PADDING,
-      width: bBox.width + SELECTION_OUTLINE_PADDING * 2,
-      height: bBox.height + SELECTION_OUTLINE_PADDING * 2
-    };
-  }
 
   /**
    * @typedef {import('../../core/Canvas').default} Canvas
@@ -10053,7 +9553,6 @@
     __init__: [ 'selectionVisuals', 'selectionBehavior' ],
     __depends__: [
       InteractionEventsModule,
-      OutlineModule$1
     ],
     selection: [ 'type', Selection ],
     selectionVisuals: [ 'type', SelectionVisuals ],
@@ -10982,6 +10481,11 @@
      */
     this._rootElement = null;
 
+    /**
+     * @type {boolean}
+     */
+    this._focused = false;
+
     this._init(config || {});
   }
 
@@ -11008,14 +10512,33 @@
    * @param {CanvasConfig} config
    */
   Canvas.prototype._init = function(config) {
-
     const eventBus = this._eventBus;
 
     // html container
     const container = this._container = createContainer(config);
 
     const svg = this._svg = create$1('svg');
-    attr$1(svg, { width: '100%', height: '100%' });
+
+    attr$1(svg, {
+      width: '100%',
+      height: '100%'
+    });
+
+    attr(svg, 'tabindex', 0);
+
+    eventBus.on('element.hover', () => {
+      this.restoreFocus();
+    });
+
+    svg.addEventListener('focusin', () => {
+      this._focused = true;
+      eventBus.fire('canvas.focus.changed', { focused: true });
+    });
+
+    svg.addEventListener('focusout', () => {
+      this._focused = false;
+      eventBus.fire('canvas.focus.changed', { focused: false });
+    });
 
     append(container, svg);
 
@@ -11105,6 +10628,31 @@
 
     // force recomputation of view box
     delete this._cachedViewbox;
+  };
+
+  /**
+  * Sets focus on the canvas SVG element.
+  */
+  Canvas.prototype.focus = function() {
+    this._svg.focus({ preventScroll: true });
+  };
+
+  /**
+  * Sets focus on the canvas SVG element if `document.body` is currently focused.
+  */
+  Canvas.prototype.restoreFocus = function() {
+    if (document.activeElement === document.body) {
+      this.focus();
+    }
+  };
+
+  /**
+  * Returns true if the canvas is focused.
+  *
+  * @return {boolean}
+  */
+  Canvas.prototype.isFocused = function() {
+    return this._focused;
   };
 
   /**
@@ -11946,7 +11494,7 @@
   Canvas.prototype.viewbox = function(box) {
 
     if (box === undefined && this._cachedViewbox) {
-      return this._cachedViewbox;
+      return structuredClone(this._cachedViewbox);
     }
 
     const viewport = this._viewport,
@@ -14574,13 +14122,15 @@
     if (parts.length === 1) {
       localName = name;
       prefix = defaultPrefix;
-    } else
+    }
 
     // prefix + local name
-    if (parts.length === 2) {
+    else if (parts.length === 2) {
       localName = parts[1];
       prefix = parts[0];
-    } else {
+    }
+
+    else {
       throw new Error('expected <prefix:localName> or <localName>, got ' + name);
     }
 
@@ -15482,7 +15032,7 @@
    * sub-set of reserved names (&amp;) as well as
    * hex (&#xaaf;) and decimal (&#1231;) encoded characters.
    *
-   * @param {string} str
+   * @param {string} s
    *
    * @return {string} decoded string
    */
@@ -15493,10 +15043,6 @@
 
     return s;
   }
-
-  var XSI_URI = 'http://www.w3.org/2001/XMLSchema-instance';
-  var XSI_PREFIX = 'xsi';
-  var XSI_TYPE$1 = 'xsi:type';
 
   var NON_WHITESPACE_OUTSIDE_ROOT_NODE = 'non-whitespace outside of root node';
 
@@ -15542,7 +15088,7 @@
   }
 
   function noopGetContext() {
-    return { 'line': 0, 'column': 0 };
+    return { line: 0, column: 0 };
   }
 
   function throwFunc(err) {
@@ -15707,9 +15253,6 @@
       for (k in nsMap) {
         _nsUriToPrefix[k] = nsMap[k];
       }
-
-      // FORCE default mapping for schema instance
-      _nsUriToPrefix[XSI_URI] = XSI_PREFIX;
 
       isNamespace = true;
       nsUriToPrefix = _nsUriToPrefix;
@@ -16034,23 +15577,6 @@
 
           // end: normalize ns attribute name
 
-          // normalize xsi:type ns attribute value
-          if (name === XSI_TYPE$1) {
-            w = value.indexOf(':');
-
-            if (w !== -1) {
-              nsName = value.substring(0, w);
-
-              // handle default prefixes, i.e. xs:String gracefully
-              nsName = nsMatrix[nsName] || nsName;
-              value = nsName + value.substring(w);
-            } else {
-              value = defaultAlias + ':' + value;
-            }
-          }
-
-          // end: normalize xsi:type ns attribute value
-
           attrs[name] = value;
         }
 
@@ -16079,23 +15605,6 @@
                 : nsName + name.substr(w);
 
               // end: normalize ns attribute name
-
-              // normalize xsi:type ns attribute value
-              if (name === XSI_TYPE$1) {
-                w = value.indexOf(':');
-
-                if (w !== -1) {
-                  nsName = value.substring(0, w);
-
-                  // handle default prefixes, i.e. xs:String gracefully
-                  nsName = nsMatrix[nsName] || nsName;
-                  value = nsName + value.substring(w);
-                } else {
-                  value = defaultAlias + ':' + value;
-                }
-              }
-
-              // end: normalize xsi:type ns attribute value
             }
 
             attrs[name] = value;
@@ -16236,11 +15745,11 @@
           }
         }
 
-        w = xml.charCodeAt(i+1);
+        w = xml.charCodeAt(i + 1);
 
         // parse comments + CDATA
         if (w === 33) { // "!"
-          q = xml.charCodeAt(i+2);
+          q = xml.charCodeAt(i + 2);
 
           // CDATA section
           if (q === 91 && xml.substr(i + 3, 6) === 'CDATA[') { // 91 == "["
@@ -16524,18 +16033,16 @@
     'xml': 'http://www.w3.org/XML/1998/namespace'
   };
 
-  var XSI_TYPE = 'xsi:type';
+  var SERIALIZE_PROPERTY = 'property';
 
-  function serializeFormat(element) {
+  function getSerialization(element) {
     return element.xml && element.xml.serialize;
   }
 
-  function serializeAsType(element) {
-    return serializeFormat(element) === XSI_TYPE;
-  }
+  function getSerializationType(element) {
+    const type = getSerialization(element);
 
-  function serializeAsProperty(element) {
-    return serializeFormat(element) === 'property';
+    return type !== SERIALIZE_PROPERTY && (type || null);
   }
 
   function capitalize(str) {
@@ -16551,12 +16058,20 @@
     return aliasNs.prefix + ':' + capitalize(aliasNs.localName);
   }
 
+  /**
+   * Un-prefix a potentially prefixed type name.
+   *
+   * @param {NsName} nameNs
+   * @param {Object} [pkg]
+   *
+   * @return {string}
+   */
   function prefixedToName(nameNs, pkg) {
 
     var name = nameNs.name,
         localName = nameNs.localName;
 
-    var typePrefix = pkg.xml && pkg.xml.typePrefix;
+    var typePrefix = pkg && pkg.xml && pkg.xml.typePrefix;
 
     if (typePrefix && localName.indexOf(typePrefix) === 0) {
       return nameNs.prefix + ':' + localName.slice(typePrefix.length);
@@ -16565,12 +16080,19 @@
     }
   }
 
-  function normalizeXsiTypeName(name, model) {
+  function normalizeTypeName(name, nsMap, model) {
 
-    var nameNs = parseName(name);
-    var pkg = model.getPackage(nameNs.prefix);
+    // normalize against actual NS
+    const nameNs = parseName(name, nsMap.xmlns);
 
-    return prefixedToName(nameNs, pkg);
+    const normalizedName = `${ nsMap[nameNs.prefix] || nameNs.prefix }:${ nameNs.localName }`;
+
+    const normalizedNameNs = parseName(normalizedName);
+
+    // determine actual type name, based on package-defined prefix
+    var pkg = model.getPackage(normalizedNameNs.prefix);
+
+    return prefixedToName(normalizedNameNs, pkg);
   }
 
   function error(message) {
@@ -16859,8 +16381,9 @@
       } else {
         if (prop) {
           value = coerceType(prop.type, value);
-        } else
-        if (name !== 'xmlns') {
+        } else if (name === 'xmlns') {
+          name = ':' + name;
+        } else {
           propNameNs = parseName(name, descriptor.ns.prefix);
 
           // check whether attribute is defined in a well-known namespace
@@ -16893,26 +16416,27 @@
         descriptor = getModdleDescriptor(type);
 
     var propertyName = nameNs.name,
-        property = descriptor.propertiesByName[propertyName],
-        elementTypeName,
-        elementType;
+        property = descriptor.propertiesByName[propertyName];
 
     // search for properties by name first
 
     if (property && !property.isAttr) {
 
-      if (serializeAsType(property)) {
-        elementTypeName = node.attributes[XSI_TYPE];
+      const serializationType = getSerializationType(property);
 
-        // xsi type is optional, if it does not exists the
+      if (serializationType) {
+        const elementTypeName = node.attributes[serializationType];
+
+        // type is optional, if it does not exists the
         // default type is assumed
         if (elementTypeName) {
 
+          // convert the prefix used to the mapped form, but also
           // take possible type prefixes from XML
-          // into account, i.e.: xsi:type="t{ActualType}"
-          elementTypeName = normalizeXsiTypeName(elementTypeName, model);
+          // into account, i.e.: xsi:type="t{ActualType}",
+          const normalizedTypeName = normalizeTypeName(elementTypeName, node.ns, model);
 
-          elementType = model.getType(elementTypeName);
+          const elementType = model.getType(normalizedTypeName);
 
           return assign$1({}, property, {
             effectiveType: getModdleDescriptor(elementType).name
@@ -16927,8 +16451,8 @@
     var pkg = model.getPackage(nameNs.prefix);
 
     if (pkg) {
-      elementTypeName = aliasToName(nameNs, pkg);
-      elementType = model.getType(elementTypeName);
+      const elementTypeName = aliasToName(nameNs, pkg);
+      const elementType = model.getType(elementTypeName);
 
       // search for collection members later
       property = find(descriptor.properties, function(p) {
@@ -17350,9 +16874,12 @@
       uriMap[p.uri] = p.prefix;
 
       return uriMap;
-    }, {
-      'http://www.w3.org/XML/1998/namespace': 'xml' // add default xml ns
-    });
+    }, Object.entries(DEFAULT_NS_MAP).reduce(function(map, [ prefix, url ]) {
+      map[url] = prefix;
+
+      return map;
+    }, model.config && model.config.nsMap || {}));
+
     parser
       .ns(uriMap)
       .on('openTag', function(obj, decodeStr, selfClosing, getContext) {
@@ -17453,75 +16980,82 @@
 
   function Namespaces(parent) {
 
-    var prefixMap = {};
-    var uriMap = {};
-    var used = {};
+    this.prefixMap = {};
+    this.uriMap = {};
+    this.used = {};
 
-    var wellknown = [];
-    var custom = [];
+    this.wellknown = [];
+    this.custom = [];
+    this.parent = parent;
 
-    // API
+    this.defaultPrefixMap = parent && parent.defaultPrefixMap || {};
+  }
 
-    this.byUri = function(uri) {
-      return uriMap[uri] || (
-        parent && parent.byUri(uri)
-      );
-    };
+  Namespaces.prototype.mapDefaultPrefixes = function(defaultPrefixMap) {
+    this.defaultPrefixMap = defaultPrefixMap;
+  };
 
-    this.add = function(ns, isWellknown) {
+  Namespaces.prototype.defaultUriByPrefix = function(prefix) {
+    return this.defaultPrefixMap[prefix];
+  };
 
-      uriMap[ns.uri] = ns;
+  Namespaces.prototype.byUri = function(uri) {
+    return this.uriMap[uri] || (
+      this.parent && this.parent.byUri(uri)
+    );
+  };
 
-      if (isWellknown) {
-        wellknown.push(ns);
-      } else {
-        custom.push(ns);
-      }
+  Namespaces.prototype.add = function(ns, isWellknown) {
 
-      this.mapPrefix(ns.prefix, ns.uri);
-    };
+    this.uriMap[ns.uri] = ns;
 
-    this.uriByPrefix = function(prefix) {
-      return prefixMap[prefix || 'xmlns'];
-    };
+    if (isWellknown) {
+      this.wellknown.push(ns);
+    } else {
+      this.custom.push(ns);
+    }
 
-    this.mapPrefix = function(prefix, uri) {
-      prefixMap[prefix || 'xmlns'] = uri;
-    };
+    this.mapPrefix(ns.prefix, ns.uri);
+  };
 
-    this.getNSKey = function(ns) {
-      return (ns.prefix !== undefined) ? (ns.uri + '|' + ns.prefix) : ns.uri;
-    };
+  Namespaces.prototype.uriByPrefix = function(prefix) {
+    return this.prefixMap[prefix || 'xmlns'] || (
+      this.parent && this.parent.uriByPrefix(prefix)
+    );
+  };
 
-    this.logUsed = function(ns) {
+  Namespaces.prototype.mapPrefix = function(prefix, uri) {
+    this.prefixMap[prefix || 'xmlns'] = uri;
+  };
 
-      var uri = ns.uri;
+  Namespaces.prototype.getNSKey = function(ns) {
+    return (ns.prefix !== undefined) ? (ns.uri + '|' + ns.prefix) : ns.uri;
+  };
+
+  Namespaces.prototype.logUsed = function(ns) {
+
+    var uri = ns.uri;
+    var nsKey = this.getNSKey(ns);
+
+    this.used[nsKey] = this.byUri(uri);
+
+    // Inform parent recursively about the usage of this NS
+    if (this.parent) {
+      this.parent.logUsed(ns);
+    }
+  };
+
+  Namespaces.prototype.getUsed = function(ns) {
+
+    var allNs = [].concat(this.wellknown, this.custom);
+
+    return allNs.filter(ns => {
       var nsKey = this.getNSKey(ns);
 
-      used[nsKey] = this.byUri(uri);
+      return this.used[nsKey];
+    });
+  };
 
-      // Inform parent recursively about the usage of this NS
-      if (parent) {
-        parent.logUsed(ns);
-      }
-    };
-
-    this.getUsed = function(ns) {
-
-      function isUsed(ns) {
-        var nsKey = self.getNSKey(ns);
-
-        return used[nsKey];
-      }
-
-      var self = this;
-
-      var allNs = [].concat(wellknown, custom);
-
-      return allNs.filter(isUsed);
-    };
-
-  }
 
   function lower(string) {
     return string.charAt(0).toLowerCase() + string.slice(1);
@@ -17736,7 +17270,7 @@
     var isGeneric = elementDescriptor.isGeneric;
 
     if (isGeneric) {
-      otherAttrs = this.parseGeneric(element);
+      otherAttrs = this.parseGenericNsAttributes(element);
     } else {
       otherAttrs = this.parseNsAttributes(element);
     }
@@ -17750,7 +17284,9 @@
     // compute tag name
     this.tagName = this.addTagName(this.ns);
 
-    if (!isGeneric) {
+    if (isGeneric) {
+      this.parseGenericContainments(element);
+    } else {
       properties = getSerializableProperties(element);
 
       this.parseAttributes(filterAttributes(properties));
@@ -17813,35 +17349,29 @@
     }
   };
 
-  ElementSerializer.prototype.parseGeneric = function(element) {
+  ElementSerializer.prototype.parseGenericNsAttributes = function(element) {
 
-    var self = this,
-        body = this.body;
+    return Object.entries(element).filter(
+      ([ key, value ]) => !key.startsWith('$') && this.parseNsAttribute(element, key, value)
+    ).map(
+      ([ key, value ]) => ({ name: key, value: value })
+    );
+  };
 
-    var attributes = [];
+  ElementSerializer.prototype.parseGenericContainments = function(element) {
+    var body = element.$body;
 
-    forEach$1(element, function(val, key) {
+    if (body) {
+      this.body.push(new BodySerializer().build({ type: 'String' }, body));
+    }
 
-      var nonNsAttr;
+    var children = element.$children;
 
-      if (key === '$body') {
-        body.push(new BodySerializer().build({ type: 'String' }, val));
-      } else
-      if (key === '$children') {
-        forEach$1(val, function(child) {
-          body.push(new ElementSerializer(self).build(child));
-        });
-      } else
-      if (key.indexOf('$') !== 0) {
-        nonNsAttr = self.parseNsAttribute(element, key, val);
-
-        if (nonNsAttr) {
-          attributes.push({ name: key, value: val });
-        }
-      }
-    });
-
-    return attributes;
+    if (children) {
+      forEach$1(children, child => {
+        this.body.push(new ElementSerializer(this).build(child));
+      });
+    }
   };
 
   ElementSerializer.prototype.parseNsAttribute = function(element, name, value) {
@@ -17888,7 +17418,7 @@
    * @param  {Object} element
    * @return {Array<Object>}
    */
-  ElementSerializer.prototype.parseNsAttributes = function(element, attrs) {
+  ElementSerializer.prototype.parseNsAttributes = function(element) {
     var self = this;
 
     var genericAttrs = element.$attrs;
@@ -17916,21 +17446,16 @@
 
     forEach$1(attributes, function(attr) {
 
-      // do not serialize xsi:type attribute
-      // it is set manually based on the actual implementation type
-      if (attr.name === XSI_TYPE) {
-        return;
-      }
-
       try {
         self.addAttribute(self.nsAttributeName(attr.name), attr.value);
       } catch (e) {
-        /* global console */
 
-        console.warn(
-          'missing namespace information for ',
-          attr.name, '=', attr.value, 'on', element,
-          e);
+        // eslint-disable-next-line no-undef
+        typeof console !== 'undefined' && console.warn(
+          `missing namespace information for <${
+          attr.name
+        }=${ attr.value }> on`, element, e
+        );
       }
     });
   };
@@ -17952,13 +17477,11 @@
 
       if (p.isBody) {
         body.push(new BodySerializer().build(p, value[0]));
-      } else
-      if (isSimple(p.type)) {
+      } else if (isSimple(p.type)) {
         forEach$1(value, function(v) {
           body.push(new ValueSerializer(self.addTagName(self.nsPropertyTagName(p))).build(p, v));
         });
-      } else
-      if (isReference) {
+      } else if (isReference) {
         forEach$1(value, function(v) {
           body.push(new ReferenceSerializer(self.addTagName(self.nsPropertyTagName(p))).build(v));
         });
@@ -17966,17 +17489,17 @@
 
         // allow serialization via type
         // rather than element name
-        var asType = serializeAsType(p),
-            asProperty = serializeAsProperty(p);
+        var serialization = getSerialization(p);
 
         forEach$1(value, function(v) {
           var serializer;
 
-          if (asType) {
-            serializer = new TypeSerializer(self, p);
-          } else
-          if (asProperty) {
-            serializer = new ElementSerializer(self, p);
+          if (serialization) {
+            if (serialization === SERIALIZE_PROPERTY) {
+              serializer = new ElementSerializer(self, p);
+            } else {
+              serializer = new TypeSerializer(self, p, serialization);
+            }
           } else {
             serializer = new ElementSerializer(self);
           }
@@ -18024,9 +17547,7 @@
   };
 
   ElementSerializer.prototype.logNamespaceUsed = function(ns, local) {
-    var element = this.element,
-        model = element.$model,
-        namespaces = this.getNamespaces(local);
+    var namespaces = this.getNamespaces(local);
 
     // ns may be
     //
@@ -18044,7 +17565,7 @@
       return { localName: ns.localName };
     }
 
-    wellknownUri = DEFAULT_NS_MAP[prefix] || model && (model.getPackage(prefix) || {}).uri;
+    wellknownUri = namespaces.defaultUriByPrefix(prefix);
 
     uri = uri || wellknownUri || namespaces.uriByPrefix(prefix);
 
@@ -18053,6 +17574,11 @@
     }
 
     ns = namespaces.byUri(uri);
+
+    // register new default prefix <xmlns> in local scope
+    if (!ns && !prefix) {
+      ns = this.logNamespace({ uri }, wellknownUri === uri, true);
+    }
 
     if (!ns) {
       newPrefix = prefix;
@@ -18085,8 +17611,7 @@
 
         if (!p.isMany) {
           value = value.id;
-        }
-        else {
+        } else {
           var values = [];
           forEach$1(value, function(v) {
             values.push(v.id);
@@ -18190,20 +17715,25 @@
   /**
    * A serializer for types that handles serialization of data types
    */
-  function TypeSerializer(parent, propertyDescriptor) {
+  function TypeSerializer(parent, propertyDescriptor, serialization) {
     ElementSerializer.call(this, parent, propertyDescriptor);
+
+    this.serialization = serialization;
   }
 
   inherits(TypeSerializer, ElementSerializer);
 
   TypeSerializer.prototype.parseNsAttributes = function(element) {
 
-    // extracted attributes
-    var attributes = ElementSerializer.prototype.parseNsAttributes.call(this, element);
+    // extracted attributes with serialization attribute
+    // <type=typeName> stripped; it may be later
+    var attributes = ElementSerializer.prototype.parseNsAttributes.call(this, element).filter(
+      attr => attr.name !== this.serialization
+    );
 
     var descriptor = element.$descriptor;
 
-    // only serialize xsi:type if necessary
+    // only serialize <type=typeName> if necessary
     if (descriptor.name === this.propertyDescriptor.type) {
       return attributes;
     }
@@ -18218,7 +17748,7 @@
         typePrefix = (pkg.xml && pkg.xml.typePrefix) || '';
 
     this.addAttribute(
-      this.nsAttributeName(XSI_TYPE),
+      this.nsAttributeName(this.serialization),
       (typeNs.prefix ? typeNs.prefix + ':' : '') + typePrefix + descriptor.ns.localName
     );
 
@@ -18291,7 +17821,13 @@
         formatingWriter.append(XML_PREAMBLE);
       }
 
-      new ElementSerializer().build(tree).serializeTo(formatingWriter);
+      var serializer = new ElementSerializer();
+
+      var model = tree.$model;
+
+      serializer.getNamespaces().mapDefaultPrefixes(getDefaultPrefixMappings(model));
+
+      serializer.build(tree).serializeTo(formatingWriter);
 
       if (!writer) {
         return internalWriter.value;
@@ -18301,6 +17837,39 @@
     return {
       toXML: toXML
     };
+  }
+
+
+  // helpers ///////////
+
+  /**
+   * @param {Moddle} model
+   *
+   * @return { Record<string, string> } map from prefix to URI
+   */
+  function getDefaultPrefixMappings(model) {
+
+    const nsMap = model.config && model.config.nsMap || {};
+
+    const prefixMap = {};
+
+    // { prefix -> uri }
+    for (const prefix in DEFAULT_NS_MAP) {
+      prefixMap[prefix] = DEFAULT_NS_MAP[prefix];
+    }
+
+    // { uri -> prefix }
+    for (const uri in nsMap) {
+      const prefix = nsMap[uri];
+
+      prefixMap[prefix] = uri;
+    }
+
+    for (const pkg of model.getPackages()) {
+      prefixMap[pkg.prefix] = pkg.uri;
+    }
+
+    return prefixMap;
   }
 
   /**
@@ -22029,7 +21598,7 @@
   	associations: associations
   };
 
-  var packages = {
+  const packages = {
     bpmn: BpmnPackage,
     bpmndi: BpmnDiPackage,
     dc: DcPackage,
@@ -22038,8 +21607,8 @@
     color: BpmnInColorPackage
   };
 
-  function simple(additionalPackages, options) {
-    var pks = assign$1({}, packages, additionalPackages);
+  function SimpleBpmnModdle(additionalPackages, options) {
+    const pks = assign$1({}, packages, additionalPackages);
 
     return new BpmnModdle(pks, options);
   }
@@ -23530,7 +23099,7 @@
   BaseViewer.prototype._createModdle = function(options) {
     const moddleOptions = assign$1({}, this._moddleExtensions, options.moddleExtensions);
 
-    return new simple(moddleOptions);
+    return new SimpleBpmnModdle(moddleOptions);
   };
 
   BaseViewer.prototype._modules = [];
@@ -23692,7 +23261,6 @@
   Viewer.prototype._modules = [
     CoreModule$1,
     DrilldownModdule,
-    OutlineModule,
     OverlaysModule,
     SelectionModule,
     TranslateModule
@@ -23790,9 +23358,10 @@
   var KEYDOWN_EVENT = 'keyboard.keydown',
       KEYUP_EVENT = 'keyboard.keyup';
 
-  var HANDLE_MODIFIER_ATTRIBUTE = 'input-handle-modified-keys';
-
   var DEFAULT_PRIORITY = 1000;
+
+  var compatMessage = 'Keyboard binding is now implicit; explicit binding to an element got removed. For more information, see https://github.com/bpmn-io/diagram-js/issues/661';
+
 
   /**
    * A keyboard abstraction that may be activated and
@@ -23812,17 +23381,18 @@
    *
    * All events contain one field which is node.
    *
-   * A default binding for the keyboard may be specified via the
-   * `keyboard.bindTo` configuration option.
+   * Specify the initial keyboard binding state via the
+   * `keyboard.bind=true|false` configuration option.
    *
    * @param {Object} config
-   * @param {EventTarget} [config.bindTo]
+   * @param {boolean} [config.bind]
    * @param {EventBus} eventBus
    */
   function Keyboard(config, eventBus) {
     var self = this;
 
-    this._config = config || {};
+    this._config = config = config || {};
+
     this._eventBus = eventBus;
 
     this._keydownHandler = this._keydownHandler.bind(this);
@@ -23835,19 +23405,22 @@
       self.unbind();
     });
 
-    eventBus.on('diagram.init', function() {
+    if (config.bindTo) {
+      console.error('unsupported configuration <keyboard.bindTo>', new Error(compatMessage));
+    }
+
+    var bind = config && config.bind !== false;
+
+    eventBus.on('canvas.init', function(event) {
+      self._target = event.svg;
+
+      if (bind) {
+        self.bind();
+      }
+
       self._fire('init');
     });
 
-    eventBus.on('attach', function() {
-      if (config && config.bindTo) {
-        self.bind(config.bindTo);
-      }
-    });
-
-    eventBus.on('detach', function() {
-      self.unbind();
-    });
   }
 
   Keyboard.$inject = [
@@ -23882,47 +23455,31 @@
   };
 
   Keyboard.prototype._isEventIgnored = function(event) {
-    if (event.defaultPrevented) {
-      return true;
-    }
-
-    return (
-      isInput(event.target) || (
-        isButton(event.target) && isKey([ ' ', 'Enter' ], event)
-      )
-    ) && this._isModifiedKeyIgnored(event);
-  };
-
-  Keyboard.prototype._isModifiedKeyIgnored = function(event) {
-    if (!isCmd(event)) {
-      return true;
-    }
-
-    var allowedModifiers = this._getAllowedModifiers(event.target);
-    return allowedModifiers.indexOf(event.key) === -1;
-  };
-
-  Keyboard.prototype._getAllowedModifiers = function(element) {
-    var modifierContainer = closest(element, '[' + HANDLE_MODIFIER_ATTRIBUTE + ']', true);
-
-    if (!modifierContainer || (this._node && !this._node.contains(modifierContainer))) {
-      return [];
-    }
-
-    return modifierContainer.getAttribute(HANDLE_MODIFIER_ATTRIBUTE).split(',');
+    return false;
   };
 
   /**
    * Bind keyboard events to the given DOM node.
    *
+   * @overlord
+   * @deprecated No longer in use since version 15.0.0.
+   *
    * @param {EventTarget} node
    */
+  /**
+   * Bind keyboard events to the canvas node.
+   */
   Keyboard.prototype.bind = function(node) {
+
+    // legacy <node> argument provided
+    if (node) {
+      console.error('unsupported argument <node>', new Error(compatMessage));
+    }
 
     // make sure that the keyboard is only bound once to the DOM
     this.unbind();
 
-    this._node = node;
+    node = this._node = this._target;
 
     // bind key events
     event.bind(node, 'keydown', this._keydownHandler);
@@ -23992,18 +23549,6 @@
   Keyboard.prototype.isCmd = isCmd;
   Keyboard.prototype.isShift = isShift;
   Keyboard.prototype.isKey = isKey;
-
-
-
-  // helpers ///////
-
-  function isInput(target) {
-    return target && (matches(target, 'input, textarea') || target.contentEditable === 'true');
-  }
-
-  function isButton(target) {
-    return target && matches(target, 'button, input[type=submit], input[type=button], a[href], [aria-role=button]');
-  }
 
   var LOW_PRIORITY = 500;
 

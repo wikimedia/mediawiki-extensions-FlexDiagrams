@@ -154,10 +154,7 @@
 	fd.bpmn.prototype = bpmn_proto;
 
 	var bpmnModeler = new BpmnJS({
-		container: '#canvas',
-		keyboard: {
-			bindTo: window
-		}
+		container: '#canvas'
 	});
 
 	var pageName = $('#canvas').attr('data-wiki-page');
