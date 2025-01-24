@@ -9,6 +9,9 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Title\Title;
 
 class FDHooks {
 
@@ -71,10 +74,8 @@ class FDHooks {
 		$vars['wgScript'] = $wgScript;
 	}
 
-	public static function displayIncomingLinks( MediaWiki\Revision\RevisionRecord $revision,
-		MediaWiki\Title\Title $title,
-		int $oldId,
-		MediaWiki\Output\OutputPage $output ) {
+	public static function displayIncomingLinks( RevisionRecord $revision, Title $title,
+		int $oldId, OutputPage $output ) {
 		global $wgFlexDiagramsEnabledFormats;
 
 		$namespace = $title->getNamespace();
