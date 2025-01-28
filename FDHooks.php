@@ -9,9 +9,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Output\OutputPage;
-use MediaWiki\Revision\RevisionRecord;
-use MediaWiki\Title\Title;
 
 class FDHooks {
 
@@ -74,8 +71,20 @@ class FDHooks {
 		$vars['wgScript'] = $wgScript;
 	}
 
-	public static function displayIncomingLinks( RevisionRecord $revision, Title $title,
-		int $oldId, OutputPage $output ) {
+	/**
+	 * Called by the ArticleRevisionViewCustom hook.
+	 *
+	 * Display, in the "subtitle", the names of any pages that link to the diagram
+	 * currently being seen.
+	 * (The argument types can be added to the header once support for MW < 1.41 is
+	 * removed.)
+	 *
+	 * @param RevisionRecord $revision
+	 * @param Title $title
+	 * @param int $oldId
+	 * @param OutputPage $output
+	 */
+	public static function displayIncomingLinks( $revision, $title, $oldId, $output ) {
 		global $wgFlexDiagramsEnabledFormats;
 
 		$namespace = $title->getNamespace();
