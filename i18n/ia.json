@@ -9,6 +9,7 @@
 	"flexdiagrams-edit-title": "Modificar diagramma: $1",
 	"flexdiagrams-creatediagram": "Crear diagramma",
 	"flexdiagrams-viewdiagram": "Vider diagramma",
+	"flexdiagrams-linkingpages": "Le sequente paginas liga a iste diagramma: $1",
 	"flexdiagrams-drawio-saveinfo": "Per favor salveguarda le diagramma in le interfacie de modification ante de premer le button \"$1\".",
 	"flexdiagrams-edit-code": "Codice:",
 	"flexdiagrams-edit-preview": "Previsualisation:",
