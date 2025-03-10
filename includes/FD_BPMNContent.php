@@ -3,6 +3,8 @@
  * Content of BPMN Diagrams
  */
 
+use MediaWiki\Html\Html;
+
 class FDBPMNContent extends TextContent {
 
 	public function __construct( $text, $modelId = CONTENT_MODEL_FD_BPMN ) {

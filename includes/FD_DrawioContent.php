@@ -3,6 +3,8 @@
  * Content of DRAWIO Diagrams
  */
 
+use MediaWiki\Html\Html;
+
 class FDDrawioContent extends TextContent {
 
 	public function __construct( $text, $modelId = CONTENT_MODEL_FD_DRAWIO ) {

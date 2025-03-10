@@ -3,6 +3,8 @@
  * Content of Mermaid Diagrams
  */
 
+use MediaWiki\Html\Html;
+
 class FDMermaidContent extends TextContent {
 
 	public function __construct( $text, $modelId = CONTENT_MODEL_FD_MERMAID ) {

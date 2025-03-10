@@ -3,6 +3,8 @@
  * Content of DOT (Viz-JS) Diagrams
  */
 
+use MediaWiki\Html\Html;
+
 class FDDOTContent extends TextContent {
 
 	public function __construct( $text, $modelId = CONTENT_MODEL_FD_DOT ) {
