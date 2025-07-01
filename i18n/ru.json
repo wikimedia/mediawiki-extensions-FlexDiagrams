@@ -1,0 +1,23 @@
+{
+	"@metadata": {
+		"authors": [
+			"Engineer56"
+		]
+	},
+	"flexdiagrams-desc": "Редактирование и создание диаграмм",
+	"editdiagram": "Редактировать диаграмму",
+	"flexdiagrams-edit-title": "Редактировать диаграмму: $1",
+	"flexdiagrams-creatediagram": "Создать диаграмму",
+	"flexdiagrams-viewdiagram": "Посм. диаграмму",
+	"flexdiagrams-linkingpages": "Следующие страницы ссылаются на эту диаграмму: $1",
+	"flexdiagrams-drawio-saveinfo": "Пожалуйста, сохраните диаграмму в интерфейсе редактирования, прежде чем нажать кнопку «$1».",
+	"flexdiagrams-edit-code": "Код:",
+	"flexdiagrams-edit-preview": "Предпросмотр:",
+	"flexdiagrams-embedding-unsupported": "Страницы диаграмм не могут быть встроены.",
+	"flexdiagrams-gantt-zoomlevel": "Уровень масштабирования:",
+	"flexdiagrams-gantt-hours": "Часы",
+	"flexdiagrams-gantt-days": "Дни",
+	"flexdiagrams-gantt-weeks": "Недели",
+	"flexdiagrams-gantt-months": "Месяцы",
+	"flexdiagrams-gantt-years": "Годы"
+}
