@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\EditPage\EditPage;
+
 /**
  * EditPage::showStandardInputs() can't directly be called from outside,
  * because it's a protected function, so we use this subclass instead. Using
