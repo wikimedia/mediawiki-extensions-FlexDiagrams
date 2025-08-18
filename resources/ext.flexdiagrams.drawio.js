@@ -113,8 +113,7 @@
 				if ( mw.config.get( 'wgAction' ) == 'editdiagram' ) {
 					var $saveInfo = new OO.ui.MessageWidget( {
 						type: 'notice',
-						label: new OO.ui.HtmlSnippet( mw.message( 'flexdiagrams-drawio-saveinfo',
-							$( '#wpSave' ).attr( 'value' ) ).text() )
+						label: mw.msg( 'flexdiagrams-drawio-saveinfo', $( '#wpSave' ).attr( 'value' ) )
 					} );
 					$saveInfo.$element.insertBefore( '#bodyContent' );
 					edit( null, data );
