@@ -10,10 +10,10 @@
 ( function () {
 	'use strict';
 
-	var changesWereMade = false;
+	let changesWereMade = false;
 
-	$( function () {
-		var allowCloseWindow;
+	$( () => {
+		let allowCloseWindow;
 
 		// Check if EditWarning is enabled and if we need it.
 		if ( !mw.user.options.get( 'useeditwarning' ) ) {
@@ -24,19 +24,19 @@
 		// Ideally, this would check if the user made an actual change
 		// to the diagram, beyond just clicking on it, but I couldn't
 		// figure out how to do that.
-		$( 'div#canvas' ).on( 'click', function () {
+		$( 'div#canvas' ).on( 'click', () => {
 			changesWereMade = true;
 			$( 'div#canvas' ).off( 'click' );
 		} );
 
 		// DOT diagrams.
-		$( 'textarea.dotCode' ).on( 'keypress', function () {
+		$( 'textarea.dotCode' ).on( 'keypress', () => {
 			changesWereMade = true;
 			$( 'textarea.dotCode' ).off( 'keypress' );
 		} );
 
 		// Mermaid diagrams.
-		$( 'textarea.mermaidCode' ).on( 'keypress', function () {
+		$( 'textarea.mermaidCode' ).on( 'keypress', () => {
 			changesWereMade = true;
 			$( 'textarea.mermaidCode' ).off( 'keypress' );
 		} );
@@ -53,10 +53,10 @@
 		} );
 
 		// Ignore form submissions.
-		$( '#wpSave' ).on( 'click', function () {
+		$( '#wpSave' ).on( 'click', () => {
 			allowCloseWindow.release();
 		} );
-		$( '#wpSummary, #wpMinoredit, #wpWatchthis' ).on( 'keypress', function ( e ) {
+		$( '#wpSummary, #wpMinoredit, #wpWatchthis' ).on( 'keypress', ( e ) => {
 			if ( e.which === 13 ) {
 				allowCloseWindow.release();
 			}

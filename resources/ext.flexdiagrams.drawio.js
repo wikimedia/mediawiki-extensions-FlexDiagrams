@@ -7,11 +7,10 @@
 
 	'use strict';
 
-	var gLinkedPages = {};
+	const gLinkedPages = {};
 
 	/**
 	 * Inheritance class for the fd.base constructor
-	 *
 	 *
 	 * @class
 	 */
@@ -23,23 +22,23 @@
 	 */
 	fd.drawio = function () {};
 
-	var drawio_proto = new fd.base();
+	const drawio_proto = new fd.base();
 
-	var editor = 'https://embed.diagrams.net/?embed=1&spin=1&proto=json';
+	const editor = 'https://embed.diagrams.net/?embed=1&spin=1&proto=json';
 
 	function edit( path, content ) {
-		var $iframe = $( '<iframe>' );
+		const $iframe = $( '<iframe>' );
 		$iframe.attr( 'frameborder', '0' );
 
-		var close = function () {
-			var diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
+		const close = function () {
+			const diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
 				'?title=' + encodeURIComponent( pageName );
 			window.location.href = diagramURL;
 		};
 
-		var receive = function ( evt ) {
+		const receive = function ( evt ) {
 			if ( evt.data.length > 0 ) {
-				var msg = JSON.parse( evt.data );
+				const msg = JSON.parse( evt.data );
 
 				if ( msg.event === 'init' ) {
 					if ( content === null ) {
@@ -65,12 +64,12 @@
 							} ), '*' );
 					}
 				} else if ( msg.event === 'export' ) {
-					var data = ( msg.data.slice( 0, 5 ) === 'data:' ) ?
+					const data = ( msg.data.slice( 0, 5 ) === 'data:' ) ?
 						msg.data.slice( Math.max( 0, msg.data.indexOf( ',' ) + 1 ) ) :
 						btoa( msg.data );
 				} else if ( msg.event === 'save' ) {
 					if ( ( /\.(png|svg|html)$/i ).test( path ) ) {
-						var ext = path.slice( Math.max( 0, path.lastIndexOf( '.' ) + 1 ) );
+						const ext = path.slice( Math.max( 0, path.lastIndexOf( '.' ) + 1 ) );
 
 						// Additional export step required for PNG, SVG and HTML
 						$iframe[ 0 ].contentWindow.postMessage( JSON.stringify(
@@ -107,18 +106,18 @@
 		if ( mw.config.get( 'wgArticleId' ) === 0 ) {
 			edit( pageName + '.png' );
 		} else {
-			var diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
+			const diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
 				'?title=' + encodeURIComponent( pageName ) + '&action=raw';
-			$.get( diagramURL, function ( data ) {
+			$.get( diagramURL, ( data ) => {
 				if ( mw.config.get( 'wgAction' ) == 'editdiagram' ) {
-					var $saveInfo = new OO.ui.MessageWidget( {
+					const $saveInfo = new OO.ui.MessageWidget( {
 						type: 'notice',
 						label: mw.msg( 'flexdiagrams-drawio-saveinfo', $( '#wpSave' ).attr( 'value' ) )
 					} );
 					$saveInfo.$element.insertBefore( '#bodyContent' );
 					edit( null, data );
 				} else {
-					var $img = $( '<img>' );
+					const $img = $( '<img>' );
 					$img.attr( 'id', 'diagramContainer' );
 					$img.attr( 'src', data );
 					$( '#canvas' ).append( $img );
@@ -129,11 +128,11 @@
 		this.enableSave( this );
 	};
 
-	var imgData = null;
+	let imgData = null;
 
 	window.addEventListener( 'message', onmessage, false );
 	window.onmessage = function ( e ) {
-		var obj = JSON.parse( e.data );
+		const obj = JSON.parse( e.data );
 		if ( obj.event == 'export' ) {
 			imgData = obj.data;
 		}
@@ -143,7 +142,7 @@
 		if ( imgData != null ) {
 			drawio_proto.updatePageAndRedirectUser( pageName, imgData );
 		} else {
-			var diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
+			const diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
 				'?title=' + encodeURIComponent( pageName );
 			window.location.href = diagramURL;
 		}
@@ -155,7 +154,7 @@
 		pageName = mw.config.get( 'wgPageName' );
 	}
 
-	var drawioHandler = new fd.drawio();
+	const drawioHandler = new fd.drawio();
 	drawioHandler.initialize();
 
 }( jQuery, mediaWiki, flexdiagrams ) );

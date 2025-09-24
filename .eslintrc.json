@@ -1,7 +1,7 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia/client-es5",
+		"wikimedia/client",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
@@ -13,6 +13,8 @@
 		"no-jquery/no-global-selector": "off",
 		"no-undef": "off",
 		"no-unused-vars": "off",
-		"no-use-before-define": "off"
+		"no-use-before-define": "off",
+		"prefer-const": "warn",
+		"no-var": "warn"
 	}
 }

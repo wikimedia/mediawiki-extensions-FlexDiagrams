@@ -11,7 +11,6 @@
 	/**
 	 * Inheritance class for the fd.base constructor
 	 *
-	 *
 	 * @class
 	 */
 	fd.base = fd.base || {};
@@ -23,7 +22,7 @@
 	fd.mermaid = function () {
 	};
 
-	var mermaid_proto = new fd.base();
+	const mermaid_proto = new fd.base();
 
 	mermaid_proto.initialize = function () {
 		mermaid.initialize( { startOnLoad: true } );
@@ -45,7 +44,7 @@
 	};
 
 	mermaid_proto.exportDiagram = function () {
-		var mermaidText = $( '.mermaidCode' ).val();
+		const mermaidText = $( '.mermaidCode' ).val();
 		this.updatePageAndRedirectUser( pageName, mermaidText );
 	};
 
@@ -56,7 +55,7 @@
 		pageName = mw.config.get( 'wgPageName' );
 	}
 
-	var mermaidHandler = new fd.mermaid();
+	const mermaidHandler = new fd.mermaid();
 	mermaidHandler.initialize();
 
 }( jQuery, mediaWiki, flexdiagrams ) );

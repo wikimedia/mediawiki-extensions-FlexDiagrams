@@ -11,7 +11,6 @@
 	/**
 	 * Inheritance class for the dg.base constructor
 	 *
-	 *
 	 * @class
 	 */
 	dg.base = dg.base || {};
@@ -23,15 +22,15 @@
 	dg.gantt = function () {
 	};
 
-	var gantt_proto = new dg.base();
+	const gantt_proto = new dg.base();
 
 	gantt_proto.initialize = function () {
 		if ( mw.config.get( 'wgAction' ) != 'editdiagram' ) {
 			gantt.config.readonly = true;
 
 			// Remove the 'add'/'+' column.
-			// eslint-disable-next-line no-shadow
-			for ( var i = gantt.config.columns.length - 1; i >= 0; i-- ) {
+
+			for ( let i = gantt.config.columns.length - 1; i >= 0; i-- ) {
 				if ( gantt.config.columns[ i ].name == 'add' ) {
 					gantt.config.columns.splice( i, 1 );
 				}
@@ -42,7 +41,7 @@
 		gantt.init( 'canvas' );
 
 		if ( mw.config.get( 'wgArticleId' ) != 0 ) {
-			var diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
+			const diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
 				'?title=' + encodeURIComponent( pageName ) + '&action=raw';
 			gantt.load( diagramURL );
 		}
@@ -51,7 +50,7 @@
 	};
 
 	gantt_proto.exportDiagram = function () {
-		var jsonText = JSON.stringify( gantt.serialize() );
+		const jsonText = JSON.stringify( gantt.serialize() );
 		this.updatePageAndRedirectUser( pageName, jsonText );
 	};
 
@@ -62,7 +61,7 @@
 		pageName = mw.config.get( 'wgPageName' );
 	}
 
-	var ganttHandler = new dg.gantt();
+	const ganttHandler = new dg.gantt();
 	ganttHandler.initialize();
 
 	function setGanttZoom( evt ) {
@@ -97,10 +96,10 @@
 		gantt.init( 'canvas' );
 	}
 
-	var zoomLevels = [ 'hours', 'days', 'weeks', 'months', 'years' ];
-	var zoomLevelButtons = [];
-	for ( var i = 0; i < zoomLevels.length; i++ ) {
-		var zoomLevel = zoomLevels[ i ];
+	const zoomLevels = [ 'hours', 'days', 'weeks', 'months', 'years' ];
+	const zoomLevelButtons = [];
+	for ( let i = 0; i < zoomLevels.length; i++ ) {
+		const zoomLevel = zoomLevels[ i ];
 		zoomLevelButtons.push( new OO.ui.ButtonOptionWidget( {
 			data: zoomLevel,
 			// eslint-disable-next-line mediawiki/msg-doc
@@ -109,13 +108,13 @@
 		} ) );
 	}
 
-	var buttonSelect = new OO.ui.ButtonSelectWidget( {
+	const buttonSelect = new OO.ui.ButtonSelectWidget( {
 		items: zoomLevelButtons
 	} );
 
 	buttonSelect.on( 'select', setGanttZoom );
 
-	var zoomLayout = new OO.ui.FieldLayout( buttonSelect, {
+	const zoomLayout = new OO.ui.FieldLayout( buttonSelect, {
 		align: 'top',
 		label: mw.message( 'flexdiagrams-gantt-zoomlevel' ).text()
 	} );
@@ -126,13 +125,13 @@
 	// Once the diagram has finished loading, get the overall duration of
 	// the Gantt chart to figure out what the zoom level should be.
 	// @todo - is there a way to do this before the diagram has loaded?
-	gantt.attachEvent( 'onLoadEnd', function () {
-		var earliestDate = gantt.getSubtaskDates().start_date;
-		var latestDate = gantt.getSubtaskDates().end_date;
+	gantt.attachEvent( 'onLoadEnd', () => {
+		const earliestDate = gantt.getSubtaskDates().start_date;
+		const latestDate = gantt.getSubtaskDates().end_date;
 		// Duration in milliseconds.
-		var duration = latestDate - earliestDate;
-		var numDays = Math.floor( duration / 86400000 );
-		var selectedZoom = 'years';
+		const duration = latestDate - earliestDate;
+		const numDays = Math.floor( duration / 86400000 );
+		let selectedZoom = 'years';
 		if ( numDays < 4 ) {
 			selectedZoom = 'hours';
 		} else if ( numDays < 60 ) {
