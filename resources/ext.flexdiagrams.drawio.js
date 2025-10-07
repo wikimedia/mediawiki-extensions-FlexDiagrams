@@ -6,9 +6,6 @@
 ( function ( $, mw, fd ) {
 
 	'use strict';
-
-	const gLinkedPages = {};
-
 	/**
 	 * Inheritance class for the fd.base constructor
 	 *
@@ -26,9 +23,11 @@
 
 	const editor = 'https://embed.diagrams.net/?embed=1&spin=1&proto=json';
 
-	function edit( path, content ) {
+	function edit( path, content, $container ) {
 		const $iframe = $( '<iframe>' );
 		$iframe.attr( 'frameborder', '0' );
+
+		const pageName = $container.attr( 'data-mw-flexdiagrams-page' ) || mw.config.get( 'wgPageName' );
 
 		const close = function () {
 			const diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
@@ -97,33 +96,40 @@
 
 		window.addEventListener( 'message', receive );
 		$iframe.attr( 'src', editor );
-		$( '#canvas' ).append( $iframe );
+		$container.append( $iframe );
 	}
 
 	fd.drawio.prototype = drawio_proto;
 
 	drawio_proto.initialize = function () {
-		if ( mw.config.get( 'wgArticleId' ) === 0 ) {
-			edit( pageName + '.png' );
-		} else {
-			const diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
-				'?title=' + encodeURIComponent( pageName ) + '&action=raw';
-			$.get( diagramURL, ( data ) => {
-				if ( mw.config.get( 'wgAction' ) == 'editdiagram' ) {
-					const $saveInfo = new OO.ui.MessageWidget( {
-						type: 'notice',
-						label: mw.msg( 'flexdiagrams-drawio-saveinfo', $( '#wpSave' ).attr( 'value' ) )
-					} );
-					$saveInfo.$element.insertBefore( '#bodyContent' );
-					edit( null, data );
-				} else {
-					const $img = $( '<img>' );
-					$img.attr( 'id', 'diagramContainer' );
-					$img.attr( 'src', data );
-					$( '#canvas' ).append( $img );
-				}
-			} );
-		}
+		const $containers = $( '[data-mw-flexdiagrams-type="drawio"]' );
+
+		$containers.each( function () {
+			const $container = $( this );
+			const pageName = $container.attr( 'data-mw-flexdiagrams-page' ) || mw.config.get( 'wgPageName' );
+
+			if ( mw.config.get( 'wgArticleId' ) === 0 ) {
+				edit( pageName + '.png', null, $container );
+			} else {
+				const diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
+					'?title=' + encodeURIComponent( pageName ) + '&action=raw';
+				$.get( diagramURL, ( data ) => {
+					if ( mw.config.get( 'wgAction' ) == 'editdiagram' ) {
+						const $saveInfo = new OO.ui.MessageWidget( {
+							type: 'notice',
+							label: mw.msg( 'flexdiagrams-drawio-saveinfo', $( '#wpSave' ).attr( 'value' ) )
+						} );
+						$saveInfo.$element.insertBefore( '#bodyContent' );
+						edit( null, data, $container );
+					} else {
+						const $img = $( '<img>' );
+						$img.attr( 'id', 'diagramContainer' );
+						$img.attr( 'src', data );
+						$container.append( $img );
+					}
+				} );
+			}
+		} );
 
 		this.enableSave( this );
 	};
@@ -139,6 +145,7 @@
 	};
 
 	drawio_proto.exportDiagram = function ( data ) {
+		const pageName = mw.config.get( 'wgPageName' );
 		if ( imgData != null ) {
 			drawio_proto.updatePageAndRedirectUser( pageName, imgData );
 		} else {
@@ -148,11 +155,6 @@
 		}
 
 	};
-
-	var pageName = $( '#canvas' ).attr( 'data-wiki-page' );
-	if ( pageName == null ) {
-		pageName = mw.config.get( 'wgPageName' );
-	}
 
 	const drawioHandler = new fd.drawio();
 	drawioHandler.initialize();

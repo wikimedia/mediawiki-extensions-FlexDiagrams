@@ -46,7 +46,7 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 			$text = '<div id="canvas"></div>' . "\n";
 		} elseif ( $title->getNamespace() == FD_NS_DRAWIO ) {
 			$out->addModules( 'ext.flexdiagrams.drawio' );
-			$text = '<div id="canvas"></div>' . "\n";
+			$text = '<div data-mw-flexdiagrams-type="drawio"></div>' . "\n";
 
 		} elseif ( $title->getNamespace() == FD_NS_MERMAID ) {
 			global $wgResourceLoaderDebug;
