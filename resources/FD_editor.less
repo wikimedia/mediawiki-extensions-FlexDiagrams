@@ -1,0 +1,22 @@
+.ext-flexdiagrams-editor {
+	&-fullscreen-button {
+		position: absolute;
+		top: 8px;
+		right: 8px;
+
+		&.oo-ui-buttonWidget {
+			margin-right: 0; // Remove the default margin added by OOUI
+
+			> .oo-ui-buttonElement-button {
+				/**
+				 * OOUI framed buttons have weird default widths and heights,
+				 * so we set them to 32px to match the icon size.
+				 * These styles are only applied to the fullscreen button.
+				 */
+				width: 32px;
+				height: 32px;
+				padding: 0;
+			}
+		}
+	}
+}

@@ -24,8 +24,10 @@
 	const editor = 'https://embed.diagrams.net/?embed=1&spin=1&proto=json';
 
 	function edit( path, content, $container ) {
-		const $iframe = $( '<iframe>' );
-		$iframe.attr( 'frameborder', '0' );
+		const $iframe = fd.editor.createEditor( $container, {
+			src: editor,
+			allowFullscreen: true
+		} );
 
 		const pageName = $container.attr( 'data-mw-flexdiagrams-page' ) || mw.config.get( 'wgPageName' );
 
@@ -95,8 +97,6 @@
 		};
 
 		window.addEventListener( 'message', receive );
-		$iframe.attr( 'src', editor );
-		$container.append( $iframe );
 	}
 
 	fd.drawio.prototype = drawio_proto;

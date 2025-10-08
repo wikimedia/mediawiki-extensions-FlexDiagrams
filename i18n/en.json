@@ -19,5 +19,7 @@
 	"flexdiagrams-gantt-days": "Days",
 	"flexdiagrams-gantt-weeks": "Weeks",
 	"flexdiagrams-gantt-months": "Months",
-	"flexdiagrams-gantt-years": "Years"
+	"flexdiagrams-gantt-years": "Years",
+	"flexdiagrams-editor-fullscreen": "Enter fullscreen",
+	"flexdiagrams-editor-exit-fullscreen": "Exit fullscreen"
 }
