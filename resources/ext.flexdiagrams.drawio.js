@@ -27,8 +27,10 @@
 	const editor = 'https://embed.diagrams.net/?embed=1&spin=1&proto=json';
 
 	function edit( path, content ) {
-		const $iframe = $( '<iframe>' );
-		$iframe.attr( 'frameborder', '0' );
+		const $iframe = fd.editor.createEditor( '#canvas', {
+			src: editor,
+			allowFullscreen: true
+		} );
 
 		const close = function () {
 			const diagramURL = mw.config.get( 'wgServer' ) + mw.config.get( 'wgScript' ) +
@@ -96,8 +98,6 @@
 		};
 
 		window.addEventListener( 'message', receive );
-		$iframe.attr( 'src', editor );
-		$( '#canvas' ).append( $iframe );
 	}
 
 	fd.drawio.prototype = drawio_proto;
@@ -149,7 +149,7 @@
 
 	};
 
-	var pageName = $( '#canvas' ).attr( 'data-wiki-page' );
+	let pageName = $( '#canvas' ).attr( 'data-wiki-page' );
 	if ( pageName == null ) {
 		pageName = mw.config.get( 'wgPageName' );
 	}
