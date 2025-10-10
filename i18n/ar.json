@@ -20,5 +20,7 @@
 	"flexdiagrams-gantt-days": "أيام",
 	"flexdiagrams-gantt-weeks": "أسابيع",
 	"flexdiagrams-gantt-months": "شهور",
-	"flexdiagrams-gantt-years": "سنوات"
+	"flexdiagrams-gantt-years": "سنوات",
+	"flexdiagrams-editor-fullscreen": "أدخل ملء الشاشة",
+	"flexdiagrams-editor-exit-fullscreen": "الخروج من وضع ملء الشاشة"
 }
