@@ -20,5 +20,7 @@
 	"flexdiagrams-gantt-days": "Dagen",
 	"flexdiagrams-gantt-weeks": "Weken",
 	"flexdiagrams-gantt-months": "Maanden",
-	"flexdiagrams-gantt-years": "Jaren"
+	"flexdiagrams-gantt-years": "Jaren",
+	"flexdiagrams-editor-fullscreen": "Volledig scherm activeren",
+	"flexdiagrams-editor-exit-fullscreen": "Volledig scherm verlaten"
 }

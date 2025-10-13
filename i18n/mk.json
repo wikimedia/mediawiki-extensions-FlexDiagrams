@@ -19,5 +19,7 @@
 	"flexdiagrams-gantt-days": "Денови",
 	"flexdiagrams-gantt-weeks": "Недели",
 	"flexdiagrams-gantt-months": "Месеци",
-	"flexdiagrams-gantt-years": "Години"
+	"flexdiagrams-gantt-years": "Години",
+	"flexdiagrams-editor-fullscreen": "Цел екран",
+	"flexdiagrams-editor-exit-fullscreen": "Излези од цел екран"
 }
