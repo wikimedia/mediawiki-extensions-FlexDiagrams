@@ -10,7 +10,6 @@
 	"flexdiagrams-creatediagram": "Create diagram",
 	"flexdiagrams-viewdiagram": "View diagram",
 	"flexdiagrams-linkingpages": "The following pages link to this diagram: $1",
-	"flexdiagrams-drawio-saveinfo": "Please save the diagram in the editing interface before hitting the \"$1\" button.",
 	"flexdiagrams-edit-code": "Code:",
 	"flexdiagrams-edit-preview": "Preview:",
 	"flexdiagrams-embedding-unsupported": "Diagram pages cannot be embedded.",

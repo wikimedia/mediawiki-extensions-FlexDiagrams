@@ -16,56 +16,102 @@ use MediaWiki\Title\Title;
 
 class FDSpecialEditDiagram extends UnlistedSpecialPage {
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct( 'EditDiagram' );
 	}
 
-	function execute( $query = null ) {
+	public function execute( $query = null ) {
 		$this->setHeaders();
 
 		$out = $this->getOutput();
 
 		$pageName = $this->getRequest()->getVal( 'title' );
 		$title = Title::newFromText( $pageName );
-		if ( $title == null ) {
+		if ( $title === null ) {
 			return;
 		}
 		$out->addModuleStyles( 'mediawiki.action.edit.styles' );
 		$out->setPageTitle( $this->msg( 'flexdiagrams-edit-title', str_replace( '_', ' ', $pageName ) )->escaped() );
 
-		if ( $title->getNamespace() == FD_NS_BPMN ) {
-			// Turn on "debug mode" to avoid browser caching,
-			// because it can lead to users seeing an old version of
-			// the diagram, with bpmn-js.
-			global $wgResourceLoaderDebug;
-			$wgResourceLoaderDebug = true;
-			$out->addModules( 'ext.flexdiagrams.bpmn' );
-			$text = '<div id="canvas"></div>' . "\n";
-		} elseif ( $title->getNamespace() == FD_NS_GANTT ) {
-			$out->addModules( 'ext.flexdiagrams.gantt' );
-			$text = '<div id="canvas"></div>' . "\n";
-		} elseif ( $title->getNamespace() == FD_NS_DRAWIO ) {
-			$out->addModules( 'ext.flexdiagrams.drawio' );
-			$text = Html::element( 'div', [
-				'id' => 'ext-flexdiagrams-editor',
-				'data-mw-flexdiagrams-type' => 'drawio'
-			], ' ' );
+		$namespace = $title->getNamespace();
+		switch ( $namespace ) {
+			case FD_NS_BPMN:
+				$text = $this->handleBPMN( $out );
+				break;
+			case FD_NS_GANTT:
+				$text = $this->handleGantt( $out );
+				break;
+			case FD_NS_DRAWIO:
+				$text = $this->handleDrawio( $out );
+				break;
+			case FD_NS_MERMAID:
+				$text = $this->handleMermaid( $out, $title );
+				break;
+			case FD_NS_DOT:
+				$text = $this->handleDot( $out, $title );
+				break;
+			default:
+				$out->addHTML( 'Error: invalid namespace for this action.' );
+				return;
+		}
 
-		} elseif ( $title->getNamespace() == FD_NS_MERMAID ) {
-			global $wgResourceLoaderDebug;
-			$wgResourceLoaderDebug = true;
-			$out->addModules( 'ext.flexdiagrams.mermaid' );
-			$revisionRecord = MediaWikiServices::getInstance()
-				->getRevisionLookup()
-				->getRevisionByTitle( $title );
-			if ( $revisionRecord == null ) {
-				$mermaidText = '';
-			} else {
-				$mermaidText = $revisionRecord->getContent( SlotRecord::MAIN )->getText();
-			}
-			$codeMsg = $this->msg( 'flexdiagrams-edit-code' )->parse();
-			$previewMsg = $this->msg( 'flexdiagrams-edit-preview' )->parse();
-			$text = <<<END
+		if ( $namespace !== FD_NS_DRAWIO ) {
+			// Draw.io does not requires edit warning since the save button will save both the page and the diagram
+			$out->addModules( 'ext.flexdiagrams.editwarning' );
+			$text = Html::rawElement( 'div',
+				[ 'style' => 'border: 1px solid var( --border-color-subtle, #c8ccd1 ); padding: 10px;' ],
+				$text
+			);
+		} else {
+			$out->addModuleStyles( 'ext.flexdiagrams.editor.styles' );
+		}
+
+		$out->addHTML( $text );
+
+		$article = new Article( $title );
+		$flexDiagramsEditPage = new FDEditPage( $article );
+		$flexDiagramsEditPage->showStandardInputs2();
+	}
+
+	private function handleBPMN( OutputPage $out ): string {
+		global $wgResourceLoaderDebug;
+		$wgResourceLoaderDebug = true;
+		$out->addModules( 'ext.flexdiagrams.bpmn' );
+		return '<div id="canvas"></div>' . "\n";
+	}
+
+	private function handleGantt( OutputPage $out ): string {
+		$out->addModules( 'ext.flexdiagrams.gantt' );
+		return '<div id="canvas"></div>' . "\n";
+	}
+
+	private function handleDrawio( OutputPage $out ): string {
+		$out->addModules( 'ext.flexdiagrams.drawio' );
+		return Html::element( 'div', [
+			'id' => 'ext-flexdiagrams-editor',
+			'class' => 'ext-flexdiagrams-editor',
+			'data-mw-flexdiagrams-type' => 'drawio'
+		], ' ' );
+	}
+
+	private function getRevisionText( Title $title ): string {
+		$revisionRecord = MediaWikiServices::getInstance()
+			->getRevisionLookup()
+			->getRevisionByTitle( $title );
+		if ( $revisionRecord === null ) {
+			return '';
+		}
+		return $revisionRecord->getContent( SlotRecord::MAIN )->getText();
+	}
+
+	private function handleMermaid( OutputPage $out, Title $title ): string {
+		global $wgResourceLoaderDebug;
+		$wgResourceLoaderDebug = true;
+		$out->addModules( 'ext.flexdiagrams.mermaid' );
+		$mermaidText = $this->getRevisionText( $title );
+		$codeMsg = $this->msg( 'flexdiagrams-edit-code' )->parse();
+		$previewMsg = $this->msg( 'flexdiagrams-edit-preview' )->parse();
+		return <<<END
 	<div class="mermaidEditPane">
 	<div class="mermaidCodePane">
 	<h3>$codeMsg</h3>
@@ -78,21 +124,16 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 	</div>
 
 END;
-		} elseif ( $title->getNamespace() == FD_NS_DOT ) {
-			global $wgResourceLoaderDebug;
-			$wgResourceLoaderDebug = true;
-			$out->addModules( 'ext.flexdiagrams.dot' );
-			$revisionRecord = MediaWikiServices::getInstance()
-				->getRevisionLookup()
-				->getRevisionByTitle( $title );
-			if ( $revisionRecord == null ) {
-				$dotText = '';
-			} else {
-				$dotText = $revisionRecord->getContent( SlotRecord::MAIN )->getText();
-			}
-			$codeMsg = $this->msg( 'flexdiagrams-edit-code' )->parse();
-			$previewMsg = $this->msg( 'flexdiagrams-edit-preview' )->parse();
-			$text = <<<END
+	}
+
+	private function handleDot( OutputPage $out, Title $title ): string {
+		global $wgResourceLoaderDebug;
+		$wgResourceLoaderDebug = true;
+		$out->addModules( 'ext.flexdiagrams.dot' );
+		$dotText = $this->getRevisionText( $title );
+		$codeMsg = $this->msg( 'flexdiagrams-edit-code' )->parse();
+		$previewMsg = $this->msg( 'flexdiagrams-edit-preview' )->parse();
+		return <<<END
 	<div class="dotEditPane">
 	<div class="dotCodePane">
 	<h3>$codeMsg</h3>
@@ -105,17 +146,5 @@ END;
 	</div>
 
 END;
-		} else {
-			$out->addHTML( 'Error: invalid namespace for this action.' );
-			return;
-		}
-
-		$out->addModules( 'ext.flexdiagrams.editwarning' );
-		$text = Html::rawElement( 'div', [ 'style' => 'border: 1px solid #c8ccd1; padding: 10px;' ], $text );
-		$out->addHTML( $text );
-
-		$article = new Article( $title );
-		$flexDiagramsEditPage = new FDEditPage( $article );
-		$flexDiagramsEditPage->showStandardInputs2();
 	}
 }

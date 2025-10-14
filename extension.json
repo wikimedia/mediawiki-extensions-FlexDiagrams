@@ -179,17 +179,12 @@
 				"resources/FD_editor.js",
 				"resources/ext.flexdiagrams.drawio.js"
 			],
-			"styles": [
-				"resources/FD_editor.less",
-				"resources/FD_Drawio.css"
-			],
 			"dependencies": [
 				"ext.flexdiagrams",
 				"oojs-ui-widgets",
 				"oojs-ui.styles.icons-media"
 			],
 			"messages": [
-				"flexdiagrams-drawio-saveinfo",
 				"flexdiagrams-editor-fullscreen",
 				"flexdiagrams-editor-exit-fullscreen"
 			]
@@ -233,6 +228,9 @@
 				"mediawiki.confirmCloseWindow",
 				"jquery.textSelection"
 			]
+		},
+		"ext.flexdiagrams.editor.styles": {
+			"styles": "resources/FD_editor.less"
 		}
 	},
 	"ResourceFileModulePaths": {

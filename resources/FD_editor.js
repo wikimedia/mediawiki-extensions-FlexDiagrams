@@ -114,12 +114,6 @@
 			console.error( 'FlexDiagrams: The container for a fullscreen editor must have an ID.' );
 		}
 
-		$container.css( {
-			position: 'relative',
-			margin: '-10px', // Counteract the margin added by the container
-			height: '80vh'
-		} );
-
 		const $iframe = $( '<iframe>' )
 			.attr( 'id', 'ext-flexdiagram-editor-iframe' )
 			.attr( 'src', config.src )

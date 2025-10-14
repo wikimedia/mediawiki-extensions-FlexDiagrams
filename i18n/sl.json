@@ -9,7 +9,6 @@
 	"flexdiagrams-edit-title": "Uredi diagram: $1",
 	"flexdiagrams-creatediagram": "Ustvari diagram",
 	"flexdiagrams-viewdiagram": "Ogled diagrama",
-	"flexdiagrams-drawio-saveinfo": "Preden pritisnete gumb »$1«, shranite diagram v vmesnik za urejanje.",
 	"flexdiagrams-edit-code": "Koda:",
 	"flexdiagrams-edit-preview": "Predogled:",
 	"flexdiagrams-embedding-unsupported": "Strani z diagrami ni mogoče vdelati.",

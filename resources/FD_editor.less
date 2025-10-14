@@ -1,4 +1,8 @@
 .ext-flexdiagrams-editor {
+	position: relative;
+	height: 70vh;
+	border: 1px solid var( --border-color-subtle, #c8ccd1 ); // TODO: Use Codex token directly on 1.43+
+
 	&-fullscreen-button {
 		position: absolute;
 		top: 8px;
@@ -18,5 +22,11 @@
 				padding: 0;
 			}
 		}
+	}
+
+	// Match the init background color of the draw.io editor.
+	// This has to be placed in this module so that it is loaded before the editor is initialized.
+	&[ data-mw-flexdiagrams-type='drawio' ] {
+		background-color: light-dark( #f1f3f4, #1b1d1e );
 	}
 }

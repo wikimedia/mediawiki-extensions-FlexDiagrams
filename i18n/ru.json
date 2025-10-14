@@ -10,7 +10,6 @@
 	"flexdiagrams-creatediagram": "Создать диаграмму",
 	"flexdiagrams-viewdiagram": "Посм. диаграмму",
 	"flexdiagrams-linkingpages": "Следующие страницы ссылаются на эту диаграмму: $1",
-	"flexdiagrams-drawio-saveinfo": "Пожалуйста, сохраните диаграмму в интерфейсе редактирования, прежде чем нажать кнопку «$1».",
 	"flexdiagrams-edit-code": "Код:",
 	"flexdiagrams-edit-preview": "Предпросмотр:",
 	"flexdiagrams-embedding-unsupported": "Страницы диаграмм не могут быть встроены.",

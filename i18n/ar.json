@@ -11,7 +11,6 @@
 	"flexdiagrams-creatediagram": "قم بإنشاء رسم تخطيطي",
 	"flexdiagrams-viewdiagram": "عرض الرسم التخطيطي",
 	"flexdiagrams-linkingpages": "الصفحات التالية مرتبطة بهذا الرسم البياني: $1",
-	"flexdiagrams-drawio-saveinfo": "يرجى حفظ الرسم التخطيطي في واجهة التحرير قبل الضغط على زر \" $1 \".",
 	"flexdiagrams-edit-code": "شفرة:",
 	"flexdiagrams-edit-preview": "معاينة:",
 	"flexdiagrams-embedding-unsupported": "لا يمكن تضمين صفحات الرسم التخطيطي.",

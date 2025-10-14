@@ -8,7 +8,6 @@
 	"flexdiagrams-creatediagram": "Diagramm erstellen",
 	"flexdiagrams-viewdiagram": "Diagramm anzeigen",
 	"flexdiagrams-linkingpages": "Die folgenden Seiten verweisen auf dieses Diagramm: $1",
-	"flexdiagrams-drawio-saveinfo": "Bitte speichere das Diagramm in der Bearbeitungsoberfläche, bevor du auf die Schaltfläche „$1“ klickst.",
 	"flexdiagrams-edit-code": "Code:",
 	"flexdiagrams-edit-preview": "Vorschau:",
 	"flexdiagrams-embedding-unsupported": "Diagrammseiten können nicht eingebettet werden.",
