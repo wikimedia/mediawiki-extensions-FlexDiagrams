@@ -43,7 +43,12 @@ class FDGanttContentHandler extends TextContentHandler {
 		ParserOutput &$output
 	) {
 		$html = $content->getHtml();
-		$output->setText( $html );
+		if ( method_exists( $output, 'setRawText' ) ) {
+			// MW 1.42+
+			$output->setRawText( $html );
+		} else {
+			$output->setText( $html );
+		}
 	}
 
 }
