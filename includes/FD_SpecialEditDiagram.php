@@ -87,10 +87,13 @@ class FDSpecialEditDiagram extends UnlistedSpecialPage {
 
 	private function handleDrawio( OutputPage $out ): string {
 		$out->addModules( 'ext.flexdiagrams.drawio' );
+		$useSVG = $out->getConfig()->get( 'FlexDiagramsDrawioUseSVG' );
+
 		return Html::element( 'div', [
 			'id' => 'ext-flexdiagrams-editor',
 			'class' => 'ext-flexdiagrams-editor',
-			'data-mw-flexdiagrams-type' => 'drawio'
+			'data-mw-flexdiagrams-type' => 'drawio',
+			'data-mw-flexdiagrams-drawio-use-svg' => $useSVG ? 'true' : 'false',
 		], ' ' );
 	}
 

@@ -17,6 +17,7 @@ class FDDrawioContent extends TextContent {
 		$wgOut->addModules( 'ext.flexdiagrams.drawio' );
 		$text = Html::element( 'div', [
 			'data-mw-flexdiagrams-type' => 'drawio',
+			'data-mw-flexdiagrams-svg' => $wgOut->getConfig()->get( 'FlexDiagramsDrawioRenderSVG' ) ? 'true' : 'false',
 		], '' );
 		$text .= Html::element( 'pre', [], $this->mText );
 		return $text;

@@ -1,0 +1,35 @@
+/**
+ * The main CSS file for the Flex Diagrams extension.
+ */
+
+#wpSummaryWidget {
+	margin-bottom: 1em;
+}
+
+.editCheckboxes {
+	margin-bottom: 0.8em;
+}
+
+// Dark mode support for SVG diagrams
+// !important is used to override the default color scheme of the SVG
+// https://www.mediawiki.org/wiki/Recommendations_for_night_mode_compatibility_on_Wikimedia_wikis
+@media screen {
+	svg.ext-flexdiagrams-diagram {
+		html.skin-theme-clientpref-light & {
+			// stylelint-disable-next-line declaration-no-important
+			color-scheme: light !important;
+		}
+
+		html.skin-theme-clientpref-night & {
+			// stylelint-disable-next-line declaration-no-important
+			color-scheme: dark !important;
+		}
+
+		@media ( prefers-color-scheme: dark ) {
+			html.skin-theme-clientpref-os & {
+				// stylelint-disable-next-line declaration-no-important
+				color-scheme: dark !important;
+			}
+		}
+	}
+}

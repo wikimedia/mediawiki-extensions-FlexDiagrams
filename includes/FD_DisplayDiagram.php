@@ -61,9 +61,12 @@ class FDDisplayDiagram {
 		} elseif ( $diagramPage->getNamespace() == FD_NS_DRAWIO ) {
 			global $wgOut;
 			$wgOut->addModules( 'ext.flexdiagrams.drawio' );
-			$text = Html::element( 'div', [
+			$text = Html::element( 'figure', [
+				'class' => 'ext-flexdiagrams-diagram-container',
 				'data-mw-flexdiagrams-type' => 'drawio',
-				'data-mw-flexdiagrams-page' => $diagramPageName
+				'data-mw-flexdiagrams-page' => $diagramPageName,
+				'data-mw-flexdiagrams-svg' => $wgOut->getConfig()->get(
+					'FlexDiagramsDrawioRenderSVG' ) ? 'true' : 'false',
 			], ' ' );
 		} elseif ( $diagramPage->getNamespace() == FD_NS_DOT ) {
 			global $wgOut, $wgResourceLoaderDebug;
