@@ -18,5 +18,7 @@
 	"flexdiagrams-gantt-days": "日",
 	"flexdiagrams-gantt-weeks": "週",
 	"flexdiagrams-gantt-months": "月",
-	"flexdiagrams-gantt-years": "年"
+	"flexdiagrams-gantt-years": "年",
+	"flexdiagrams-editor-fullscreen": "進入全螢幕",
+	"flexdiagrams-editor-exit-fullscreen": "退出全螢幕"
 }
