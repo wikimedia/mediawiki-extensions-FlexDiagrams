@@ -71,13 +71,21 @@
 
 			const diagramURL = mwConfig.wgServer + mwConfig.wgScript +
 				'?title=' + encodeURIComponent( pageName ) + '&action=raw';
-			$.get( diagramURL, ( xml ) => {
-				if ( mwConfig.wgAction === 'editdiagram' ) {
-					renderEditor( xml, $container );
-				} else {
-					renderDiagram( xml, $container );
-				}
-			} );
+
+			$.get( diagramURL )
+				.catch( ( jqXHR ) => {
+					if ( mwConfig.wgAction === 'editdiagram' && jqXHR.status === 404 ) {
+						return '';
+					}
+					return $.Deferred().reject( jqXHR );
+				} )
+				.then( ( xml ) => {
+					if ( mwConfig.wgAction === 'editdiagram' ) {
+						renderEditor( xml, $container );
+					} else {
+						renderDiagram( xml, $container );
+					}
+				} );
 		} );
 
 		this.enableSave( this );
@@ -100,21 +108,12 @@
 				const msg = JSON.parse( evt.data );
 				switch ( msg.event ) {
 					case 'init':
-						if ( xml === null ) {
-							postMessageToIframe(
-								{
-									action: 'load',
-									autosave: 0,
-									xml: ''
-								} );
-						} else {
-							postMessageToIframe(
-								{
-									action: 'load',
-									autosave: 0,
-									xml: xml
-								} );
-						}
+						postMessageToIframe(
+							{
+								action: 'load',
+								autosave: 0,
+								xml: xml || ''
+							} );
 						break;
 					case 'export':
 						imgData = msg.data;
