@@ -259,5 +259,8 @@
 			"description": "Whether to render Drawio diagrams directly as <svg> elements instead of <img> elements."
 		}
 	},
+	"ConfigRegistry": {
+		"flexdiagrams": "GlobalVarConfig::newInstance"
+	},
 	"manifest_version": 2
 }
