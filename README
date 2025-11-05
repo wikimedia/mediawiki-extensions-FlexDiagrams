@@ -1,6 +1,6 @@
 Flex Diagrams Extension
 
-        Version 0.8.1
+        Version 0.9
         Yaron Koren and Sahaj Khandelwal
 
 This is free software licensed under the GNU General Public License. Please
@@ -23,7 +23,7 @@ https://www.mediawiki.org/wiki/Extension:Flex_Diagrams
 
 == Requirements ==
 
-This version of the Flex Diagrams extension requires MediaWiki 1.40 or higher.
+This version of the Flex Diagrams extension requires MediaWiki 1.41 or higher.
 
 == Installation ==
 
@@ -50,3 +50,5 @@ compatible with the GNU GPL
 distributed under the GNU GPL
 * mermaid (https://mermaid.js.org), distributed under the MIT License
 * Viz.js (https://viz-js.com/), distributed under the MIT License
+
+The draw.io/diagrams.net handling was improved significantly by alistair3149.
