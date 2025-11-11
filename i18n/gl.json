@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"flexdiagrams-desc": "Edición e creación de diagramas",
+	"editdiagram": "Editar un diagrama",
+	"flexdiagrams-edit-title": "Editar o diagrama: $1",
+	"flexdiagrams-creatediagram": "Crear o diagrama",
+	"flexdiagrams-viewdiagram": "Ver o diagrama",
+	"flexdiagrams-linkingpages": "As seguintes páxinas ligan a este diagrama: $1",
+	"flexdiagrams-edit-code": "Código:",
+	"flexdiagrams-edit-preview": "Vista previa:",
+	"flexdiagrams-embedding-unsupported": "Non se poden incrustar as páxinas de diagramas.",
+	"flexdiagrams-gantt-zoomlevel": "Nivel de zoom:",
+	"flexdiagrams-gantt-hours": "Horas",
+	"flexdiagrams-gantt-days": "Días",
+	"flexdiagrams-gantt-weeks": "Semanas",
+	"flexdiagrams-gantt-months": "Meses",
+	"flexdiagrams-gantt-years": "Anos"
+}
