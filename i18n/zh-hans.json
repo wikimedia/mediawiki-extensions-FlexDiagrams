@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"GraceL",
+			"GuoPC",
 			"Si109",
 			"沈澄心"
 		]
@@ -20,5 +21,7 @@
 	"flexdiagrams-gantt-days": "天",
 	"flexdiagrams-gantt-weeks": "周",
 	"flexdiagrams-gantt-months": "月",
-	"flexdiagrams-gantt-years": "年"
+	"flexdiagrams-gantt-years": "年",
+	"flexdiagrams-editor-fullscreen": "进入全屏模式",
+	"flexdiagrams-editor-exit-fullscreen": "退出全屏模式"
 }
