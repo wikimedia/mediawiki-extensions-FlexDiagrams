@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Sabelöga",
+			"Stefan2255",
 			"WikiPhoenix"
 		]
 	},
@@ -10,12 +11,16 @@
 	"flexdiagrams-edit-title": "Redigera diagram: $1",
 	"flexdiagrams-creatediagram": "Skapa diagram",
 	"flexdiagrams-viewdiagram": "Visa diagram",
+	"flexdiagrams-linkingpages": "Följande sidor länkar till detta diagram: $1",
 	"flexdiagrams-edit-code": "Kod:",
 	"flexdiagrams-edit-preview": "Förhandsgranska:",
 	"flexdiagrams-embedding-unsupported": "Diagramsidor kan inte infogas.",
 	"flexdiagrams-gantt-zoomlevel": "Zoomnivå:",
 	"flexdiagrams-gantt-hours": "Timmar",
 	"flexdiagrams-gantt-days": "Dagar",
+	"flexdiagrams-gantt-weeks": "Veckor",
 	"flexdiagrams-gantt-months": "Månader",
-	"flexdiagrams-gantt-years": "År"
+	"flexdiagrams-gantt-years": "År",
+	"flexdiagrams-editor-fullscreen": "Aktivera helskärm",
+	"flexdiagrams-editor-exit-fullscreen": "Avsluta helskärm"
 }
