@@ -12,22 +12,12 @@ use MediaWiki\MediaWikiServices;
 
 class FDEditDiagramAction extends Action {
 
-	/**
-	 * Return the name of the action this object responds to.
-	 * @return string lowercase
-	 */
+	/** @inheritDoc */
 	public function getName() {
 		return 'editdiagram';
 	}
 
-	/**
-	 * The main action entry point. Do all output for display and send it
-	 * to the context output. Do not use globals $wgOut, $wgRequest, etc,
-	 * in implementations; use $this->getOutput(), etc.
-	 *
-	 * @throws ErrorPageError
-	 * @return false
-	 */
+	/** @inheritDoc */
 	public function show() {
 		$ed = new FDSpecialEditDiagram();
 		$ed->execute();
