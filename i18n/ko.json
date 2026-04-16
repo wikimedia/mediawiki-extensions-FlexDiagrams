@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Tensama0415",
 			"Ykhwong"
 		]
 	},
@@ -15,6 +16,7 @@
 	"flexdiagrams-gantt-zoomlevel": "확대/축소 수준:",
 	"flexdiagrams-gantt-hours": "시간",
 	"flexdiagrams-gantt-days": "일",
+	"flexdiagrams-gantt-weeks": "주",
 	"flexdiagrams-gantt-months": "월",
 	"flexdiagrams-gantt-years": "년"
 }
