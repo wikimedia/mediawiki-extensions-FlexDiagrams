@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"DDPAT",
-			"Ice bulldog"
+			"Ice bulldog",
+			"Vlad5250"
 		]
 	},
 	"flexdiagrams-desc": "Редагування та створення діаграм",
@@ -16,6 +17,7 @@
 	"flexdiagrams-gantt-zoomlevel": "Рівень масштабування:",
 	"flexdiagrams-gantt-hours": "Години",
 	"flexdiagrams-gantt-days": "Дні",
+	"flexdiagrams-gantt-weeks": "Тижні",
 	"flexdiagrams-gantt-months": "Місяці",
 	"flexdiagrams-gantt-years": "Роки"
 }
