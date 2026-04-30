@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"Tensama0415"
 		]
 	},
 	"flexdiagrams-desc": "다이어그램 편집 및 만들기",
@@ -9,12 +10,16 @@
 	"flexdiagrams-edit-title": "다이어그램 편집: $1",
 	"flexdiagrams-creatediagram": "다이어그램 만들기",
 	"flexdiagrams-viewdiagram": "다이어그램 보기",
+	"flexdiagrams-linkingpages": "다음 문서는 다이어그램으로 연결됩니다: $1",
 	"flexdiagrams-edit-code": "코드:",
 	"flexdiagrams-edit-preview": "미리 보기:",
 	"flexdiagrams-embedding-unsupported": "다이어그램 페이지를 추가할 수 없습니다.",
 	"flexdiagrams-gantt-zoomlevel": "확대/축소 수준:",
 	"flexdiagrams-gantt-hours": "시간",
 	"flexdiagrams-gantt-days": "일",
+	"flexdiagrams-gantt-weeks": "주",
 	"flexdiagrams-gantt-months": "월",
-	"flexdiagrams-gantt-years": "년"
+	"flexdiagrams-gantt-years": "년",
+	"flexdiagrams-editor-fullscreen": "전체 화면 진입",
+	"flexdiagrams-editor-exit-fullscreen": "전체 화면에서 나가기"
 }
