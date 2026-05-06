@@ -1,6 +1,6 @@
 {
 	"name": "Flex Diagrams",
-	"version": "0.9",
+	"version": "1.0-alpha",
 	"author": [
 		"Yaron Koren",
 		"Sahaj Khandelwal"
@@ -77,7 +77,7 @@
 		}
 	],
 	"requires": {
-		"MediaWiki": ">= 1.41.0"
+		"MediaWiki": ">= 1.42"
 	},
 	"callback": "FDHooks::registerExtension",
 	"Actions": {

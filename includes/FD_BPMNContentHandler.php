@@ -43,12 +43,7 @@ class FDBPMNContentHandler extends TextContentHandler {
 		ParserOutput &$output
 	) {
 		$html = $content->getHtml();
-		if ( method_exists( $output, 'setRawText' ) ) {
-			// MW 1.42+
-			$output->setRawText( $html );
-		} else {
-			$output->setText( $html );
-		}
+		$output->setContentHolderText( $html );
 	}
 
 }

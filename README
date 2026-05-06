@@ -1,6 +1,6 @@
 Flex Diagrams Extension
 
-        Version 0.9
+        Version 1.0-alpha
         Yaron Koren and Sahaj Khandelwal
 
 This is free software licensed under the GNU General Public License. Please
@@ -23,7 +23,7 @@ https://www.mediawiki.org/wiki/Extension:Flex_Diagrams
 
 == Requirements ==
 
-This version of the Flex Diagrams extension requires MediaWiki 1.41 or higher.
+This version of the Flex Diagrams extension requires MediaWiki 1.42 or higher.
 
 == Installation ==
 
