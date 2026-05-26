@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"flexdiagrams-desc": "Tafatirka iyo abuurista jaantusyo",
+	"editdiagram": "Wax ka beddel jaantuska",
+	"flexdiagrams-edit-title": "Wax ka beddel jaantuska: $1",
+	"flexdiagrams-creatediagram": "Abuur jaantus",
+	"flexdiagrams-viewdiagram": "Eeg jaantuska",
+	"flexdiagrams-linkingpages": "Bogagga soo socda ayaa ku xira jaantuskan: $1",
+	"flexdiagrams-edit-code": "Koodhka:",
+	"flexdiagrams-edit-preview": "Horudhac:",
+	"flexdiagrams-embedding-unsupported": "Bogagga jaantuska lama dhex gelin karo.",
+	"flexdiagrams-gantt-zoomlevel": "Heerka fog-fog:",
+	"flexdiagrams-gantt-hours": "Saacado",
+	"flexdiagrams-gantt-days": "Maalmo",
+	"flexdiagrams-gantt-weeks": "Todobaadyo",
+	"flexdiagrams-gantt-months": "Bilo",
+	"flexdiagrams-gantt-years": "Sannado"
+}
