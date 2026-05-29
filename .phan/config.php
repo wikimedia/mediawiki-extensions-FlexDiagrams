@@ -6,8 +6,6 @@ $cfg['suppress_issue_types'] = array_merge(
 	$cfg['suppress_issue_types'],
 	[
 		// Suppress issue types that currently exist in the codebase.
-		'MediaWikiNoIssetIfDefined',
-		'PhanTypeMismatchReturnProbablyReal',
 		'PhanUndeclaredConstant',
 		'PhanUndeclaredMethod'
 	]

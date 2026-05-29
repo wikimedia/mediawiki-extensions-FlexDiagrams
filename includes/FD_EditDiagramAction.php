@@ -44,7 +44,7 @@ class FDEditDiagramAction extends Action {
 		global $wgFlexDiagramsEnabledFormats;
 
 		$title = $skinTemplate->getTitle();
-		if ( !isset( $title ) ||
+		if ( $title == null ||
 			( !in_array( $title->getNamespace(), $wgFlexDiagramsEnabledFormats ) ) ) {
 			return;
 		}

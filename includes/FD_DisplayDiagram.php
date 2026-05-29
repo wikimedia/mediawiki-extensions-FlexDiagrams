@@ -25,7 +25,7 @@ class FDDisplayDiagram {
 	 * diagram defined in the specified page.
 	 *
 	 * @param Parser &$parser
-	 * @return string
+	 * @return string|array<string, bool, bool>
 	 */
 	public static function run( &$parser ) {
 		$params = func_get_args();
