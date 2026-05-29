@@ -3,9 +3,7 @@
  * Content handler for DOT (Viz-JS) markup.
  */
 
-use MediaWiki\Content\Renderer\ContentParseParams;
-
-class FDDOTContentHandler extends TextContentHandler {
+class FDDOTContentHandler extends FDDiagramContentHandler {
 
 	/**
 	 * @param int $modelId
@@ -20,21 +18,4 @@ class FDDOTContentHandler extends TextContentHandler {
 	protected function getContentClass() {
 		return FDDOTContent::class;
 	}
-
-	/**
-	 * @return FDDOTContent
-	 */
-	public function makeEmptyContent() {
-		return new FDDOTContent( '' );
-	}
-
-	protected function fillParserOutput(
-		Content $content,
-		ContentParseParams $cpoParams,
-		ParserOutput &$output
-	) {
-		$html = $content->getHtml();
-		$output->setContentHolderText( $html );
-	}
-
 }

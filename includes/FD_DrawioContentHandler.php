@@ -1,11 +1,9 @@
 <?php
 /**
- * Content handler for DRAWIO XML.
+ * Content handler for DrawIO XML.
  */
 
-use MediaWiki\Content\Renderer\ContentParseParams;
-
-class FDDrawioContentHandler extends TextContentHandler {
+class FDDrawioContentHandler extends FDDiagramContentHandler {
 
 	/**
 	 * @param int $modelId
@@ -20,30 +18,4 @@ class FDDrawioContentHandler extends TextContentHandler {
 	protected function getContentClass() {
 		return FDDrawioContent::class;
 	}
-
-	/**
-	 * @return FDDrawioContent
-	 */
-	public function makeEmptyContent() {
-		return new FDDrawioContent( '' );
-	}
-
-	/**
-	 * @return string[]
-	 */
-	public function getActionOverrides() {
-		return [
-			'editdiagram' => FDEditDiagramAction::class
-		];
-	}
-
-	protected function fillParserOutput(
-		Content $content,
-		ContentParseParams $cpoParams,
-		ParserOutput &$output
-	) {
-		$html = $content->getHtml();
-		$output->setContentHolderText( $html );
-	}
-
 }

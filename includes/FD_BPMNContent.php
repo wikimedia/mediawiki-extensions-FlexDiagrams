@@ -5,7 +5,7 @@
 
 use MediaWiki\Html\Html;
 
-class FDBPMNContent extends TextContent {
+class FDBPMNContent extends FDDiagramContent {
 
 	public function __construct( $text, $modelId = CONTENT_MODEL_FD_BPMN ) {
 		parent::__construct( $text, $modelId );
@@ -25,13 +25,5 @@ class FDBPMNContent extends TextContent {
 		], '' );
 		$text .= Html::element( 'pre', [], $this->mText );
 		return $text;
-	}
-
-	/**
-	 * @return string The wikitext to include when another page includes this
-	 * content, or false if the content is not includable in a wikitext page.
-	 */
-	public function getWikitextForTransclusion() {
-		return '<span class="error">' . wfMessage( 'flexdiagrams-embedding-unsupported' )->plain() . '</span>';
 	}
 }

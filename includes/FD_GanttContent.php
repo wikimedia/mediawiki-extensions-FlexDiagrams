@@ -5,7 +5,7 @@
 
 use MediaWiki\Html\Html;
 
-class FDGanttContent extends TextContent {
+class FDGanttContent extends FDDiagramContent {
 
 	public function __construct( $text, $modelId = CONTENT_MODEL_FD_GANTT ) {
 		parent::__construct( htmlspecialchars( $text, ENT_NOQUOTES ), $modelId );
@@ -19,13 +19,5 @@ class FDGanttContent extends TextContent {
 		], ' ' );
 		$text .= Html::element( 'pre', [], $this->mText );
 		return $text;
-	}
-
-	/**
-	 * @return string The wikitext to include when another page includes this
-	 * content, or false if the content is not includable in a wikitext page.
-	 */
-	public function getWikitextForTransclusion() {
-		return '<span class="error">' . wfMessage( 'flexdiagrams-embedding-unsupported' )->plain() . '</span>';
 	}
 }

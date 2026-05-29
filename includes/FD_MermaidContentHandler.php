@@ -3,8 +3,6 @@
  * Content handler for Mermaid diagrams.
  */
 
-use MediaWiki\Content\Renderer\ContentParseParams;
-
 class FDMermaidContentHandler extends TextContentHandler {
 
 	/**
@@ -20,30 +18,4 @@ class FDMermaidContentHandler extends TextContentHandler {
 	protected function getContentClass() {
 		return FDMermaidContent::class;
 	}
-
-	/**
-	 * @return FDMermaidContent
-	 */
-	public function makeEmptyContent() {
-		return new FDMermaidContent( '' );
-	}
-
-	/**
-	 * @return string[]
-	 */
-	public function getActionOverrides() {
-		return [
-			'editdiagram' => FDEditDiagramAction::class
-		];
-	}
-
-	protected function fillParserOutput(
-		Content $content,
-		ContentParseParams $cpoParams,
-		ParserOutput &$output
-	) {
-		$html = $content->getHtml();
-		$output->setContentHolderText( $html );
-	}
-
 }

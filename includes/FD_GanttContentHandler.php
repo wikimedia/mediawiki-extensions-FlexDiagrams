@@ -3,9 +3,7 @@
  * Content handler for Gantt chart JSON, as defined by the DHTMLX library.
  */
 
-use MediaWiki\Content\Renderer\ContentParseParams;
-
-class FDGanttContentHandler extends TextContentHandler {
+class FDGanttContentHandler extends FDDiagramContentHandler {
 
 	/**
 	 * @param int $modelId
@@ -20,30 +18,4 @@ class FDGanttContentHandler extends TextContentHandler {
 	protected function getContentClass() {
 		return FDGanttContent::class;
 	}
-
-	/**
-	 * @return FDGanttContent
-	 */
-	public function makeEmptyContent() {
-		return new FDGanttContent( '' );
-	}
-
-	/**
-	 * @return string[]
-	 */
-	public function getActionOverrides() {
-		return [
-			'editdiagram' => FDEditDiagramAction::class
-		];
-	}
-
-	protected function fillParserOutput(
-		Content $content,
-		ContentParseParams $cpoParams,
-		ParserOutput &$output
-	) {
-		$html = $content->getHtml();
-		$output->setContentHolderText( $html );
-	}
-
 }

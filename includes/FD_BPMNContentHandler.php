@@ -3,9 +3,7 @@
  * Content handler for BPMN XML.
  */
 
-use MediaWiki\Content\Renderer\ContentParseParams;
-
-class FDBPMNContentHandler extends TextContentHandler {
+class FDBPMNContentHandler extends FDDiagramContentHandler {
 
 	/**
 	 * @param int $modelId
@@ -20,30 +18,4 @@ class FDBPMNContentHandler extends TextContentHandler {
 	protected function getContentClass() {
 		return FDBPMNContent::class;
 	}
-
-	/**
-	 * @return FDBPMNContent
-	 */
-	public function makeEmptyContent() {
-		return new FDBPMNContent( '' );
-	}
-
-	/**
-	 * @return string[]
-	 */
-	public function getActionOverrides() {
-		return [
-			'editdiagram' => FDEditDiagramAction::class
-		];
-	}
-
-	protected function fillParserOutput(
-		Content $content,
-		ContentParseParams $cpoParams,
-		ParserOutput &$output
-	) {
-		$html = $content->getHtml();
-		$output->setContentHolderText( $html );
-	}
-
 }

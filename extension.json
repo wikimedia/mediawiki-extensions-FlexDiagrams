@@ -109,6 +109,8 @@
 		"FDEditPage": "includes/FD_EditPage.php",
 		"FDDisplayDiagram": "includes/FD_DisplayDiagram.php",
 		"FDSpecialEditDiagram": "includes/FD_SpecialEditDiagram.php",
+		"FDDiagramContent": "includes/FD_DiagramContent.php",
+		"FDDiagramContentHandler": "includes/FD_DiagramContentHandler.php",
 		"FDGanttContent": "includes/FD_GanttContent.php",
 		"FDGanttContentHandler": "includes/FD_GanttContentHandler.php",
 		"FDDrawioContent": "includes/FD_DrawioContent.php",
