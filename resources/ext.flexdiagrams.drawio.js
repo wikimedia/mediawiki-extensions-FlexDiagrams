@@ -147,7 +147,8 @@
 		if ( useSVG && xml && xml.startsWith( 'data:image/svg+xml;base64,' ) ) {
 			const base64Data = xml.slice( 'data:image/svg+xml;base64,'.length );
 			try {
-				const decodedSvg = atob( base64Data );
+				const bytes = Uint8Array.from( atob( base64Data ), ( c ) => c.charCodeAt( 0 ) );
+				const decodedSvg = new TextDecoder( 'utf-8' ).decode( bytes );
 
 				// Use DOMParser to safely parse the SVG XML without executing scripts.
 				const parser = new DOMParser();
